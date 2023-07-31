@@ -1,0 +1,228 @@
+ls -a 
+for showing hidden files
+
+
+vm filnename.txt
+for writing to file
+
+
+cat filename.txt
+for printing the file into cmd
+
+
+rm -rf filename.txt
+deletes the file
+
+
+
+1.
+git init
+in the project folder
+
+
+once you make some change, like creating a file
+
+
+2.
+git status
+says which files are:
+untracked(not put to history)
+modified etc
+
+
+
+3.
+git add .                   for all files
+
+git add name.txt            for a specific file
+
+This command will sort of put the files in stage(that means now the files can be put to the memory)
+
+
+If u put a file to stage by mistake and want remove it from stage then,
+git restore --staged names.txt
+
+
+
+4.
+git commit -m "some meassage you want"
+Before committing it must be staged(step 3)
+
+
+
+
+5.
+git log
+to see history
+
+
+
+
+
+6.Restore
+if u wanna undo the operation, that is noting but going back to previous state in history.
+just copy the hash id of the commit to which state wanna go(using git log, u can see the hash id's of commit)
+then
+git restore copied_hash_id
+now other commits which were done after will be un-commited ans they will be in un-staged area
+
+
+
+
+
+
+7.
+If u r working on something and it's not complete, so don't wanna commit it,but u wanna store it somewhere
+It's like saying, don't want u in history, just stay in backstage, and I'll call u when need
+
+git add .
+git stash
+
+then if u wanna bring it back, bring them from backstage area to un-stage
+git stash pop
+
+if u don't want the things in stash, deleting people from backstage
+git stash clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+GitHub:
+
+1.
+git remote add origin url
+for connecting the repository to the remote project in your system
+
+url -> your new repository url
+
+origin -> can be any name given to the url
+	    by default it will origin so
+
+
+
+
+git remote -v
+will show all the links connected to the project
+
+
+ 
+2.
+git push origin master
+
+origin -> name given to the url
+master -> branch name
+
+pushing the changes to GitHub repository
+
+create a branch for each feature, because each branch can have only one pull request
+
+
+
+If u have pushed something, but u wanna go back to some other version of code and then push,
+first go back to the prev version by git restore command then,
+git push origin branch_name - f
+
+
+ 
+3.
+For creating a new branch
+
+git branch feature             => will create new branch called feature
+git checkout feature           => for making the pointer point to feature
+
+now any new commit will be saved/added in new branch(i.e, in this case "feature")
+
+main branch will have the code which will used stable and active
+we create new branches, while working on new features or while fixing a bug
+ 
+
+
+
+
+4.
+git merge feature
+
+If u are done with your feature or bug fixing, u can add your branch to main
+
+
+
+
+
+
+
+If you fork a project to your github account,
+
+git clone url
+url -> url of cloned project
+
+rhis will bring that perticular project to your system
+
+
+
+
+
+5.
+git remote add upstream url_from_where_u_forked_the_project
+
+upstream => to denote it's the url of the project you cloned
+
+
+
+6.
+If the upstream(the repo from which u forked) has changes and if u wanna have that changes in your repo
+
+git fetch --all --prune
+gets all the changes
+
+git reset --hard upstream/main
+reset the main branch of my origin to the main branch of the upstream
+
+git push origin main
+
+
+
+
+
+7. step 6 can be done in one line
+git pull upstream main    =>changes only in remote
+git push origin to main   =>changing in github  repo also
+
+
+Other way to do step 6 or step 7 is by just clicking "fetch upsteam" option in our github repo
+
+
+
+
+
+
+8.
+u can commit multiple things together
+git rebase -i hash_id_of_commit_once_you_press_git_log
+it will show an option of pickor squash(s)
+first pick an next s's will be merged into a single commit
+
+now
+escape + :x
+this will allow to add a new message now
+again :x
+
+
+
+
+
+
+
+
+
+
+
+git reset --hard
