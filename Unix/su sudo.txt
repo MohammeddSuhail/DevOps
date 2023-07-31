@@ -1,0 +1,9 @@
+if u wanna use sudo commands:
+
+su
+
+then it will give access, then use sudo
+
+to give up control:
+ctrl+d
+

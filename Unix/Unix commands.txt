@@ -1,0 +1,424 @@
+cheatsheet:
+https://www.stationx.net/unix-commands-cheat-sheet/
+
+syntax:
+command options arguments
+
+
+ls
+ls -l
+ls -h
+ls -lh or ls -hl  (adding two options)
+ls -R
+
+
+man some_command
+this will explain that command
+
+
+--some_command help
+explains the options and all in brief for the command
+
+apropos what_u_wanna_do
+ex: apropos "search for files"
+=> find
+ex: apropos list
+
+
+Shortcuts:
+
+tab button: autofills
+
+ctrl-A: move to begining of line
+ctrl-E: move to end of line
+ctrl-left arrow: move left one word
+ctrl-right arrow: move right one word
+Ctrl-U: delete from cursor to start of line
+ctrl-k: delete from cursor to end of line
+ctrl-shift-c
+ctrl-shift-v
+ctrl-c: cancel command
+ctrl-R: search command history
+
+
+
+
+
+Files:
+
+
+pwd
+
+
+file file_name
+gives info about the file(like it's directory or ...)
+
+
+stat file_name
+gives more info about file
+
+
+
+
+absolut path:
+start like,
+/home/suhail/blah blah blah
+
+relative path
+
+
+
+For going back a directory:
+..
+ex: cd ..
+ex: cd ../downloads
+
+
+
+~:
+is /home/suhail
+ex:
+~/downloads  
+=> is /home/suhail/downloads  
+
+
+
+if the folder name is "Exercise files"
+then,
+cd "Exercise files"
+or
+cd Exercise\ files
+
+
+
+
+
+
+
+creation and deletion od directiries:
+
+mkdir directory_name
+ex: mkdir new_folder
+or
+ex: mkdir downloads/new_folder
+
+creating multiple directories: mkdir downloads/new_folder1 downloads/new_folder2
+
+removing: rmdir direc_name
+removes if directory is empty 
+
+
+
+
+copying files: cp file_to_be_Copied file_where_it_needs_to_be_copied
+
+ex: cp poem1.txt poem2.txt
+copies the file poem1.txt there itself with name poem2.txt
+
+ex: cp poem1.txt Downloads/something/
+now poem1.txt will be cpied to Downloads/something/ with same name
+
+ex: cp poem1.txt Downloads/something/poem2.txt
+now poem1.txt will be copied to Downloads/something/ with poem2.txt name
+
+
+
+
+moving files:
+mv src dest
+
+ex: mv poem1.txt Downloads/something
+now poem1.txt will be moved to Downloads/something with same name
+
+
+
+
+
+.:
+
+. means current directory
+ex: mv downloads/new_fold .
+now new_fold will be moved to current directory
+
+renaming file:
+mv downloads/new_fold downloads/new_fold2
+now new_fold renamed to new_fold2
+
+
+
+*:
+* means all
+
+ex:
+mv *.txt Downloads/
+moves all files which are txt to Downloads
+
+ex:
+mv * destination_folder_path
+moves all files to the destination_folder_path
+
+
+
+rm:
+for removing a file
+ex:
+rm poems.txt
+
+
+?:
+means a character
+
+ex:
+rm poem?.txt
+this removes all files which has a character after poem and followed by .txt
+
+
+
+
+
+rm -r folder_name
+removes that directory along with all files inside it
+
+
+
+
+
+find:
+find where(i.e, path) by_what(i.e, name or size or) pattern("some pattern")
+ex: find . -name "poe*"
+it serches current directory for file by name which matches the pattern
+
+
+
+
+
+
+switch user:
+su
+
+
+
+
+
+File Permissions:
+
+rwxrwxrwx
+user group others
+owner group_to_which_designated others
+r->read
+w->write
+x->execute
+
+
+Changing permissions:
+chmod 
+
+ex:
+chmod +x testfile → allow all users to execute the file
+chmod u-w testfile → forbid the current user from writing or changing the file
+chmod u+wx,g-x,o=rx testfile → simultaneously add write & execute permissions to user, 
+                               remove execute permission from group, 
+                               and set the permissions of other users to only read and write.
+All permissions: 4 + 2 + 1 = 7	=rwx
+ex: chmod 777 testfile
+
+
+Changing file's owner:
+chown
+
+Changing file's group:
+chgrp
+
+
+
+
+
+
+
+
+checking permission:
+ls -l file_name
+or
+stat file_name
+
+
+
+
+For reading a file:
+cat filename
+
+
+
+
+
+
+pipes: |
+takes output from one command send it to another
+ex:
+echo "Hello" | wc
+=> 1 1 6
+one line one word 6 characters
+
+
+
+
+cat:
+concatenate or output text file contents
+ex: cat poems.txt
+
+head:
+displays first 10 lines
+ex: head poems.txt
+
+head -n5 poems.txt
+first 5 lines
+
+tail:
+displays last 10 lines
+ex: tail poems.txt
+
+tail -n3 poems.txt
+last 3 lines
+
+
+ex:
+cat poems.txt | cat -n | tail -n5
+all lines => adds index number to it => displays only last 5 lines
+
+order of pipes matters
+
+
+
+less: for displaying
+
+
+
+
+
+
+
+
+
+
+
+Searching for text:
+grep "text_to_be_searched" file_name
+
+ex:
+grep "the" poems.txt
+=>shows lines with "the"
+
+ex:
+grep -n "the" poems.txt
+
+u can add i for ignoring case:
+ex:
+grep -in "the" poems.txt
+
+
+grep using regular expression
+
+
+
+
+
+
+
+
+awk:
+used to extract specific text from a file
+ex: awk '{print $2}' poems.txt
+
+sed:
+stream editor
+used for modifying text in pipeline or in place
+
+
+
+
+
+sorting:
+sort poems.txt
+
+sort -k2 -n poems.txt
+sorts second column(which contains numbers) as numbers
+
+sort -u poems.txt
+only displays unique lines
+
+
+
+
+
+
+nano:
+for text creating and editing
+
+
+
+
+
+arhieving:
+tar -cvf myfiles.tar Downloads
+
+c is for archiving, v for listing those files, f for output to file
+
+tar -caf myfiles.tar.gz Downloads
+                  or.bz2
+a for compression
+
+
+extrtacting:
+tar -xf myFiles.tar.bz2
+
+
+
+
+
+
+
+
+Redirecting Stream:
+
+stdin    0
+stdout   1
+stderr   2
+
+ex: ls 1> fileList.txt
+or  ls > fileList.txt
+redirects output of ls command(i.e, list of file names) to fileList.txt
+
+
+
+ex: ls not_real_file_name 2> file3.txt
+redirects error messsage to file3.txt
+
+
+
+
+>>
+appends the message to the end of the file
+ex: ls 1>> fileList.txt
+or  echo "vjvirjvr" >> fileList.txt
+
+
+
+
+
+
+
+
+
+cat auth.log
+
+cat auth.log | grep "input_userauth_request"
+
+cat auth.log | grep "input_userauth_request" | awk '{print $9}'
+
+cat auth.log | grep "input_userauth_request" | awk '{print $9}' | sort -u
+
+cat auth.log | grep "input_userauth_request" | awk '{print $9}' | sort -u > users.txt
+
+
+
+ 
