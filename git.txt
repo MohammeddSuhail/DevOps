@@ -84,6 +84,13 @@ git restore --staged names.txt
 
 
 
+8.
+If u have made changes and staged files after last commit and u wanna go back to last commit,
+git reset .      => will unstage files
+git restore .    => will remove any changes that's not staged 
+
+
+
 
 
 8.
