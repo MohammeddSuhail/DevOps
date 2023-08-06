@@ -70,6 +70,7 @@ Now all the commits afetr this id will be removed from history(log)
 If u wanna go back to previous commits,
 git reset HEAD~no_of_commits_u_wanna_go_back
 ex:git reset HEAD~1
+Now all those files will be unstaged, use git restore . to remove all those changes
 
 If you wanna unstage all files,
 git reset .     
