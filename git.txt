@@ -73,6 +73,12 @@ Now all the commits afetr this id will be removed from history(log)
 7.
 Restore
 
+git restore filename
+will remove all unstaged changes in the specified file.
+
+git restore .
+will remove all unstaged changes in all the files in project.
+
 
 
 
