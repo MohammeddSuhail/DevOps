@@ -66,6 +66,9 @@ then
 git restore copied_hash_id
 now other commits which were done after will be un-commited ans they will be in un-staged area
 
+this worked:
+git reset --hard copied_hash_id
+
 
 
 
