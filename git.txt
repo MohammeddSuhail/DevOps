@@ -72,6 +72,10 @@ git reset HEAD~no_of_commits_u_wanna_go_back
 ex:git reset HEAD~1
 Now all those files will be unstaged, use git restore . to remove all those changes
 
+git reset --hard HEAD~no_of_commits_u_wanna_go_back
+ex:git reset --hard HEAD~1
+will remve the changed and won't put them i staged area
+
 If you wanna unstage all files,
 git reset .     
 
