@@ -59,7 +59,8 @@ to see history
 
 
 
-6.Reset
+6.
+Reset
 if u wanna undo the operation, that is noting but going back to previous state in history.
 just copy the hash id of the commit to which state wanna go(using git log, u can see the hash id's of commit)
 then
@@ -69,8 +70,14 @@ Now all the commits afetr this id will be removed from history(log)
 
 
 
-
 7.
+Restore
+
+
+
+
+
+8.
 To get back to that commit removed from history use reflog to look up it's ref.
 
 git reflog
@@ -86,7 +93,7 @@ git cherry-pick ID
 
 
 
-8.
+9.
 If u r working on something and it's not complete, so don't wanna commit it,but u wanna store it somewhere
 It's like saying, don't want u in history, just stay in backstage, and I'll call u when need
 
