@@ -59,22 +59,34 @@ to see history
 
 
 
-6.Restore
+6.Reset
 if u wanna undo the operation, that is noting but going back to previous state in history.
 just copy the hash id of the commit to which state wanna go(using git log, u can see the hash id's of commit)
 then
-git restore copied_hash_id
-now other commits which were done after will be un-commited ans they will be in un-staged area
-
-this worked:
 git reset --hard copied_hash_id
-
+Now all the commits afetr this id will be removed from history(log)
 
 
 
 
 
 7.
+To get back to that commit removed from history use reflog to look up it's ref.
+
+git reflog
+Scan the first few entries, and find the commit that was lost. 
+
+If you have not made any extra work since you did the reset --hard you can do:
+git reset --hard ID
+
+If you have made other work since the reset, you could cherry-pick if back onto your branch like this:
+git cherry-pick ID
+
+
+
+
+
+8.
 If u r working on something and it's not complete, so don't wanna commit it,but u wanna store it somewhere
 It's like saying, don't want u in history, just stay in backstage, and I'll call u when need
 
@@ -86,6 +98,8 @@ git stash pop
 
 if u don't want the things in stash, deleting people from backstage
 git stash clear
+
+
 
 
 
