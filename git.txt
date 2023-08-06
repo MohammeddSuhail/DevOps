@@ -67,8 +67,13 @@ then
 git reset --hard copied_hash_id
 Now all the commits afetr this id will be removed from history(log)
 
+If u wanna go back to previous commits,
+git reset HEAD~no_of_commits_u_wanna_go_back
+ex:git reset HEAD~1
+
 If you wanna unstage all files,
-git reset .      
+git reset .     
+
 
 
 
