@@ -151,6 +151,14 @@ git stash clear
 
 GitHub:
 
+
+
+
+clonig:
+git clone link_to_repo
+ex:
+git clone https://github.com/MohammeddSuhail/Testing_Git.git
+
 1.
 git remote add origin url
 for connecting the repository to the remote project in your system
