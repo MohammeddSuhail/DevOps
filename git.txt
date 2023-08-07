@@ -220,7 +220,7 @@ git push
 
 git push whiich_url which_branch
 ex:
-git push origin master
+git push origin main
 
 origin -> name given to the url
 master -> branch name
