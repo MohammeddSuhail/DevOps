@@ -230,7 +230,7 @@ git push origin branch_name - f
 
 
 4.
-git fetch
+git pull
 
 
 
