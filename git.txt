@@ -218,6 +218,8 @@ maybe use generate token and add to credential manager(control panel) with passw
 3.
 git push
 
+git push whiich_url which_branch
+ex:
 git push origin master
 
 origin -> name given to the url
