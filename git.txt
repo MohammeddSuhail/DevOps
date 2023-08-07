@@ -206,7 +206,9 @@ maybe use generate token and add to credential manager(control panel) with passw
 
 
 
-2.
+3.
+git push
+
 git push origin master
 
 origin -> name given to the url
@@ -223,8 +225,15 @@ first go back to the prev version by git restore command then,
 git push origin branch_name - f
 
 
- 
-3.
+
+
+
+4.
+git fetch
+
+
+
+5.
 For creating a new branch
 
 git branch feature             => will create new branch called feature
@@ -239,7 +248,7 @@ we create new branches, while working on new features or while fixing a bug
 
 
 
-4.
+6.
 git merge feature
 
 If u are done with your feature or bug fixing, u can add your branch to main
@@ -261,14 +270,14 @@ rhis will bring that perticular project to your system
 
 
 
-5.
+7.
 git remote add upstream url_from_where_u_forked_the_project
 
 upstream => to denote it's the url of the project you cloned
 
 
 
-6.
+8.
 If the upstream(the repo from which u forked) has changes and if u wanna have that changes in your repo
 
 git fetch --all --prune
@@ -283,7 +292,7 @@ git push origin main
 
 
 
-7. step 6 can be done in one line
+9. step 6 can be done in one line
 git pull upstream main    =>changes only in remote
 git push origin to main   =>changing in github  repo also
 
@@ -295,7 +304,7 @@ Other way to do step 6 or step 7 is by just clicking "fetch upsteam" option in o
 
 
 
-8.
+10.
 u can commit multiple things together
 git rebase -i hash_id_of_commit_once_you_press_git_log
 it will show an option of pickor squash(s)
