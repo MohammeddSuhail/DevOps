@@ -159,6 +159,9 @@ git clone link_to_repo
 ex:
 git clone https://github.com/MohammeddSuhail/Testing_Git.git
 
+
+
+
 1.
 git remote add origin url
 for connecting the repository to the remote project in your system
@@ -175,7 +178,34 @@ git remote -v
 will show all the links connected to the project
 
 
- 
+
+
+
+
+
+
+2.
+For authticating yourself with github
+
+a)Create ssh key,
+ssh-keygen -t ed25519 -C "your_email@example.com"
+
+b)Ensure the ssh-agent is running. 
+# start the ssh-agent in the background
+$ eval "$(ssh-agent -s)"
+
+c)Add your SSH private key to the ssh-agent. If you created your key with a different name, or if you are adding an existing key that has a different name, replace id_ed25519 in the command with the name of your private key file.
+ssh-add ~/.ssh/id_ed25519
+
+d)Add the SSH public key to your account on GitHub
+
+
+or 
+maybe use generate token and add to credential manager(control panel) with password as the token.
+
+
+
+
 2.
 git push origin master
 
