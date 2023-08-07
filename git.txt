@@ -275,7 +275,7 @@ If you fork a project to your github account,
 git clone url
 url -> url of cloned project
 
-rhis will bring that perticular project to your system
+this will bring that perticular project to your system
 
 
 
