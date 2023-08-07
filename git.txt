@@ -14,6 +14,8 @@ rm -rf filename.txt
 deletes the file
 
 
+Usually main branch name will be main
+
 
 1.
 git init
