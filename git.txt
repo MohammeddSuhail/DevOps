@@ -260,7 +260,12 @@ now any new commit will be saved/added in new branch(i.e, in this case "feature"
 
 main branch will have the code which will used stable and active
 we create new branches, while working on new features or while fixing a bug
- 
+
+
+You have to set upstream url for each brach:
+git push --set-upstream upstream_url_name branch_name
+ex:
+git push --set-upstream origin feat2
 
 
 
