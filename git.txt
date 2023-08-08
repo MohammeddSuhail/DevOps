@@ -250,10 +250,22 @@ git push origin branch_name - f
 
 4.
 git pull
+will bring all the files in repo to local working directory.
+
 
 
 
 5.
+git fetch
+will bring all the files to system, but won't add to working directory.
+In order to add those files to working directory,
+git merge
+
+
+
+
+
+6.
 For creating a new branch
 
 git branch feature             => will create new branch called feature
@@ -273,7 +285,7 @@ git push --set-upstream origin feat2
 
 
 
-6.
+7.
 git merge feature
 
 If u are done with your feature or bug fixing, u can add your branch to main
@@ -295,14 +307,14 @@ this will bring that perticular project to your system
 
 
 
-7.
+8.
 git remote add upstream url_from_where_u_forked_the_project
 
 upstream => to denote it's the url of the project you cloned
 
 
 
-8.
+9.
 If the upstream(the repo from which u forked) has changes and if u wanna have that changes in your repo
 
 git fetch --all --prune
@@ -317,7 +329,7 @@ git push origin main
 
 
 
-9. step 6 can be done in one line
+10. step 6 can be done in one line
 git pull upstream main    =>changes only in remote
 git push origin to main   =>changing in github  repo also
 
@@ -329,7 +341,7 @@ Other way to do step 6 or step 7 is by just clicking "fetch upsteam" option in o
 
 
 
-10.
+11.
 u can commit multiple things together
 git rebase -i hash_id_of_commit_once_you_press_git_log
 it will show an option of pickor squash(s)
