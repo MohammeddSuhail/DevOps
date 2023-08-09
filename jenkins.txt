@@ -1,0 +1,29 @@
+link:
+https://stackoverflow.com/questions/21557998/jenkins-failed-to-connect-to-repository
+
+Step a:
+In the jenkins job, fill up the following info under Source Code Management
+Repository URL: 
+ssh link of git repo.
+ex: git@github.com:MohammeddSuhail/Ansible.git
+
+Credentials: -none-
+
+Step b:
+Now create ssh private and public keys using ssh-keygen -t rsa -C "key label" via git bash shell. 
+The ssh private and public keys go under .ssh directory of your logged in user directory. 
+Just copy the .ssh folder and paste it under C:\Windows\System32\config\systemprofile
+
+Step c:
+Add your public key to your GIT server account. 
+Run the jenkins job and now you should be able to connect to the GIT account via ssh from jenkins.
+
+
+
+
+
+
+
+manage artifacts:
+u can keep track of file directly by adding Post-build Actions: archieve the artifact
+You need not check workspace again and again
