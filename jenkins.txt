@@ -109,6 +109,7 @@ when u delete a folder, jobs will be deleted.
 
 
 Pipeline:
+
 pipeline { 
   stages { 
     stage('Build') { } 
