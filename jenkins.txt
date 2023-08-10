@@ -225,6 +225,8 @@ git                    Check out code from a Git repo.
 sh                     Run a shell script or local command. 
 archiveArtifacts       Archive artifacts.
 
+Finding steps:
+https://www.jenkins.io/doc/pipeline/steps/
 
 
 
