@@ -43,3 +43,39 @@ echo name = %name%
 Now when you build it, it will ask the parameter value.
 
 There are many type of parameter. Like in choice parameter u can give a list of choice to select  
+
+
+
+
+
+3.
+Scheduling Jobs:
+Running jobs automatically.
+jobs ex: updating software, monitoring system details, etc
+
+
+minute: 0-59
+hour: 0-23
+day of month: 1-31
+month: 1-12 or Jan-Dec
+day of week: 0-6
+
+syntax: minute hour day_of_month month day_of_week
+
+* for all(full range)
+
+ex: * * * * *
+means run every minute of all day
+
+for more info, can use ? near every option in jenkins
+
+alias's:
+@hourly 
+@daily 
+@midnight 
+@weekly 
+@monthly
+@annually
+
+Under Build Triggers,
+several options are there, one of them is Build periodically,
