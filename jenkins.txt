@@ -122,6 +122,33 @@ pipeline {
 }
 
 
+
+agent section:
+Specifies where pipeline steps will be run 
+• any 
+• label 
+• docker 
+• none
+
+
+Run on the first available system
+agent any       
+
+Run on a system with this label
+agent { label 'linux' }       
+
+Run the pipeline inside a docker container using the specified image.
+agent { 
+  docker { 
+    image 'maven'
+  }    
+}
+
+Defer agent selection to stages
+agent none 
+
+
+
 ex:
 
 pipeline { 
@@ -190,6 +217,13 @@ pipeline {
 }
 
 
+Basic Steps:
+link: https://www.jenkins.io/doc/pipeline/steps/workflow-basic-steps/
+ex:
+echo                   Print message. 
+git                    Check out code from a Git repo.
+sh                     Run a shell script or local command. 
+archiveArtifacts       Archive artifacts.
 
 
 
