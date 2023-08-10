@@ -185,3 +185,21 @@ pipeline {
         }
     }
 }
+
+
+
+
+
+
+Pipeline types:
+
+1. Scripted Pipeline: 
+starts with node {} 
+Groovy-based DSL
+
+
+2. Declarative Pipeline 
+starts with pipeline {} 
+Specifically designed for configuring Jenkins projects as code
+
+
