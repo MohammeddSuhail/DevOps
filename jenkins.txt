@@ -110,6 +110,22 @@ when u delete a folder, jobs will be deleted.
 
 Pipeline:
 
+Pipeline types:
+
+1. Scripted Pipeline: 
+starts with node {} 
+Groovy-based DSL
+
+
+2. Declarative Pipeline 
+starts with pipeline {} 
+Specifically designed for configuring Jenkins projects as code
+
+
+
+
+
+
 syntax of declarative pipeline:
 
 pipeline {
@@ -225,20 +241,18 @@ git                    Check out code from a Git repo.
 sh                     Run a shell script or local command. 
 archiveArtifacts       Archive artifacts.
 
+
 Finding steps:
 https://www.jenkins.io/doc/pipeline/steps/
 
 
 
-Pipeline types:
-
-1. Scripted Pipeline: 
-starts with node {} 
-Groovy-based DSL
 
 
-2. Declarative Pipeline 
-starts with pipeline {} 
-Specifically designed for configuring Jenkins projects as code
+You can use Snippet generator:
+this option is right below the box where we write the script
+
+
+
 
 
