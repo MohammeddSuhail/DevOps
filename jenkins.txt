@@ -109,6 +109,7 @@ when u delete a folder, jobs will be deleted.
 
 
 Pipeline:
+https://www.jenkins.io/doc/book/pipeline/
 
 Pipeline types:
 
@@ -120,6 +121,8 @@ Groovy-based DSL
 2. Declarative Pipeline 
 starts with pipeline {} 
 Specifically designed for configuring Jenkins projects as code
+link:
+https://www.jenkins.io/doc/book/pipeline/syntax/
 
 
 
@@ -213,43 +216,6 @@ pipeline {
 
 
 
-something lol,
-
-pipeline { 
-    agent any 
-    options { 
-        buildDiscarder(logRotator(daysToKeepStr : '10', numToKeepStr : '10')) 
-        timeout(time : 12, unit : 'HOURS') 
-        timestamps () 
-    } 
-    triggers { 
-        cron '@midnight' 
-    } 
-    stages { 
-        stage('Initialize') { 
-            steps { 
-                echo 'Initializing..'
-            } 
-        } 
-        stage ('Build') { 
-            steps { 
-                echo 'Building..'
-            }  
-        } 
-        stage('Test') { 
-            steps {  
-                 echo 'Testing..'
-            } 
-        } 
-        stage ('Deploy') { 
-            steps { 
-                echo 'Deploying....'
-            }
-        }
-    }
-}
-
-
 Basic Steps:
 link: https://www.jenkins.io/doc/pipeline/steps/workflow-basic-steps/
 ex:
@@ -272,4 +238,209 @@ this option is right below the box where we write the script
 
 
 
+
+
+Variables:
+
+1.
+Enivornment varibles:
+They must be in capital letters
+
+a. Globally scoped variables: 
+pipeline { 
+  agent any 
+  environment { 
+    MAX_SIZE = 10 
+    MIN_SIZE = 1
+  }  
+  ...
+} 
+
+b.Locally scoped variables: 
+pipeline { 
+  ...
+  stages { 
+    stage ('Scale by 10x') {  
+      environment { 
+        MAX_SIZE = 100 
+        MIN_SIZE = 10 
+      } 
+      ...
+    }
+  } 
+} 
+
+
+Using:
+
+echo env.MAX_SIZE 
+or
+echo MAX_SIZE
+
+If used inside a string,
+echo "$env.MAX_SIZE" 
+or
+echo "$MAX_SIZE"
+or
+echo "${env.MAX_SIZE}" 
+or
+echo "${MAX_SIZE}"
+
+
+
+
+2.
+currentBuildVariables:
+Values refer to the currently running build.
+There is only one currentBuildVariables named currentBuild in which there can be many varibles
+ex:
+currentBuild.startTimeInMillis
+currentBuild.duration
+currentBuild.currentResult
+
+
+
+
+
+3.
+Parameter Variables: all caps
+Assign values to a variable when a job is triggered.
+Are not available immediatly(not avaible at exection of job for first time, since it takes values from user after exec)
+
+pipeline { 
+  agent any 
+  parameters { 
+    ...
+  }  
+  ...
+} 
+
+using:
+echo params.PARAMETER_NAME
+or
+echo "${params.PARAMETER_NAME}"
+
+Parameter Types:
+String
+Text
+Boolean
+Choice
+Password
+
+ex:
+pipeline{
+  agent any
+  parameters {
+    string(name: 'FATHER',
+           defaultValue: 'Vader',
+           description: 'Enter Your father's name')
+ 
+    text (name: 'PHRASE',
+          description: 'Enter your favoiNte phrase from a Charles Dickens Book',
+          defaultValue: 'It was the bes of times, it was the worst of times, \nit was the age')
+
+    booleanParan(name: 'RUN_TESTS',
+            defaultValue: false,
+            description: 'Toggle this value to run tests.')
+
+    choice (name: 'AWS_REGION',
+        choices: ['us-east-1', 'us-east-2', 'us-nest-1', 'us-west-2'],
+        description: 'Select the AWS region for deployment.')
+        
+    password(name: 'DATABASE_PASSWORD',
+        defaultvalue: 'DATABASE PASSWORD',
+        description: 'Enter the database password")
+  }
+
+  stages{
+     ...
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+when: Conditional execution
+
+pipeline {
+  agent any
+  stages {
+    stage ('XYZ') {
+      when {}
+    }
+  }
+}
+
+Conditions for when:
+
+• branch
+when { branch 'default' }
+
+• environment
+when {
+environment name: 'DEPLOY_TO', value: 'production' }
+
+• expression
+when {
+  expression {
+    params. ENVIRONMENT == 'PRODUCTION'
+  }
+}
+
+we can use Groovy expressions inside expression {} 
+Groovy operators:
+•https://groovy-lang.org/operators.html
+
+
+ex:
+pipeline{
+  agent any
+  parameters {
+    choice(name: 'ENVIRONMENT',
+          choices: ['DEVELOPMENT', 'STAGING', 'PRODUCTION'],
+          description: 'Choose the environment for this deployment")
+  }
+
+  stages {
+
+    stage ('Build') {
+      steps{
+        echo "Building.."
+      }
+    }
+
+    stage ('Deploy to non-production environments') {
+      when{
+        // Only deploy if the environment is NOT production
+        expression { params. ENVIRONMENT != 'PRODUCTION' }
+      }      
+      steps{
+        echo "Deploying to S{params. ENVIRONMENT)"
+      }
+    }
+
+    stage ('Deploy to production environment') {
+      when{
+        expression { params.ENVIRONMENT == 'PRODUCTION' }
+      }
+      steps {
+        input message: 'Confirm deployment to production...', ok: 'Deploy'
+        echo "Deploying to ${params.ENVIRONMENT}"
+      }
+    }
+
+  }
+}
+
+
+input message: 'Confirm deployment to production...', ok: 'Deploy'
+here this stage will only proceed once user responds
 
