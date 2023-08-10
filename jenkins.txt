@@ -196,6 +196,23 @@ pipeline {
 
 
 
+ex:
+pipeline {
+  agent any
+  
+  stages { 
+      
+    stage('git thing') { 
+        steps { 
+            git branch: 'main', url: 'git@github.com:MohammeddSuhail/Testing_Git.git'
+        }  
+    } 
+    
+  } 
+}
+
+
+
 something lol,
 
 pipeline { 
