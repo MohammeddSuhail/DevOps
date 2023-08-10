@@ -110,7 +110,10 @@ when u delete a folder, jobs will be deleted.
 
 Pipeline:
 
-pipeline { 
+syntax of declarative pipeline:
+
+pipeline {
+  agent any
   stages { 
     stage('Build') { } 
     stage('Test') { } 
