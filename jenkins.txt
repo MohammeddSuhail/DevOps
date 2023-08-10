@@ -78,4 +78,24 @@ alias's:
 @annually
 
 Under Build Triggers,
-several options are there, one of them is Build periodically,
+several options are there, one of them is Build periodically.
+
+
+
+
+
+4.
+Create a view:
+basically showing different set of vies for different View_name
+there is a option of selecting jobs either manually or using regular expression.
+At start we only one view that is "All" view.
+When u delete a view, jobs won't be deleted.
+
+
+
+
+
+5.
+Create a folder:
+for grouping a jobs.
+when u delete a folder, jobs will be deleted.
