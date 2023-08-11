@@ -1,0 +1,18 @@
+Maven is a popular build automation tool for Java-based projects that helps manage and organize
+the software development process.
+It provides a standard way to define project dependencies, build processes, and project structure,
+making it easier for developers to manage and maintain complex Java applications.
+Maven uses a declarative approach to configuration and relies on XML files called "pom.xml" to
+describe the project's structure, dependencies, and build process
+It also offers a vast repository of open-source libraries and plugins that can be easily integrated into
+projects.
+
+
+Features of maven:
+Dependency Management
+Project Standardization
+Build Automation
+Plugin System
+Consistent Builds
+Integration with IDEs
+
