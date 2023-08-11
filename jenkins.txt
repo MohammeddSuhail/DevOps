@@ -513,3 +513,25 @@ pipeline{
   }
 }
 
+
+
+
+
+
+
+
+ stage ('Report(with artifact)') {
+      when{
+        expression { params.ENVIRONMENT == 'PRODUCTION' }
+      }
+      steps {
+        echo "This stage generates a report"
+        sh "printf  \"${params.LOG}\" › ${params.ENVIRONMENT}.txt"
+        archiveArtifacts allowEmptyArchive: true,
+              artifacts: '*.txt',
+              fingerprint: true,
+              followSymlinks: false,
+              onlyIfSuccessful: true
+      }
+    }
+
