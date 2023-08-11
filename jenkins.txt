@@ -339,7 +339,7 @@ pipeline{
           description: 'Enter your favoiNte phrase from a Charles Dickens Book',
           defaultValue: 'It was the bes of times, it was the worst of times, \nit was the age')
 
-    booleanParan(name: 'RUN_TESTS',
+    booleanParam(name: 'RUN_TESTS',
             defaultValue: false,
             description: 'Toggle this value to run tests.')
 
@@ -348,8 +348,8 @@ pipeline{
         description: 'Select the AWS region for deployment.')
         
     password(name: 'DATABASE_PASSWORD',
-        defaultvalue: 'DATABASE PASSWORD',
-        description: 'Enter the database password")
+        defaultValue: 'DATABASE PASSWORD',
+        description: 'Enter the database password')
   }
 
   stages{
@@ -406,7 +406,7 @@ pipeline{
   parameters {
     choice(name: 'ENVIRONMENT',
           choices: ['DEVELOPMENT', 'STAGING', 'PRODUCTION'],
-          description: 'Choose the environment for this deployment")
+          description: 'Choose the environment for this deployment')
   }
 
   stages {
@@ -420,10 +420,10 @@ pipeline{
     stage ('Deploy to non-production environments') {
       when{
         // Only deploy if the environment is NOT production
-        expression { params. ENVIRONMENT != 'PRODUCTION' }
+        expression { params.ENVIRONMENT != 'PRODUCTION' }
       }      
       steps{
-        echo "Deploying to S{params. ENVIRONMENT)"
+        echo "Deploying to ${params.ENVIRONMENT)"
       }
     }
 
@@ -443,4 +443,73 @@ pipeline{
 
 input message: 'Confirm deployment to production...', ok: 'Deploy'
 here this stage will only proceed once user responds
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+task ex:
+To take 3 inputs(check below ex) and deploy & print the log only if ENVIRONMENT parameter is 'PRODUCTION'
+
+=>
+
+pipeline{
+  agent any
+  parameters {
+    choice(name: 'ENVIRONMENT',
+          choices: ['DEVELOPMENT', 'STAGING', 'PRODUCTION'],
+          description: 'Choose the environment for this deployment')
+    
+    password(name: 'APIKEY',
+        defaultValue: 'AB123',
+        description: 'Enter the database API Key')
+        
+    text (name: 'LOG',
+          description: 'Enter THE LOG',
+          defaultValue: '')      
+  }
+
+  stages {
+
+    stage ('Test') {
+      steps{
+        echo "Tested"
+      }
+    }
+
+    stage ('Deploy') {
+      when{
+        // Only deploy if the environment is NOT production
+        expression { params.ENVIRONMENT == 'PRODUCTION' }
+      }      
+      steps{
+        echo "Deploying to ${params.ENVIRONMENT}"
+      }
+    }
+
+    stage ('Report') {
+      when{
+        expression { params.ENVIRONMENT == 'PRODUCTION' }
+      }
+      steps {
+        echo "${params.ENVIRONMENT}: "
+        echo "$params.LOG"
+      }
+    }
+
+  }
+}
 
