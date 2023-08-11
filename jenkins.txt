@@ -116,6 +116,22 @@ Pipeline types:
 1. Scripted Pipeline: 
 starts with node {} 
 Groovy-based DSL
+Doen't have facility of starting the build from a spefic stage like in declarative pipeline.
+
+syntax:
+node {
+  stages { 
+    stage('Build') { 
+      steps {}
+    } 
+    stage('Test') { 
+      steps {}
+    }
+    stage('Deploy') { 
+      steps {}
+    }
+  } 
+}
 
 
 2. Declarative Pipeline 
@@ -124,19 +140,26 @@ Specifically designed for configuring Jenkins projects as code
 link:
 https://www.jenkins.io/doc/book/pipeline/syntax/
 
-
-
-
-
-
 syntax of declarative pipeline:
 
 pipeline {
   agent any
   stages { 
-    stage('Build') { } 
-    stage('Test') { } 
-    stage('Deploy') { }
+    stage('Build') { 
+      steps {
+        .....
+      }
+    } 
+    stage('Test') { 
+      steps {
+        .....
+      }
+    }
+    stage('Deploy') { 
+      steps {
+        .....
+      }
+    }
   } 
 }
 
