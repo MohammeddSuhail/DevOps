@@ -20,7 +20,8 @@ Integration with IDEs
 
 Use Intellij or Eclipse 
 Adding dependencies in pom.xml
-Lifecycle of maven(used install)
+Lifecycle of maven(used install):
+validate, compile, test, package, verify, install and deploy
 Check right end(named maven) you'll get all the stages of lifecycle
 
 
