@@ -57,7 +57,9 @@ The build phases are executed sequentially. When we run a maven build command, w
 Any maven build phases that come before the specified phase is also executed. 
 For example, if we run mvn package then it will execute validate, compile, test, and package phases of the project.
 
-Goals: clean, validate, compile, test, package, verify, install, site and deploy
+Goals: is basically a java method to perform something 
+compile, test, jar, install, deploy
+These comes under plugin
 Check right end(named maven) you'll get all the stages of lifecycle
 
 
