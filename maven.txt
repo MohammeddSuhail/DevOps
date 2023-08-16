@@ -18,6 +18,22 @@ Integration with IDEs
 
 
 
+
+
+
+
+using maven in jenkins:
+specify the maven project github repo
+while creating,
+Build Steps -> Invoke top-level Maven targets:
+select maven version
+goals: u specify lifecycle stage like install
+
+
+
+
+
+
 Use Intellij or Eclipse 
 Adding dependencies in pom.xml
 Lifecycle of maven(used install):
