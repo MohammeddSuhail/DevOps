@@ -558,3 +558,26 @@ pipeline{
       }
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+using maven in jenkins:
+specify the maven project github repo
+while creating,
+Build Steps -> Invoke top-level Maven targets:
+select maven version
+goals: u specify lifecycle stage like install
