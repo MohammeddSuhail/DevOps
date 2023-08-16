@@ -64,6 +64,10 @@ Check right end(named maven) you'll get all the stages of lifecycle
 
 
 
+****
+phases uses plugin goals
+
+
 
 
 
