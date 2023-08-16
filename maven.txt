@@ -28,6 +28,7 @@ while creating,
 Build Steps -> Invoke top-level Maven targets:
 select maven version
 goals: u specify lifecycle stage like install
+Goals: clean, validate, compile, test, package, verify, install, site and deploy
 
 
 
