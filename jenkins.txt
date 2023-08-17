@@ -111,6 +111,8 @@ when u delete a folder, jobs will be deleted.
 Pipeline:
 https://www.jenkins.io/doc/book/pipeline/
 
+You can either write the script in jenkins or you can pull the jenkins script from your git repo using "Pipeline script from SCM"
+
 Pipeline types:
 
 1. Scripted Pipeline: 
