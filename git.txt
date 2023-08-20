@@ -289,7 +289,12 @@ git push --set-upstream origin feat2
 
 
 7.
-git merge feature
+git merge branch_name
+
+after merging locally
+
+git push
+so the changes will also be in remote repo
 
 If u are done with your feature or bug fixing, u can add your branch to main
 
