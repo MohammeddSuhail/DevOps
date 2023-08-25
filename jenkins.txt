@@ -425,6 +425,7 @@ properties([
 
 
 
+https://stackoverflow.com/questions/43410204/active-choices-reactive-reference-parameter-in-jenkins-pipeline
 1. Active choices parameters:
    Can generates a list of values for the build parameter dynamically
 
@@ -433,6 +434,9 @@ properties([
 
 3. Active Choices Reactive Reference Parameter
    Can be used to showing important message to user for correct selection of Active Choices Reactive Parameter.
+
+
+
 
 
 
