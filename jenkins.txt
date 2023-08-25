@@ -397,7 +397,10 @@ pipeline{
 
 Extended Choice paramter: https://stackoverflow.com/questions/42392247/how-can-i-use-the-extended-choice-parameter-plugin-in-a-jenkins-pipeline-script
 allows selection of multiple choices like multiselect, radio buttons, check boxes, test box, hidden
-a. Can also get the options from a properties file(file with .properties extension)
+
+a. Can also get the options from a properties file(file with .properties extension):
+Testcases=none,Test1,Test2,Test3,Test4
+
 b. Can also get the options from a groovy script(with .groovy extension):
    return['none', 'Test1', 'Test2', 'Test3', 'Test4']
 
