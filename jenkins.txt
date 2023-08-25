@@ -341,9 +341,18 @@ pipeline {
 } 
 
 using:
+
+anywhere other than inside shell,
 echo params.PARAMETER_NAME
 or
 echo "${params.PARAMETER_NAME}"
+
+inside shell:
+${PARAMETER_NAME}
+
+So when these parameters are used in the unix commands, they are just simply called on because Jenkins has set them as unix environment variables.
+However, if you are using a when condition, the parameters must be accessed in a way the groovy syntax will understand. 
+
 
 Parameter Types:
 String
