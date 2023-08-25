@@ -395,6 +395,9 @@ pipeline{
 
 
 
+extended choice paramter:
+allows selection of multiple choices
+
 
 
 
