@@ -395,9 +395,9 @@ pipeline{
 
 
 
-extended choice paramter:
+Extended Choice paramter:
 allows selection of multiple choices
-
+Can also get the options from a properties file
 
 
 
