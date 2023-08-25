@@ -422,6 +422,21 @@ properties([
 
 
 
+
+1. Active choices parameters:
+   Can generates a list of values for the build parameter dynamically
+
+2. Active Choices Reactive Parameter:
+  Can generates a list of values for the build parameter dynamically depending upon other 'Active Choices Parameter'
+
+3. Active Choices Reactive Reference Parameter
+
+
+
+
+
+
+
 when: Conditional execution
 
 pipeline {
