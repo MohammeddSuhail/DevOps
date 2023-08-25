@@ -395,10 +395,10 @@ pipeline{
 
 
 
-Extended Choice paramter:
+Extended Choice paramter: https://stackoverflow.com/questions/42392247/how-can-i-use-the-extended-choice-parameter-plugin-in-a-jenkins-pipeline-script
 allows selection of multiple choices
-Can also get the options from a properties file(file with .properties extension)
-
+a. Can also get the options from a properties file(file with .properties extension)
+b. Can also get the options from a groovy script
 
 
 
