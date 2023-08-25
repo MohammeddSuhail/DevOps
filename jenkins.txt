@@ -395,6 +395,7 @@ pipeline{
 
 
 
+
 Extended Choice paramter: https://stackoverflow.com/questions/42392247/how-can-i-use-the-extended-choice-parameter-plugin-in-a-jenkins-pipeline-script
 allows selection of multiple choices like multiselect, radio buttons, check boxes, test box, hidden
 
@@ -423,6 +424,7 @@ properties([
 
 
 
+
 1. Active choices parameters:
    Can generates a list of values for the build parameter dynamically
 
@@ -430,6 +432,8 @@ properties([
   Can generates a list of values for the build parameter dynamically depending upon other 'Active Choices Parameter'
 
 3. Active Choices Reactive Reference Parameter
+   Can be used to showing important message to user for correct selection of Active Choices Reactive Parameter.
+
 
 
 
