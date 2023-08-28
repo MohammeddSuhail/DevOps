@@ -315,14 +315,27 @@ this will bring that perticular project to your system
 
 
 
+
 8.
+// delete branch locally
+git branch -d localBranchName
+
+// delete branch remotely
+git push origin --delete remoteBranchName
+
+
+
+
+
+
+9.
 git remote add upstream url_from_where_u_forked_the_project
 
 upstream => to denote it's the url of the project you cloned
 
 
 
-9.
+10.
 If the upstream(the repo from which u forked) has changes and if u wanna have that changes in your repo
 
 git fetch --all --prune
@@ -337,7 +350,7 @@ git push origin main
 
 
 
-10. step 6 can be done in one line
+11. step 6 can be done in one line
 git pull upstream main    =>changes only in remote
 git push origin to main   =>changing in github  repo also
 
@@ -349,7 +362,7 @@ Other way to do step 6 or step 7 is by just clicking "fetch upsteam" option in o
 
 
 
-11.
+12.
 u can commit multiple things together
 git rebase -i hash_id_of_commit_once_you_press_git_log
 it will show an option of pickor squash(s)
