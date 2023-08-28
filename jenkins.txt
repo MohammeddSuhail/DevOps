@@ -663,3 +663,46 @@ Basically it create diferent builds for each branch of github repo.
 
 Blue Ocean: Gives better UI
 access: http://localhost:8080/blue
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+script:
+example of using if else (conditional statements) inside script tag
+all scripts like sh command also also goes inside it
+
+pipeline {
+  agent any
+
+  parameters{
+    choice (name: 'Region',
+            choices:  ['JENKIVP','JENKREL'],
+            description: 'Select the Region')
+  }
+  
+  stages {
+    stage('Build') {
+      steps {
+        script{
+          if (params.Region == 'JENKIVP') {
+            echo "ivp: ${params.Region}"
+          }else{
+            echo "rel: ${params.Region}"
+          }
+        }
+      }
+    }
+  }
+}
