@@ -24,6 +24,10 @@ git config -l
 git config --global user.name "FirstName LastName"
 git config --global user.email mail_id
 
+to check:
+git config user.name    or   git config --list | grep user.name
+git config user.email
+
 
 
 1.
