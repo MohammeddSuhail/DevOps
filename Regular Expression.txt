@@ -1,0 +1,88 @@
+* => any
+? => 1
+
+
+
+ls *
+
+
+
+List out all files with some extension
+ls *.*
+ex:
+ls *.txt
+
+
+List out all the files starts with 'a'
+ls a*
+
+
+
+List out all files where filename contains only 2 characters
+ls ??
+
+
+
+List out all the files where file name starts with 's' or 't' or 'p'
+ls [str]*
+
+
+
+
+List out all the files where file name Should not starts with 's' or 't' or 'p'
+ls [!str]*
+
+
+
+
+List out all the files where file name starts with lower case alphabet
+ls [a-z]*
+or
+ls [[:lower:]]*
+
+
+List out all the files where file name starts with upper case alphabet
+ls [A-Z]*
+or
+ls [[:upper:]]*
+
+
+
+
+List out all the files where file name starts with digit (0,1,2....9)
+ls [0-9]*
+or
+ls [[:digit:]]*
+
+
+
+
+
+alphanumeric: numbers and alphabets
+ls [[:alnum:]]*
+
+
+Not aphanumeric:
+ls [![:alnum:]]*
+
+
+
+
+
+Or:
+
+List out all files with java or py extension
+ls {*.java,*.py}
+
+
+
+
+
+
+Recursively coping files which satrts with New to new_dir
+cp -r New* new_dir/
+
+
+
+
+
