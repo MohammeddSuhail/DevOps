@@ -419,7 +419,11 @@ properties([
     ])
 ])
 
+works:
+radio button,
+extendedChoice(name: 'DeployTo', description: 'Select the environment to deploy to', type: 'PT_RADIO', value: 'Dev,Test,Stage', visibleItemCount: 5)
 
+add this indside parameters
 
 
 
