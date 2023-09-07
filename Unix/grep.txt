@@ -7,6 +7,10 @@ $ : Represents end of the line
 
 
 
+-o: for matching the pattern and returning only the matched pattern
+grep -o "Data are: [0-9]*, [0-9]*, [0-9]*" some_file
+
+
 Display all lines that start with 'D'.
 grep '^D' cities
 
