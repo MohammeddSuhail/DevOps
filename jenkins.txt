@@ -475,6 +475,10 @@ when {
     params. ENVIRONMENT == 'PRODUCTION'
   }
 }
+worked:
+when {
+  expression {return params. ENVIRONMENT == 'PRODUCTION'}
+}
 
 we can use Groovy expressions inside expression {} 
 Groovy operators:
