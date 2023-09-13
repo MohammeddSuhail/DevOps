@@ -1,13 +1,11 @@
-ls -a 
-for showing hidden files
+To get hash id:
+git log --oneline
 
 
-vm filnename.txt
-for writing to file
+git reset --hard hash_id
+git push origin branch_name --force
+//here origin is your link name
 
-
-cat filename.txt
-for printing the file into cmd
 
 
 rm -rf filename.txt
