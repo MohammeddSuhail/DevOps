@@ -9,6 +9,11 @@ git push origin branch_name --force  //this will change remotely
 
 
 
+Not tried:
+Just to go back and check the code:
+git checkout hash_id .
+
+
 rm -rf filename.txt
 deletes the file
 
