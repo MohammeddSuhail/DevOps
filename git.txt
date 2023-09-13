@@ -2,8 +2,9 @@ To get hash id:
 git log --oneline
 
 
-git reset --hard hash_id
-git push origin branch_name --force
+Going back to a perticalar commit:
+git reset --hard hash_id             //this will change locally
+git push origin branch_name --force  //this will change remotely
 //here origin is your link name
 
 
@@ -79,6 +80,9 @@ just copy the hash id of the commit to which state wanna go(using git log, u can
 then
 git reset --hard copied_hash_id
 Now all the commits afetr this id will be removed from history(log)
+This will change locally
+To change remotely:
+git push origin branch_name --force
 
 If u wanna go back to previous commits,
 git reset HEAD~no_of_commits_u_wanna_go_back
