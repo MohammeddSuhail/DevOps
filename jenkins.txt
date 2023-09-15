@@ -825,6 +825,15 @@ pipeline {
                     echo "${strategyP[0]}"
                     echo "${strategyP[1]}"
                     echo "${strategyP[2]}"
+
+                    int size = strategyP.size();
+                    echo "$size"
+                    
+                    if(strategyP.size()<3){
+                        echo "not valid"
+                    }else{
+                        echo "valid"
+                    }
                     
                 }
             }
