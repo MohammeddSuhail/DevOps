@@ -714,3 +714,120 @@ pipeline {
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+Worked:
+properties([
+    parameters([
+        
+        [
+            $class: 'ChoiceParameter', 
+            choiceType: 'PT_RADIO', 
+            description: 'Select a choice', 
+            filterLength: 1, 
+            filterable: false, 
+            name: 'choice1', 
+            randomName: 'choice-parameter-7601235200970', 
+            script: [
+                $class: 'GroovyScript', 
+                fallbackScript: [
+                    classpath: [], 
+                    sandbox: false, 
+                    script: 'return ["ERROR"]'
+                ], 
+                script: [
+                    classpath: [], 
+                    sandbox: true, 
+                    script: 'return[\'aaa:selected\',\'bbb\']'
+                ]
+            ]
+        ], 
+        
+        [
+            $class: 'DynamicReferenceParameter', 
+            choiceType: 'ET_FORMATTED_HTML', 
+            name: 'strategySelect', 
+            referencedParameters: 'choice1', 
+            description: 'Active Choices Reactive parameter', 
+            omitValueField: true,
+            randomName: 'choice-parameter-7601237141171', 
+            script: [
+                $class: 'GroovyScript', 
+                fallbackScript: [
+                    classpath: [], 
+                    sandbox: false, 
+                    script: 'return ["error"]'
+                ], 
+                script: [
+                    classpath: [], 
+                    sandbox: true, 
+                    script: 'if(choice1.equals("aaa")){return "<input name=\'Aws\' value=\'\' class=\'setting-input\' type=\'text\'>"} else {return "Not Required"}'
+                ]
+            ]
+        ]
+        
+        ,
+        
+        [$class: 'DynamicReferenceParameter',
+            name: 'strategyParams',
+            referencedParameters: 'choice1',
+            choiceType: 'ET_FORMATTED_HTML',
+            script: [
+                $class: 'GroovyScript',
+                fallbackScript: [
+                    classpath: [],
+                    sandbox: true,
+                    script: 'return ["nothingggggggggggggg"]'
+                ],
+                script: [
+                    classpath: [],
+                    sandbox: true,
+                    script: """
+                        if (choice1 == 'aaa') {
+                            return '''
+                                <p><b>Port1:</b><br><input type="text" class="setting-input" name="value" value="" placeholder=""></p>
+                                <p><b>Port2:</b><br><input type="text" class="setting-input" name="value" value="" placeholder=""></p>
+                                <p><b>Port3:</b><br><input type="text" class="setting-input" name="value" value="" placeholder=""></p>
+                            '''
+                        }else{
+                            return "Not Required";
+                        }
+                        """
+                ]
+            ]
+        ]
+                        
+        
+        
+    ])
+])
+
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Print the Values') {
+            steps {
+                script{
+                    List strategyP = params.strategyParams.tokenize(',')
+                    echo "${strategyP[0]}"
+                    echo "${strategyP[1]}"
+                    echo "${strategyP[2]}"
+                    
+                }
+            }
+        }
+    }
+}
