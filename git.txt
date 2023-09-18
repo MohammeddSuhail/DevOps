@@ -8,6 +8,12 @@ git push origin branch_name --force  //this will change remotely
 //here origin is your link name
 
 
+Getting branch info: 
+git branch        //Lists local branches.
+git branch -r     // Lists all the remote branches.
+git branch -r -v  // Lists all the remote branches with the latest commit hash and commit message.
+
+
 Deleting a branch:
 git branch -d localBranchName                // delete branch locally
 git push origin --delete remoteBranchName    // delete branch remotely
