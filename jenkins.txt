@@ -725,20 +725,17 @@ pipeline {
 
 
 
+Active Choices(ChoiceParameter) and Active Choices Reactive Parameter(CascadeChoiceParameter):
 
-
-Worked:
 properties([
-    parameters([
-        
-        [
+  parameters([
+    [
             $class: 'ChoiceParameter', 
             choiceType: 'PT_RADIO', 
             description: 'Select a choice', 
             filterLength: 1, 
             filterable: false, 
             name: 'choice1', 
-            randomName: 'choice-parameter-7601235200970', 
             script: [
                 $class: 'GroovyScript', 
                 fallbackScript: [
@@ -752,17 +749,13 @@ properties([
                     script: 'return[\'aaa:selected\',\'bbb\']'
                 ]
             ]
-        ], 
-        
-        [
-            $class: 'DynamicReferenceParameter', 
-            choiceType: 'ET_FORMATTED_HTML', 
-            name: 'strategySelect', 
-            referencedParameters: 'choice1', 
-            description: 'Active Choices Reactive parameter', 
-            omitValueField: true,
-            randomName: 'choice-parameter-7601237141171', 
-            script: [
+        ],,
+    [
+      $class: 'CascadeChoiceParameter',
+      choiceType: 'PT_SINGLE_SELECT',
+      name: 'choice2',
+      referencedParameters: 'choice1',
+      script: [
                 $class: 'GroovyScript', 
                 fallbackScript: [
                     classpath: [], 
@@ -772,33 +765,96 @@ properties([
                 script: [
                     classpath: [], 
                     sandbox: true, 
-                    script: 'if(choice1.equals("aaa")){return "<input name=\'Aws\' value=\'\' class=\'setting-input\' type=\'text\'>"} else {return "Not Required"}'
+                    script: 'if(choice1.equals("aaa")){return ["alpha","omega"]} else {return ["Start","End"]}'
                 ]
             ]
-        ]
+   ]
+ ])
+])
+
+pipeline {
+  agent any
+  stages {
+    stage('Build') {
+      steps {
+        echo "choice1: $choice1"
+        echo "choice2: $choice2"
+      }
+    }
+  }
+}
+
+
+CascadeChoiceParameter can be single select, multi select, radio buttons and checkboxes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Active Choices(ChoiceParameter) and Active Choice Reactive Reference(DynamicReferenceParameter):
+
+properties([
+    parameters([
         
-        ,
-        
+        extendedChoice(name: 'Region_Action', description: 'Select actions for the region. Note: Choose "Delete a Region" option only if Region already exists.', type: 'PT_CHECKBOX', value: 'Delete a Region, Create a Region'),
+        booleanParam (defaultValue: false, name: 'Smoke_Test', description: 'Do you want to perform Smoke Test?'),
+        string (name: 'region_name', description: 'Enter the region name.'),
+        [
+            $class: 'ChoiceParameter', 
+            choiceType: 'PT_RADIO', 
+            description: 'Select the port configuration method.', 
+            filterLength: 1, 
+            filterable: false, 
+            name: 'Port_Selection', 
+            script: [
+                $class: 'GroovyScript', 
+                fallbackScript: [
+                    classpath: [], 
+                    sandbox: false, 
+                    script: 'return ["ERROR"]'
+                ], 
+                script: [
+                    classpath: [], 
+                    sandbox: true, 
+                    script: 'return[\'Manual Entry:selected\',\'Auto-Detect Ports\']'
+                ]
+            ]
+        ], 
         [$class: 'DynamicReferenceParameter',
-            name: 'strategyParams',
-            referencedParameters: 'choice1',
+            name: 'Ports',
+            referencedParameters: 'Port_Selection',
             choiceType: 'ET_FORMATTED_HTML',
             script: [
                 $class: 'GroovyScript',
                 fallbackScript: [
                     classpath: [],
                     sandbox: true,
-                    script: 'return ["nothingggggggggggggg"]'
+                    script: 'return ["Error"]'
                 ],
                 script: [
                     classpath: [],
                     sandbox: true,
                     script: """
-                        if (choice1 == 'aaa') {
+                        if (Port_Selection == 'Manual Entry') {
                             return '''
-                                <p><b>Port1:</b><br><input type="text" class="setting-input" name="value" value="" placeholder=""></p>
-                                <p><b>Port2:</b><br><input type="text" class="setting-input" name="value" value="" placeholder=""></p>
-                                <p><b>Port3:</b><br><input type="text" class="setting-input" name="value" value="" placeholder=""></p>
+                                <p><b>p1:</b><br>Enter p1.<br><input type="text" class="setting-input" name="value" value=""></p>
+                                <p><b>p2:</b><br>Enter p2.<br><input type="text" class="setting-input" name="value" value=""></p>
+                                <p><b>p3:</b><br>Enter p3.<br><input type="text" class="setting-input" name="value" value=""></p>
                             '''
                         }else{
                             return "Not Required";
@@ -807,36 +863,42 @@ properties([
                 ]
             ]
         ]
-                        
-        
-        
+                               
     ])
 ])
 
-
 pipeline {
-    agent any
-
     stages {
-        stage('Print the Values') {
-            steps {
-                script{
-                    List strategyP = params.strategyParams.tokenize(',')
-                    echo "${strategyP[0]}"
-                    echo "${strategyP[1]}"
-                    echo "${strategyP[2]}"
 
-                    int size = strategyP.size();
-                    echo "$size"
-                    
-                    if(strategyP.size()<3){
-                        echo "not valid"
+        stage("stage1"){
+            steps{
+                script {
+                    env.valid = "true";
+
+                    //using the DynamicReferenceParameter
+                    List portNums = params.Ports.tokenize(',');
+                    if(params.Port_Selection == 'Manual Entry' && portNums.size()<3){
+                        env.valid = "false";
                     }else{
-                        echo "valid"
+                        env.p1 = portNums[0];
+                        env.p2 = portNums[1];
+                        env.p3 = portNums[2];
                     }
-                    
+
+                    //using them inside shell script: "$config_file" "${Database_Type}" "${p1}" "${p2}" "${p3}"
                 }
             }
         }
+
     }
+
 }
+
+
+ET_FORMATTED_HTML, ET_FORMATTED_HTML
+
+
+
+
+
+
