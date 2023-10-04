@@ -1,0 +1,181 @@
+Link: https://blog.wemakedevs.org/getting-started-with-docker
+
+History:
+
+-> One app in one server
+
+-> VMware solved by introducing Virtual Machine(VM)
+But each VM must have their own OS and hardware allocated(ram, rom)
+And now on a server there can be many VM's, where each VM runs an application.
+
+->But we wanted to run many applications in a single machine itself(same OS etc).
+This is solved by "Containers".
+Containers does whatever VM does but you don't need different different OS and all.
+Containers will be isolated.
+
+In VM's: 
+Resources->hyperviser->splits rsc to multiple VM(which has diff OS)->app running one on each VM
+I think NRCLING301VM is VM(just a guess)
+
+In containers: 
+Resources->One same OS->container engine->Multiple apps runnung on isolated container on the same machine
+
+
+Usually containers will be running on top VM's
+
+
+
+
+
+If an windows based application is containerised, it will not run on Linux based Docker.
+Similarly if an linux based application is containerised, it will not run on Windows based Docker.
+That's why windows container will require windows host and Linux container will require linux host.
+
+Docker is a container platform, it made the container concept famous.
+
+For windows: Install WSL(Windows Subsystem for Linux)
+Or install Docker Desktop 
+But WSL is better
+
+For MacOs: install VM + Docker Desktop
+
+For Linux:  Run as it is
+
+
+
+
+
+Docker Runtime: 
+allows to start and stop containers.
+types:
+runc: work with os and start and stop the container.
+conatainerd: managing runc, how to interact the conatiner with network(like internet)
+CRI-O
+rkt
+lxc
+There are many options to use.
+
+Docker Engine: 
+We use to interact with docker. (like docker daemon(listens to api req and manages docker objects etc))
+
+Docker Orchestration:(alternative is kubernatives(it's much more than this))
+for scaling up and updating things like version, etc.
+
+
+
+
+Docker/Container Image:
+it's like providing the recipe for a food.
+Providing the src code, depenedencies like OS files and other things required for the application.
+If I want someone to run my application, I'll create a Image of the application and share it, then they can the application.
+
+
+Docker file will have list of instructions.
+
+Docker file -> Image -> Conatainer
+run it to get the other
+"Image" is like a "Class" and "Container" is like a "Object" of it
+"Docker file" is used create the "Image"
+
+
+
+
+
+
+Commands:
+
+for running ubuntu:
+docker run -it ubuntu
+running the conatiner ubuntu, it is for interactive environment
+
+
+to see all conatiners:
+docker container ls
+
+to see all the running conatiner:
+docker ps
+
+for checking logs:
+docker logs conatiner_id
+
+deleting all the container that are stopped:
+docker container prune -f
+
+
+Listing all the images that are present locally:
+docker images
+
+
+docker run image_name
+if the image is present locally like ubuntu, it will directly create the container.
+If it is not present, then
+it will get/download image  from docker hub and create a container of it
+ex:
+docker run hello-world
+it will get/download hello-world image from docker hub and create a container of it
+
+
+exit:
+to come out of the conatiner
+or
+docker stop container_id
+
+to show all the stopped container:
+docker ps -a
+
+removing conatiner:
+docker rm container_id
+
+
+It's easier if u wanna run a application.
+ex: u wanna use mongodb, then just exexute "docker run mongodb"
+
+
+
+Just downloading the image and not running it:
+docker pull image_name
+
+displaying the id of docker images :
+docker images -q
+
+
+some ex: docker run ubuntu echo Hey
+
+docker run -d -p 8080:80 nginx
+this runs nginex in port localhost 8080 and in port 80 of nginx conatiner
+
+
+
+
+Docker commit:
+If you add something new to the container, when you stop the container and then run the container again(using it's id(docker start id)) this change won't be there. So use docker commit for that.  
+docker commit -m "some message" container_id some_new_image_name
+This command must be executed when the container is still running.
+
+
+Removing image:(only the stopped one's not the running one's)
+docker rmi image_id -f
+if u wanna remove all the image,
+docker rmi $(docker images -q)
+
+
+
+docker exec -it conatainer_id bash
+this says i wanna run this container and open bash shell in it
+
+
+
+
+
+docker login
+
+Creating a new image:
+Every single image will have a base image.
+1. create file with name Dockerfile
+2. write linux instructions in it, first line must be FROM some_base_image_like_ubuntu
+3. docker build -t some_image_name path_to_the_folder_in_which_Dockerfile_is
+   Basically this would send all the data in the folder to docker daemon
+
+
+
+
