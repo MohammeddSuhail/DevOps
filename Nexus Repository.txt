@@ -1,0 +1,40 @@
+artifact:
+The files that contain both the compiled code and the resources that are used to compile them are known as artifacts. They are readily deployable files.
+In java an artifact would be a .jar, war, .ear file
+In NPM the artifact file would be a .tar.g file
+In .NET the artifact file would be a .dil file
+
+
+
+artifact repository:
+An artifact repository is a repository which can store multiple different versions of artifacts. Each
+time the war file or tar.gz file is created it is stored in server dedicated for the artifacts.
+
+
+
+if a new version of artifact fails in deployment then we can just pull back the new_version_of_the_artifact_that_failed and then lauch the previous version of the build
+
+
+
+Nexus Repository: is a artifact repository manager and depenedency manager
+is a tool used in DevOps methodology for multiple purposes. One of it's main purpose is to store artifacts(readily deployable code) that have been created in the code pipeline.
+Another one of it's purpose is to act as a sort of buffer for downloading dependencies for the build tools and languages.
+
+Basically stores artifact and deploys based on need and manages & downloads the dependencies for the build tool
+
+
+
+
+
+3rd party and open-source resources are provided by proxying them in nexus(something like that)
+
+
+
+
+
+
+Proxy repository is for using thrid party site resource in secure way(only way)
+If the coonection is https to the site then we need the certiicates(that site certificate) as well.
+If the connection is http then no certificate is needed. 
+There's a video explaining this in https://aciww.sharepoint.com/sites/ad/team/scm/SitePages/Training.aspx
+
