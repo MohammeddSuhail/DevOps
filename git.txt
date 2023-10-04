@@ -35,6 +35,8 @@ Usually main branch name will be main
 
 To get config info: 
 git config -l
+or
+git config --global --list
 
 git config --global user.name "FirstName LastName"
 git config --global user.email mail_id
