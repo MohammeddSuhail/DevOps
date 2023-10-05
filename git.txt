@@ -19,6 +19,9 @@ git branch -d localBranchName                // delete branch locally
 git push origin --delete remoteBranchName    // delete branch remotely
 
 
+undoing previous commit and retaining the changes:
+git reset --soft HEAD~1
+
 
 Not tried:
 Just to go back and check the code:
