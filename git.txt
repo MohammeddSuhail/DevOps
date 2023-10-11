@@ -28,6 +28,31 @@ Just to go back and check the code:
 git checkout hash_id .
 
 
+
+
+If you want to overwrite your local changes with the remote repository, you have two options:
+a.
+Reset your local changes and pull from remote:
+git reset --hard
+
+This will discard all your local changes. Then pull from remote:
+git pull
+
+b.
+Stash your local changes, pull from remote, and then re-apply the stashed changes:
+git stash
+
+To stash your local changes. Then pull from remote:
+git pull
+
+Then re-apply the stashed changes:
+git stash pop
+
+Option 1 is simpler but will discard all your local changes. Option 2 will temporarily stash your changes, pull from remote, and then re-apply the stashed changes, so you don't lose anything.
+
+
+
+
 rm -rf filename.txt
 deletes the file
 
