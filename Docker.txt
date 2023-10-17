@@ -7,11 +7,13 @@ History:
 -> VMware solved by introducing Virtual Machine(VM)
 But each VM must have their own OS and hardware allocated(ram, rom)
 And now on a server there can be many VM's, where each VM runs an application.
+VM emulates Hardware.
 
 ->But we wanted to run many applications in a single machine itself(same OS etc).
 This is solved by "Containers".
 Containers does whatever VM does but you don't need different different OS and all.
 Containers will be isolated.
+Containers emulates OS.
 
 In VM's: 
 Resources->hyperviser->splits rsc to multiple VM(which has diff OS)->app running one on each VM
