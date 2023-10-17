@@ -12,8 +12,9 @@ VM emulates Hardware.
 ->But we wanted to run many applications in a single machine itself(same OS etc).
 This is solved by "Containers".
 Containers does whatever VM does but you don't need different different OS and all.
-Containers will be isolated.
+Containers share the host operating system.
 Containers emulates OS.
+Containers will be isolated.
 
 In VM's: 
 Resources->hyperviser->splits rsc to multiple VM(which has diff OS)->app running one on each VM
