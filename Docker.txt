@@ -12,6 +12,8 @@ VM emulates Hardware.
 ->But we wanted to run many applications in a single machine itself(same OS etc).
 This is solved by "Containers".
 Containers does whatever VM does but you don't need different different OS and all.
+Containers share the host operating system kernel, which allows them to run with less overhead.
+However, containers also bundle their own operating system and dependencies, which can be different from the host OS
 Containers share the host operating system.
 Containers emulates OS.
 Containers will be isolated.
