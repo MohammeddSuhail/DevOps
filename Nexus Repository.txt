@@ -36,5 +36,5 @@ Basically stores artifact and deploys based on need and manages & downloads the 
 Proxy repository is for using thrid party site resource in secure way(only way)
 If the coonection is https to the site then we need the certiicates(that site certificate) as well.
 If the connection is http then no certificate is needed. 
-There's a video explaining this in https://aciww.sharepoint.com/sites/ad/team/scm/SitePages/Training.aspx
+There's a video explaining this.
 
