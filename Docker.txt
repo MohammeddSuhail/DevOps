@@ -18,9 +18,13 @@ Containers share the host operating system.
 Containers emulates OS.
 Containers will be isolated.
 
+A container is a standard unit of software that packages up code and
+all its dependencies so the application runs quickly and reliably from
+one computing environment to another.
+
 In VM's: 
 Resources->hyperviser->splits rsc to multiple VM(which has diff OS)->app running one on each VM
-I think NRCLING301VM is VM(just a guess)
+
 
 In containers: 
 Resources->One same OS->container engine->Multiple apps runnung on isolated container on the same machine
