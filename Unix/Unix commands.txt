@@ -421,4 +421,31 @@ cat auth.log | grep "input_userauth_request" | awk '{print $9}' | sort -u > user
 
 
 
- 
+
+
+
+
+Creating tar:
+
+tar cvf archive_name.tar file_names
+
+c option is used to create a new archive
+v shows the files as they are archived
+f is used to specify the archive file name
+archive_name.tar is the name of the tar archive file you want to create
+file_names are the names of the files/folders you want to archive
+ex:
+tar cvf myfiles.tar file1.txt folder1 file2.txt 
+
+
+
+
+Extracting tar:
+
+tar -xvf <archive name>
+
+-x stands for extract
+-v gives verbose output
+-f specifies the tar archive file to extract
+
+
