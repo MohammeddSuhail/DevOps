@@ -1,0 +1,131 @@
+Solutions available on Azure:
+
+
+IOT:
+
+IOT Devices <-> IOT Hub <-> IOT Software
+
+1. Azure Iot Hub:
+used by developers to provide bi-directional communication capabilities between the devices and the cloud.
+Platform as a Service (PaaS)
+Integrates with a lot of Azure Services
+Programmable SDKs for popular languages (C, C#, Java, Python, Node.js)
+
+2. Azure IoT Central:
+is a Software as a Service solution for building loT applications using industry specific templates
+No deep technical knowledge required
+Service for connecting, management and monitoring IoT devices
+Built on top of the IoT Hub service and 30+ other services
+
+3. Azure Sphere:
+Secure end-2-end IoT Solutions
+Azure Sphere certified chips (microcontroller units - MCUs)
+Azure Sphere OS based on Linux
+Azure Security Service trusted device-to-cloud communication
+
+
+
+
+
+
+Big Data:
+
+• Azure Synapse Analytics: (PaaS)
+Modern workspace for end-2-end enterprise data warehousing & analytics with a lot of integrated tools like Data Factory, Spark, SQL, etc.
+
+• Azure HDInsight: (PaaS)
+Fully-managed open source analytics service with a lot of supported frameworks & tools like Hadoop, Spark, Kafka, Hive, etc.
+
+• Azure Databricks: (PaaS)
+Apache Spark based analytics platform for data transformation and collaborative analytics
+
+
+
+
+
+
+
+
+Azure Machine Learning: (PaaS)  
+Cloud-based platform for creating, managing and publishing machine learning models
+Machine Learning Workspace – top level resource
+Machine Learning Studio – web portal for end-2-end development
+Features:
+  Notebooks – using Python and R
+  Automated ML – run multiple algorithms/parameters combinations, choose the best model
+  Designer – graphical interface for no-code development
+  Data & Compute – management of storage and compute resources
+  Pipelines – orchestrate model training, deployment and management tasks
+
+
+
+
+
+
+
+
+
+
+
+Azure Serverless Computing Services:
+
+What is Serverless?
+Serverless computing is cloud-hosted execution environment that allows customers to run their applications 
+in the cloud while completely abstracting underlying infrastructure.
+
+
+• Azure Functions:(has come before)
+Serverless coding platform (Functions as a Service, FaaS)
+Designed for nano-service architectures and event-based applications
+
+• Azure Logic Apps:
+Serverless enterprise integration service (PaaS)
+200+ connectors for popular services
+Designed for orchestration of business processes, integration workflows for applications, data, systems and services
+No-code solution(using visual interface)
+
+• Azure Event Grid
+Fully managed serverless event routing service
+Uses publish-subscribe model
+Azure Event Grid is a service that allows customers to route messages between services without worrying about the underlying infrastructure
+Designed for event-based and near-real time applications
+Supports dozen of built-in events from most common Azure services
+
+
+
+
+
+
+
+
+
+
+
+DevOps:
+
+• Azure DevOps:
+Collection of services for building solutions using DevOps practices
+Services included
+  • Boards – tracking work
+  • Pipelines – building CI/CD workflows (build, test and deploy apps)
+  • Repos – code collaboration and versioning with Git
+  • Test Plans – manual and exploratory testing
+  • Artifacts – manage project deliverables
+Extensible with Marketplace – over 1000 of available apps
+
+• Azure DevTest Labs:
+Service for creation of sandbox environments for developers/testers (PaaS)
+Quick setup of self-managed virtual machines
+Preconfigured templates for VMs
+Plenty of additional artifacts (tools, apps, custom actions)
+Lab policies (quotas, sizes, auto-shutdowns)
+Share and automate labs via custom images
+Premade plugins/API/tools for CI/CD pipeline automation
+
+
+
+Azure DevTest labs is used to provide sandbox environments to developers and testers but it doesn't
+deliver any features for building CI/CD pipelines.
+
+Azure DevOps comes with a pipelines feature that allow developers to create CI/CD pipelines for their
+applications easily.

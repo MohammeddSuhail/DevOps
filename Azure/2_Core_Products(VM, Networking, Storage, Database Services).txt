@@ -1,0 +1,204 @@
+VM:
+
+Normally only one application is run on a VM or ?
+=>
+while it is technically possible to run multiple apps on a VM, it is generally not recommended due to the reasons mentioned below,
+->Isolation: 
+The main purpose of a VM is to isolate one application from others for security and stability. 
+Running multiple apps on the same VM defeats this purpose.
+->Resource allocation: 
+A VM is allocated a set amount of resources like CPU, memory, storage, etc. 
+Running multiple apps on the same VM may lead to resource contention if the apps have conflicting resource requirements.
+->Simplicity: It is simpler to manage and maintain a single-application VM. 
+Troubleshooting, patching, and upgrading are easier when only one app is running on the VM.
+->Licensing: 
+Some software licenses only allow the software to be run on a single VM. 
+Running multiple instances of the software on the same VM may violate the license.
+
+
+
+
+Virtual Machine Scale Sets:
+VM can only be vetically scaled.
+For horizontal scaling, we have something called "Virtual Machine Scale Sets"
+Set of identical virtual machines
+Built-in auto scaling features
+Designed for manual and auto-scaled workloads like web services,* batch processing, etc.
+It is IaaS itself
+
+
+
+
+Containers
+
+
+Azure Container Instances:
+Simplest and fastest way to run a container in Azure
+Platform as a Service
+Serverless Containers
+Designed for
+Small and simple web apps/services
+Background jobs
+Scheduled scripts
+
+
+
+
+App Service:
+Designed as enterprise grade web application service
+Platform as a Service
+Supports multiple programming languages and containers
+App Services allow for hosting web applications by either deploying packaged code or entire containers.
+The Container Instances and Kubernetes Service are designed purely for container deployments.
+
+
+
+
+
+Azure Functions (Function Apps):
+similar to app srvice but for small codes.
+Azure Functions delivers a serverless hosting platform and SDK that allow customers to develop small.
+Functions is a serverless web service hosting platform. It scales nicely and with consumption based
+pricing it is ideal for hosting applications with an unpredictable workload demand.
+pieces of code and host them as web services.
+Platform as a Service
+Serverless
+Two hosting/pricing models
+Consumption-based plan
+Dedicated plan
+Designed for micro/nano-services
+
+
+
+
+
+
+
+
+With virtual machines customers need to the manage operating system, platform updates, runtimes and
+the application itself. This gives them a total control over everything related to the application runtime environment.
+Containers are similar to virtual machines except they virtualize the operating system themselves. So there is a
+little bit less control over the system part but customers can still manage almost every other aspect of the
+environment. App Services totally abstract the underling platform so customers only manage their code and
+deployment. Functions are the least configurable as they are a truly serverless solution.
+
+
+
+
+
+
+
+
+
+Azure Networking Services: 
+https://marczak.io/az-900/episode-10/cheat-sheet/
+
+products available for Networking such as Virtual Network, Load Balancer, VPN Gateway, Application Gateway and Content Delivery Network
+
+VPN Gateway:
+Specific type of virtual network gateway for on-premises to azure traffic over the public internet
+(on-premises -> azure connection)
+
+Application Gateway:
+Web traffic load balancer
+
+
+
+
+
+
+
+
+
+Storages Services: 
+https://marczak.io/az-900/episode-11/cheat-sheet/
+
+products available for Storage such as Blob Storage, File Storage, Queue Storage, Table Storage, Disk Storage, and Storage Tiers
+
+Blob Storage(containers):
+BLOB – binary large object – file
+Designed for storage of files of any kind
+
+File Storage(File Shares):
+Storage for files accessed via shared drive protocols
+Designed to extend on-premise file shares or implement lift-and-shift scenarios
+ex: using "map network drive" to add a new drive(which is remote) and get access.
+It's like adding a new storage to your pc, but this can be shared among all since it's remote.
+
+
+You use File Storage if u need shared drive protocols or else use Blob Storage.
+
+Table Storage:
+Storage for semi-structured data (NoSQL)
+
+Disk Storage:
+Disk emulation in the cloud
+Persistent storage for "Virtual Machines"
+
+
+Azure storage account:
+Highly scalable and highly durable storage service consisting
+group of smaller services (blob, file, queue and table storage services)
+all these storage services will be put under this.
+
+
+
+Azure file storage and disk storage can be used to provide persistent storage capabilities for a VM.
+
+
+
+
+Blob Storage - PaaS File Storage - PaaS Queue Storage - PaaS Table Storage - PaaS
+
+Disk Storage:
+Managed Disks - PaaS
+Unmanaged Disks - IaaS
+
+
+
+
+
+
+
+
+
+Database Services:  Cosmos DB, SQL Database
+https://marczak.io/az-900/episode-12/cheat-sheet/
+
+Cosmos DB:
+Globally distributed NoSQL (semi-structured data) Database service. Schema-less. Multiple APIs (SQL, MongoDB, Cassandra, Gremlin, Table Storage).
+Similar to "Table Storage", difference is ability to replicate geogrphically.
+So its, 
+->Highly responsive (real time) applications with super low latency responses <10ms
+->Multi-regional applications
+
+
+For Structured Data,
+Azure SQL Database – Reliable relational database based on SQL Server(PaaS)
+Azure Database for MySQL – Azure SQL version for MySQL database engine
+Azure Database for PostgreSQL – Azure SQL version for PostgreSQL database engine
+Azure SQL Managed Instance – Fully fledged SQL Server managed by cloud provider(SaaS)
+Azure SQL on VM – Fully fledged SQL Server on IaaS
+Azure SQL DW (Synapse) – Massively Parallel Processing (MPP) version of SQL Server
+
+
+
+
+
+
+
+
+Azure Marketplace:
+Think of it like an “Azure Shop” where you purchase services and solutions for the Azure platform
+Each product is a template which contains one or multiple services
+Products are delivered by first and third-party vendors
+
+
+
+
+
+
+
+
+
+

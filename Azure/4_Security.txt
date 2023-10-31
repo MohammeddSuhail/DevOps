@@ -1,0 +1,416 @@
+Content:
+
+Network Security Groups
+Application Security Groups
+
+User-defined Routes(UDR)
+
+Azure Firewall
+
+Azure DDoS Protection
+
+Azure Active Directory
+Multi-factor Authentication (MFA)
+
+Azure Security Center
+
+Azure Key Vault
+
+Azure Role-based Access Control (RBAC)
+
+Azure Resource Lock: • Read-only (ReadOnly) • Delete (CanNotDelete)
+
+Azure Resource Tags
+
+Azure Policy
+
+Azure Blueprints
+
+Cloud Adoption Framework
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Network Security Groups:
+• Designed to filter traffic to (inbound) and from (outbound) Azure resources located in - Azure Virtual Network
+• Filtering controlled by rules
+• Ablity to have multiple inbound and outbound rules
+ Rules are created by specifying
+  • Source/Destination (IP addresses, service tags, application security groups)
+  • Protocol (TCP, UDP, any)
+  • Port (or Port Ranges, ex. 3389 - RDP, 22 - SSH, 80 HTTP, 443 HTTPS)
+  • Direction (inbound or outbound)
+  • Priority (order of evaluation)
+
+
+Application Security Groups:
+• Feature that allows grouping of virtual machines located in Azure virtual network
+• Designed to reduce the maintenance effort (assign ASG instead of the explicit IP address)
+
+Application Security Groups will usually be inside Network Security Groups.
+
+
+
+
+
+
+
+
+
+Routing:
+Process of finding/selecting a path for traffic in one or across multiple networks.
+
+User-defined Routes(UDR):
+• Custom (user-defined, static) routes (UDRs)
+• Designed to override Azure's default routing or add new routes
+• Managed via Azure Route Table resource
+• Associated with a zero or more Virtual Network subnets
+
+
+
+
+
+
+
+
+
+Firewall:
+Firewall is a network security service that monitors and controls incoming and outgoing traffic.
+
+Azure Firewall:
+• Managed, cloud-based firewall service (PaaS, Firewall as a Service)
+• Built-in high availability
+• Highly Scalable
+• Inbound & outbound traffic filtering rules
+• Support for FQDN (Fully Qualifed Domain Name), ex. microsoft.com
+• Fully integrated with Azure monitor for logging and analytics
+
+
+
+
+
+
+
+
+
+DoS - Denial of Service:
+Cyber-attack with intent to cause temporary or indefinite disruption of service
+
+DDoS - Distributed Denial of Service:
+DoS attack that is originating from multiple servers
+
+Azure DDoS Protection:
+• DDoS protection service in Azure
+• Designed to
+  • Detect malicious traffic and block it while allowing legitimate users to connect
+  • Prevent additional costs for auto-scaling environments
+• Two tiers
+  • Basic - automatically enabled for Azure platform (all publicly exposed Azure services are already protected by DDoS protection basic plan.)
+  • Standard - additional mitigation & monitoring capabilities for Azure Virtual Network resources
+• Standard tier uses machine learning to analyze traffic patterns for better accuracy
+
+
+
+
+
+
+
+
+
+
+
+
+
+Identity:
+• A user with a username and password.
+• Also applications or other servers with secret keys or certificates.
+• The fact of being something or someone.
+
+Authentication:
+The process of verification/assertion of identity
+
+Authorization:
+The process of ensuring that only authenticated identities get access to the resources for which they have been
+granted access.
+
+Access Management:
+The process of controlling, verifying, tracking and managing access to authorized users and applications.
+
+
+Azure Active Directory:
+• Identity and Access Management service in Azure
+• Identities management - users, groups, applications
+• Access management - subscriptions, resource groups, roles, role assignments, authentication & authorization
+settings, etc.
+• Used by multiple Microsoft cloud platforms
+  • Azure
+  • Microsoft 365
+  • Office 365
+  • Live.com services (Skype, OneDrive, etc.) 
+
+Multi-factor Authentication (MFA):
+• Process of authentication using more than one factor (evidence) to prove identity
+• Factor types
+  • Knowledge Factor - "Something you know", ex. password, pin
+  • Possession Factor - "Something you have", ex. phone, token, card, key
+  • Physical Characteristic Factor - "Something you are", ex. fingerprint, voice, face, eye iris
+  • Location Factor - "Somewhere you are", ex. GPS location
+• Supported by Azure AD by default (simple on-off switch)
+
+
+
+
+
+
+
+
+
+
+
+
+
+Azure Security Center:
+Azure Security Center is a service that protects Azure laaS and PaaS services by providing a centralized
+and unified experience with recommendations and advanced security features.
+Security Center includes features like 
+ • security recommendations
+ • monitoring for cloud and on-premises workloads
+ • automatic security assessments, analysis of threats and attacks, 
+ • just-in-time VMaccess, and many more.
+
+• Centralized/unified infrastructure and platform security management service
+• Natively embedded in Azure services
+• Integrated with Azure Advisor
+• Two tiers
+  • Free (Azure Defender OFF) - included in all Azure services, provides continuous assessments, security
+    score, and actionable security recommendations
+  • Paid (Azure Defender ON) - hybrid security, threat protection alerts, vulnerability scanning, just in time (JIT) VM access, etc.
+
+Security Center was the one who was providing recommendentions to the Azure Advisor
+
+
+
+
+
+
+
+
+
+
+
+
+Azure Key Vault:
+• Managed service for securing sensitive information (application/platform) (PaaS)
+• Secure storage service for
+  • Keys,
+  • Secrets and
+  • Certificates
+• Highly integrated with other Azure services (VMs, Logic Apps, Data Factory, Web Apps, etc.)
+• Centralization
+• Access monitoring and logging
+
+
+
+
+
+
+
+
+
+
+
+What is a Role?
+Role (role definition) is a collection of actions that the assigned identity will be able to perform.
+Role definition is an answer to a question "What can be done?"
+
+What is a Security Principal?
+Security Principal is an Azure object (identity) that I can be assigned to a role (ex. users, groups or applications).
+Security Principal assignment is an answer to a question "Who can do it?"
+Scope - resource, resource groups, subscription, management group
+
+What is a Scope?
+Scope is one or more Azure resources that the access applies to.
+Scope assignment is an answer to a question "Where can it be done?"
+
+What is a Role Assignment?
+Role assignment is a combination of the role definition, security principal and scope.
+
+
+Azure Role-based Access Control (RBAC):
+• Authorization system built on Azure Resource Manager (ARM)
+• Designed for fine-grained access management of Azure Resources
+• Role assignment is combination of
+  • Role definition - list of permissions like create VM, delete SQL, assign permissions, etc.
+  • Security Principal - user, group, service principal and managed identity and
+  • Scope - resource, resource groups, subscription, management group
+• Hierarchical
+   Management Groups > Subscriptions > Resource Groups > Resources
+• Built-in and Custom roles are supported
+
+
+
+
+
+
+
+
+
+
+
+
+
+Azure Resource Lock:
+• Designed to prevent accidental deletion and/or modification
+• Used in conjunction with RBAC
+• Two types of locks
+  • Read-only (ReadOnly) - only read actions are allowed
+  • Delete (CanNotDelete) - all actions except delete are allowed
+• Scopes are hierarchical (inherited)
+   Subscriptions > Resource Groups > Resources
+• Management Groups can't be locked
+• Only Owner and User Access Administrator roles can manage locks (built-in roles)
+
+
+
+
+
+
+
+
+
+
+
+
+Azure Resource Tags:
+• Tags are simple Name (key) - Value pairs
+• Designed to help with organization of Azure resources
+• Used for resource governance, security, operations management, cost management, automation, etc.
+• Typical tagging strategies
+  • Functional - mark by function (ex: environment = production)
+  • Classification - mark by policies used ( ex: classification = restricted)
+  • Finance/Accounting - mark for billing purposes ( ex: department = finance )
+  • Partnership - mark by association of users/groups ( ex: owner = adam )
+• Applicable for resources, resource groups and subscriptions
+• NOT inherited by default(i.e, if a resource grp has a tag, that doesn't mean that all the rsc's in that rsc grp will be applied that tag)
+  but there is a policy that could allow the interitence of resource tags
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Azure Policy:
+• Designed to help with resource governance, security, compliance, cost management, etc.
+• Azure Policy inspects properties of Azure resources using simple if/else conditions and allows customers to
+  choose actions (effects) based on their values.(unlike RBAC which focused on user actions)
+• Policy definition - Defines what should happen
+  • Define the condition (if/else) and the effect (deny, audit, append, modify, etc.)
+  • Examples include allowed resource types, allowed locations, allowed SKUs, inherit resource tags
+• Built-in and custom policies are supported
+• Policy initiative - a group of policy definitions
+• Policy assignment - assignment of a policy definition/initiative to a scope
+  • Scopes can be assigned to
+    • management groups,
+    • subscriptions,
+    • resource groups, and
+    • resources
+• Policies allow for exclusions of scopes(can exclude resources from policies being applied to it)
+• Checked during resource creation or updates and existing ones with remediation tasks
+ex: like policy for restricting the region location of resources
+First the normal in-built policies are applied, later our created policies will be applied.
+
+
+
+
+
+
+
+
+
+
+
+
+
+Azure Blueprints:
+Blueprints service was designed to provide a centralized approach for the management of approved design pattern for your organization.
+• Package of various Azure components (artifacts)
+  • Resource Groups
+  • ARM Templates
+  • Policy Assignments
+  • Role Assignments
+• Centralized storage for organizationally approved design patterns
+• Blueprint definition - describing what should happen (reusable package)
+• Blueprint assignment - describing where it should happen (package deployment)
+
+
+
+
+
+
+
+
+
+
+Cloud Adoption Framework:
+• Cloud Adoption Framework (CAF) for Azure is a set of tools, best practices, guidelines anddocumentation
+• Stages
+  • Strategy - understand why move and how to provide business value
+  • Plan - prepare actionable plan based on current digital assets and supporting current strategy
+  • Ready - prepare and align users, processes and environment (azure landing zone)
+  • Adopt - start move (migrate/innovate) based on the plan (implement the plan)
+  • Govern - align compliance and security standards and tools
+  • Manage - manage, monitor and optimize environment
+• Organize - ensure everyone knows what to do and when (RACI matrix)
+• Documentation and communication of every stage is critical requirement for the process
+
+Plan, Ready and Adopt are 3 main stages of cloud adoption process.
+
+For more details check: https://marczak.io/az-900/episode-33/cheat-sheet/
+
+
+
+
+
+
+
+
+
+
+
+
+
+• Microsoft Privacy Statement - collection, purpose and usage of personal data for all MS offers
+• Online Services Terms (OST) - license terms (use rights) for Microsoft online products and services
+• Data Protection Addendum (DPA) - in-depth specification on processing and security of personal
+  and customer data as well as obligations of the customer and Microsoft
+• Trust Center - single place for organizations to review security, privacy and compliance of Microsoft online services
+• Azure compliance documentation - compliance documentation for Azure services
+• Azure Sovereign Regions provide Azure services in markets with very strict regulatory requirements
+  • Azure Government designed for the US government
+  • Azure China designed for the Chinese market
+
+Check this out: https://marczak.io/az-900/episode-34/cheat-sheet/
+
+
+
+
+
+
