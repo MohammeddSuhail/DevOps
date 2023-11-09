@@ -30,6 +30,18 @@ git checkout hash_id .
 
 
 
+
+If i have made a branch called feta1 from develop, now there are updates in in develop, how to get that to feat1 branch now?
+
+1.Switch to your feat1 branch:
+git checkout feat1
+
+2.Pull the changes from the develop branch into feat1:
+git pull origin develop
+
+Then add and push or just push.
+
+
 If you want to overwrite your local changes with the remote repository, you have two options:
 a.
 Reset your local changes and pull from remote:
