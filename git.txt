@@ -42,6 +42,13 @@ git pull origin develop
 Then add and push or just push.
 
 
+
+
+git fetch origin
+fetch all the latest changes from the remote with git fetch origin. This will also retrieve the new branch information.
+
+
+
 If you want to overwrite your local changes with the remote repository, you have two options:
 a.
 Reset your local changes and pull from remote:
