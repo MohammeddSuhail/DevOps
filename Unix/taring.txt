@@ -1,0 +1,4 @@
+tar -czvf archive_name.tar.gz folder_name
+
+extracting:
+tar -xvzf archive_name.tar.gz
