@@ -1,0 +1,58 @@
+Tags are like branch that doesn't change.
+This will basically will be pointing to a perticular commit id.
+
+
+
+
+
+You can create a tag by using the git tag command
+• $ git tag <tag name> (Light-Weighted Tag)
+• $ git tag -a <tag name> -m "< Tag message> (Annotated Tag)
+
+
+
+We can list the available tags in our repository.
+• $ git tag
+• $ git show < tagname>
+• $ git tag -l "<pattern>"
+
+
+
+
+Push tags on remote repository ::
+• $ git push origin ‹tagname>    => for pushing specific tag
+• $ git push origin --tags       => for pushing all tags
+
+
+
+
+
+
+Delete tags from local repository::
+• §git tag -delete ‹tagname>
+• $ git tag --d <tag1> <tag2>
+
+Delete tags from remote repository::
+• $ git push origin -delete ‹tagname>
+• $ git push origin --d <tag1> <tag2>
+
+
+
+
+Git Checkout Tags
+• There is no actual concept of check out the tags in git. However, we can do it by creating a new branch from a tag.
+$ git checkout -b ‹new branch name> ‹tag name> 
+
+
+
+
+
+
+
+Create a tag from an older commit:
+If you want to go back to your history and want to create a tag on that point. Git allows you to do so.
+$ git tag ‹tagname> ‹commit-id>
+
+
+
+
