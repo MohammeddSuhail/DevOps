@@ -1034,3 +1034,19 @@ pipeline {
     }
 }
 
+
+
+
+
+
+Referencing/Using parameters inside the shell,
+
+sh '''
+    if [ "$Some_String_Variable" == "some_string" ]; then
+
+
+    if [ "$Some_Checkbox" == true ]; then       or     if [ "$Some_Checkbox" == "true" ]; then
+
+'''
+
+
