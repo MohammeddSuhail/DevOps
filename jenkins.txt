@@ -811,13 +811,13 @@ Active Choices(ChoiceParameter) and Active Choice Reactive Reference(DynamicRefe
 properties([
     parameters([
         
-        extendedChoice(name: 'Region_Action', description: 'Select actions for the region. Note: Choose "Delete a Region" option only if Region already exists.', type: 'PT_CHECKBOX', value: 'Delete a Region, Create a Region'),
-        booleanParam (defaultValue: false, name: 'Smoke_Test', description: 'Do you want to perform Smoke Test?'),
-        string (name: 'region_name', description: 'Enter the region name.'),
+        extendedChoice(name: 'Action', description: 'Select actions', type: 'PT_CHECKBOX', value: 'Delete, Create'),
+        booleanParam (defaultValue: false, name: 'Test', description: 'Do you want to performTest?'),
+        string (name: 'name', description: 'Enter the name.'),
         [
             $class: 'ChoiceParameter', 
             choiceType: 'PT_RADIO', 
-            description: 'Select the port configuration method.', 
+            description: 'Select the method.', 
             filterLength: 1, 
             filterable: false, 
             name: 'Port_Selection', 
