@@ -2,7 +2,8 @@ Tags are like branch that doesn't change.
 This will basically will be pointing to a perticular commit id.
 
 
-
+cloning a tag from repo:
+git clone --branch tag_name --single-branch ssh_link
 
 
 You can create a tag by using the git tag command
