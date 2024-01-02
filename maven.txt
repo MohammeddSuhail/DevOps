@@ -7,6 +7,8 @@ describe the project's structure, dependencies, and build process
 It also offers a vast repository of open-source libraries and plugins that can be easily integrated into
 projects.
 
+When you say build, it means it takes all the code & dependencies and creates executable(like jar files).
+
 
 Features of maven:
 Dependency Management
