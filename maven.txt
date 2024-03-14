@@ -69,7 +69,7 @@ Replace com/mycompany/app with your desired package structure.
 </project>
 
 
-
+Here <build> <plugins>, we ask for all the dependencies to be included the jar which will created itself.
 Replace com.mycompany.app and my-app with your desired group ID and artifact ID.
 
 
