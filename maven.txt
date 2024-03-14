@@ -1,3 +1,172 @@
+
+create project: This create all the folder structure and pom.xml also
+mvn archetype:generate -DgroupId=com.mycompany.package_name -DartifactId=project_name -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+
+or
+
+1.
+mkdir my-app
+cd my-app
+
+
+
+2.
+mkdir -p src/main/java/com/mycompany/app
+mkdir -p src/test/java/com/mycompany/app
+
+
+Replace com/mycompany/app with your desired package structure.
+
+
+
+3. Create a pom.xml file: In your project directory, create a new file named pom.xml with the following content:
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.mycompany.package_name</groupId>
+    <artifactId>Project_name</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.microsoft.ews-java-api</groupId>
+            <artifactId>ews-java-api</artifactId>
+            <version>2.0</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <!-- Replace with your main class -->
+                            <mainClass>com.mycompany.package_name.main_class_name</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+
+
+
+Replace com.mycompany.app and my-app with your desired group ID and artifact ID.
+
+
+
+4.
+Create a new Java class and copy the provided code into it: In the src/main/java/com/mycompany/app directory.
+
+
+Option A:
+5.Build and run your project: You can now build your project with the following command:
+mvn package
+
+
+
+6. And then run your project with the following command:
+java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.class
+
+
+
+Option B:
+mvn clean compile assembly:single
+
+java -jar target/YourApp.jar
+
+
+
+
+
+
+Listing all the files in the jar:
+jar tf target/jar_file_name.jar
+
+
+
+
+
+
+
+
+If u wanna specify the main class name:
+src/main/resources/META-INF/MANIFEST.MF 
+=> Main-Class: com.mycompany.app.App
+
+mvn compile
+
+mvn package
+
+Rebuild Your JAR:
+jar cmf src/main/resources/META-INF/MANIFEST.MF target/YourApp.jar -C target/classes .
+
+Execute your JAR using:
+java -jar target/YourApp.jar
+
+
+
+
+
+mvn compile
+
+mvn test
+
+mvn package
+
+
+
+
+just,
+mvn clean compile assembly:single
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Maven is a popular build automation tool for Java-based projects that helps manage and organize
 the software development process.
 It provides a standard way to define project dependencies, build processes, and project structure,
