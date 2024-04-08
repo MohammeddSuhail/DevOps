@@ -143,6 +143,20 @@ mvn clean compile assembly:single
 
 
 
+MANIFEST.MF:
+The manifest file should be placed in the src/main/resources/META-INF directory within your Maven project.
+
+Open the MANIFEST.MF file using a text editor.
+Add the following line to specify the main class (replace com.mycompany.app.App with your actual main class):
+Main-Class: com.mycompany.app.App
+
+Rebuild Your JAR:
+jar cmf src/main/resources/META-INF/MANIFEST.MF target/YourApp.jar -C target/classes .
+
+Execute your JAR using:
+java -jar target/YourApp.jar
+
+
 
 
 
