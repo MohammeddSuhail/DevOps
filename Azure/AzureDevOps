@@ -1,0 +1,10 @@
+Planning: Azure Board
+Code: Azure Repo(like bitbucket)
+Test + Package to Artifact + Uploading/Deploying the Artifact to repo: Azure Pipeline
+
+Azure Pipeline: it's in yaml format
+Has steps
+Jobs: each job can be run on different agents(servers)
+
+Azure Artefacts: For storing Artifacts
+Can store: Maven, Nuget, NPM packages
