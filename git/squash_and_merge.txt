@@ -1,6 +1,6 @@
 git checkout develop
 
-git merge --squash feature/CMM-40851-Server-Clean-Up
+git merge --squash feature/branch_name
 
 git commit -m "Merged feature/branch_name"
 
