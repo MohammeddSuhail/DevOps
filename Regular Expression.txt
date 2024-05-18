@@ -85,4 +85,150 @@ cp -r New* new_dir/
 
 
 
+Regular Expressions:
+
+import re
+
+
+# .       - Any Character Except New Line
+# \d      - Digit (0-9)
+# \D      - Not a Digit (0-9)
+# \w      - Word Character (a-z, A-Z, 0-9, _)
+# \W      - Not a Word Character
+# \s      - Whitespace (space, tab, newline)
+# \S      - Not Whitespace (space, tab, newline)
+
+# \b      - Word Boundary
+# \B      - Not a Word Boundary
+# ^       - Beginning of a String
+# $       - End of a String
+
+# []      - Matches Characters in brackets
+# [^ ]    - Matches Characters NOT in brackets
+# |       - Either Or
+# ( )     - Group
+
+# Quantifiers:
+# *       - 0 or More
+# +       - 1 or More
+# ?       - 0 or One
+# {3}     - Exact Number
+# {3,4}   - Range of Numbers (Minimum, Maximum)
+
+
+#r for raw string: string it as is without any special value for / and all
+str = r"""
+My name is Suhail: Email ID: moh3suhail@gmail.com SAP-100 --1
+"""
+
+mat = re.search("Suhail", str)
+print(mat.group(), "\n") # Suhail
+
+#ignore case
+mat = re.search("id", str,re.IGNORECASE)
+print(mat.group(), "\n") # ID
+
+#findall
+mat = re.findall("suhail", str, re.IGNORECASE)
+
+print("\n", mat) # ['Suhail', 'suhail']
+    
+
+
+
+# [arn]:    	Returns a match where one of the specified characters (a, r, or n) is present	
+# [a-n]:    	Returns a match for any lower case character, alphabetically between a and n	
+# [^arn]:   	Returns a match for any character EXCEPT a, r, and n	
+# [0123]:   	Returns a match where any of the specified digits (0, 1, 2, or 3) are present	
+# [0-9]:    	Returns a match for any digit between 0 and 9	
+# [0-5][0-9]:   Returns a match for any two-digit numbers from 00 and 59
+
+
+
+# []      - Matches Characters in brackets
+mat = re.search("[a-zA-Z0-9_.]+@gmail.com", str)
+print(mat.group(), "\n") # moh3suhail@gmail.com
+
+#most of the time anything inside [] is taken literally
+mat = re.search("[.]", str)
+print(mat.group(), "\n") # .
+
+# [^ ]    - Matches Characters NOT in brackets
+mat = re.findall("[^a-zA-Z0-9]", str)
+print(mat, "\n") # ['\n', ' ', ' ', ' ', ':', ' ', ' ', ':', ' ', '@', '.', ' ', '-', ' ', '-', '-', '\n']
+
+
+
+#sub
+after_replace = re.sub("suhail","dj", str)
+print(after_replace, "\n") # My name is Suhail: Email ID: moh3dj@gmail.com SAP-100 --1
+
+#used .*? instaed of .* because .* is too greedy, which means it matches as much of the string as possible, including parts of the email address itself.  
+after_replace = re.sub("(.*?)([a-zA-Z0-9_.]+@gmail.com)(.*)",r"\1", str)
+print(after_replace, "\n") # My name is Suhail: Email ID:
+
+after_replace = re.sub("(.*?)([a-zA-Z0-9_.]+@gmail.com)(.*)",r"\2", str)
+print(after_replace, "\n") # moh3suhail@gmail.com
+
+after_replace = re.sub("(.*?)([a-zA-Z0-9_.]+@gmail.com)(.*)",r"\3", str)
+print(after_replace, "\n") #  SAP-100 --1
+
+
+str2 = r"""
+the champion is here. 
+"""
+
+#\b Returns a match where the specified characters are at the beginning or at the end of a word
+
+mat = re.search(r"champ", str2)
+print(mat.group(), "\n") # champ
+
+#start of the word
+mat = re.search(r"\bchamp", str2)
+print(mat.group(), "\n") # champ
+
+#start and end of the word, delimiter on both side
+mat = re.search(r"\bchamp\b", str2)  # no match
+if mat:
+    print(mat.group(), "\n") 
+else:
+    print("no match")  
+
+
+# |       - Either Or
+mat = re.findall("SAP-[0-9]* | [a-zA-Z0-9_.]+@gmail.com", str)
+print(mat, "\n") # [' moh3suhail@gmail.com', 'SAP-100 ']
+
+after_replace = re.sub("SAP-[0-9]* | [a-zA-Z0-9_.]+@gmail.com", "", str)
+print(after_replace, "\n") # My name is Suhail: Email ID: --1
+
+# ( )     - Group
+mat = re.search("(.*?)([a-zA-Z0-9_.]+@gmail.com)(.*)", str)
+print(mat.group(1), "\n") # My name is Suhail: Email ID:
+print(mat.group(2), "\n") # moh3suhail@gmail.com
+print(mat.group(3), "\n") #  SAP-100 --1
+
+mat = re.search(r"\w{3}-\d{3}", str)
+print(mat.group(), "\n") # SAP-100
+
+
+
+
+
+
+import re
+str = """
+Multi-line string
+"""
+
+pattern = re.compile(r'some_regex_pattern', re.MULTILINE)
+
+matches = pattern.findall(str)
+
+for match in matches:
+    print(match)
+
+
+
+
 
