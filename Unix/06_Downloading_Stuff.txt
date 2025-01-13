@@ -1,4 +1,4 @@
-to getting things from internet:
+For getting things from internet:
 wget link
 or
 curl link
