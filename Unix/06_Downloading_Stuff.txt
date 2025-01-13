@@ -2,9 +2,3 @@ to getting things from internet:
 wget link
 or
 curl link
-
-
-
-hostname -i
-
-
