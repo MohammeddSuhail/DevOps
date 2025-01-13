@@ -1,4 +1,3 @@
-
 create project: This create all the folder structure and pom.xml also
 mvn archetype:generate -DgroupId=com.mycompany.package_name -DartifactId=project_name -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 
