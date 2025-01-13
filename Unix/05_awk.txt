@@ -1,0 +1,150 @@
+link: https://www.geeksforgeeks.org/awk-command-unixlinux-examples/
+
+(a) Scans a file line by line 
+(b) Splits each input line into fields 
+(c) Compares input line/fields to pattern 
+(d) Performs action(s) on matched lines 
+
+
+awk command splits the record delimited by whitespace character by default and stores it in the $n variables. 
+If the line has 4 words, it will be stored in $1, $2, $3 and $4 respectively. Also, $0 represents the whole line.  
+
+
+
+Syntax:
+
+awk options 'selection _criteria {action }' input-file > output-file
+Options:  
+
+-f program-file : Reads the AWK program source from the file 
+                  program-file, instead of from the 
+                  first command line argument.
+-F fs            : Use fs for the input field separator
+
+
+
+NR: NR command keeps a current count of the number of input records. Remember that records are usually lines. 
+    Awk command performs the pattern/action statements once for each record in a file. 
+NF: NF command keeps a count of the number of fields within the current input record. 
+FS: FS command contains the field separator character which is used to divide fields on the input line. 
+    The default is “white space”, meaning space and tab characters. FS can be reassigned to another character (typically in BEGIN) to change the field separator. 
+
+
+
+
+
+
+
+ex:
+To find the length of the longest line present in the file:  
+
+$ awk '{ if (length($0) > max) max = length($0) } END { print max }' geeksforgeeks.txt
+
+
+
+
+
+
+ex:
+To print the squares of first numbers from 1 to n say 6:  
+
+$ awk 'BEGIN { for(i=1;i<=6;i++) print "square of", i, "is",i*i; }' 
+
+
+
+
+
+
+
+
+
+
+
+
+1) To print the first item along with the row number(NR) separated with ” – “ from each line in geeksforgeeks.txt:  
+
+$ awk '{print NR "- " $1 }' geeksforgeeks.txt 
+1 - A
+2 - Tarun
+3 – Manav    
+4 - Praveen
+
+
+
+
+2) To return the second column/item from geeksforgeeks.txt: 
+
+The question should be:- To return the second column/item from geeksforgeeks.txt:
+
+$ awk '{print $2}' geeksforgeeks.txt 
+B
+A12
+B6
+M42
+
+
+
+
+3) To print any non empty line if present  
+
+$ awk 'NF < 0' geeksforgeeks.txt
+here NF should be 0 not less than and the user have to print the line number also:
+
+correct answer : awk ‘NF == 0 {print NR}’  geeksforgeeks.txt
+
+OR 
+
+awk ‘NF <= 0 {print NR}’  geeksforgeeks.txt
+
+0
+
+
+
+
+
+4) To find the length of the longest line present in the file:  
+
+$ awk '{ if (length($0) > max) max = length($0) } END { print max }' geeksforgeeks.txt
+13
+
+
+
+
+
+5) To count the lines in a file:  
+
+$ awk 'END { print NR }' geeksforgeeks.txt 
+3
+
+
+
+
+6) Printing lines with more than 10 characters:  
+
+$ awk 'length($0) > 10' geeksforgeeks.txt 
+Tarun    A12    1
+Praveen    M42    3
+
+
+
+
+7) To find/check for any string in any specific column:  
+
+$ awk '{ if($3 == "B6") print $0;}' geeksforgeeks.txt
+
+
+
+
+8) To print the squares of first numbers from 1 to n say 6:  
+
+$ awk 'BEGIN { for(i=1;i<=6;i++) print "square of", i, "is",i*i; }' 
+square of 1 is 1
+square of 2 is 4
+square of 3 is 9
+square of 4 is 16
+square of 5 is 25
+square of 6 is 36
+
+
+
+

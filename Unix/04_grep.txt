@@ -1,0 +1,93 @@
+grep (Global Regular Expression Pattern):
+This command is used for searching a required pattern in a file.
+
+
+^ : Represents starting of the line
+$ : Represents end of the line
+
+
+
+-o: for matching the pattern and returning only the matched pattern
+grep -o "Data are: [0-9]*, [0-9]*, [0-9]*" some_file
+
+
+Display all lines that start with 'D'.
+grep '^D' cities
+
+
+Display all lines that ends with with 'i'
+grep 'i$' cities
+
+
+Display all lines that end with "bad"
+grep 'bad$' cities
+
+
+Display all lines that contain any of the letters A,B,C,D.
+grep '[A-D]' cities
+or
+grep '[ABCD]' cities
+
+
+Search for vowels in the file a,e, i,o, u
+grep '[aeiou]' cities
+
+
+Search for consonants in the file (Other than a, e, i,o, u)
+grep "[^aeiou]" cities
+
+
+
+Search for multiple patterns:
+-e : Search for multiple patterns.
+ex:
+grep -e "Delhi" -e "Chennai" cities
+
+
+
+
+egrep:
+Instead of 'e' we can use egrep command.
+egrep "(Delhi|Chennai)" cities
+
+
+
+Difference between grep & egrep:
+
+works:
+egrep "(Delhi|Chennai)" cities
+doesn't work:
+grep "(Delhi|Chennai)" cities
+
+grep command understand patterns but not all
+egrep command understand all the patterns.
+
+
+
+
+
+-F search for fixed strings (No pattern):
+ex: grep -F "Delhi" cities
+ex:
+grep -F "Delhi
+Mumbai
+Hyderabad" cities
+
+
+
+
+
+
+fgrep: search for fixed strings (No pattern)
+ex: fgrep "Delhi" cities
+ex:
+fgrep "Delhi
+Mumbai
+Hyderabad" cities
+
+
+
+
+listing files start with emp using pipeline:
+ls | grep '^emp'
+

@@ -1,0 +1,9 @@
+Archieving:
+tar -czvf archive_name.tar.gz folder_name
+
+For archieving all he directories in the current directory:
+tar -czvf my_archive.tar */
+
+
+Extracting:
+tar -xvzf archive_name.tar.gz

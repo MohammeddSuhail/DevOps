@@ -1,8 +1,0 @@
-tar -czvf archive_name.tar.gz folder_name
-
-extracting:
-tar -xvzf archive_name.tar.gz
-
-
-For archieving all he directories in the current directory:
-tar -czvf my_archive.tar */
