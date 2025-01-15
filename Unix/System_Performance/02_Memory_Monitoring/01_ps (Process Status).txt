@@ -1,0 +1,21 @@
+Best For: Process monitoring, PID lookup
+
+ps(Process Status): 
+Displays detailed information about active processes, including PID, CPU usage, memory usage, and the command used to start the process.
+Provides a snapshot of process data at a specific moment.
+
+When to Use:
+-> To check if a specific process is running.
+-> To identify processes with high CPU or memory usage.
+
+ex: 
+ps aux --sort=-%mem | head
+    a: Shows processes for all users.
+    u: Displays user/owner of the process.
+    x: Lists processes not attached to a terminal.
+    --sort=-%mem: Sorts processes by memory usage (descending).
+    head: Displays the top results.
+
+ex: ps aux --sort=-%cpu | head
+
+ex: ps aux | grep something

@@ -1,0 +1,28 @@
+CPU Monitoring:
+
+top or htop: Real-time system monitoring
+Displays real-time system information including CPU, memory, swap, and running processes.
+
+
+mpstat: 
+CPU usage across all cores. Great for identifying multi-core CPU bottlenecks.
+ex: mpstat 2 5
+    where:
+        2: Interval in seconds.
+        5: Number of reports.
+Gives.
+%usr: CPU time spent on user processes.
+%sys: CPU time on kernel processes.
+%idle: Idle CPU time.
+
+
+pidstat: Per-process CPU usage over time
+Tracks CPU, memory, and I/O usage per process over a time interval
+ex: pidstat 2 5
+    where:
+        2: Interval in seconds.
+        5: Number of reports.
+Gives,
+%usr: User-level CPU usage per process.
+%system: Kernel-level CPU usage per process.
+%CPU: Total CPU usage per process.

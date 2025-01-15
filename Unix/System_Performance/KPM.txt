@@ -1,0 +1,5 @@
+Key Performance Metrics(KPMs):
+CPU Usage: Indicates how much of the CPU resources are being used.
+Memory Usage: Tracks used vs free RAM.
+Disk I/O: Indicates read/write performance of disk drives.
+Network Throughput: Shows the rate at which data is transferred over the network.

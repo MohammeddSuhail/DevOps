@@ -1,0 +1,18 @@
+du – Disk Usage of Files and Directories
+Shows how much disk space is used by files and directories.
+
+When to Use:
+To identify which directories/files are consuming the most space.
+Useful for cleanup and space optimization.
+
+Usage:
+du -h <folder>
+
+ex:
+du -h --max-depth=1 /home
+Shows disk usage for directories in /home.
+
+ex:
+du -sh /var/*
+Summarizes the size of each folder in /var.
+s: Summarizes the total disk usage of the specified directory and does not display the usage of individual subdirectories.

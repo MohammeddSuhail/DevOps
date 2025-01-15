@@ -1,0 +1,30 @@
+Best for: System performance diagnosis
+
+vmstat – Virtual Memory Statistics:
+Provides detailed information about processes, memory, paging, block I/O, traps, and CPU activity.
+Helps monitor system performance in real-time.
+
+When to Use:
+-> To analyze memory bottlenecks, CPU load, and I/O performance.
+-> To detect paging/swapping activity and block I/O issues.
+-> For performance tuning and capacity planning.
+
+
+Usage: vmstat 2 5
+        2: Interval in seconds.
+        5: Number of reports.
+
+Output:
+root@DESKTOP-6UUNAPT:~# vmstat 2 5
+procs -----------memory---------- ---swap-- -----io---- -system-- -------cpu-------
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st gu
+ 1  0      0 3053800   3652 215572    0    0   133   138   37    0  0  0 100  0  0  0
+ 0  0      0 3053800   3652 215612    0    0     0     0    7   34  0  0 100  0  0  0
+ 0  0      0 3053800   3652 215612    0    0     0     0    4   29  0  0 100  0  0  0
+ 0  0      0 3053800   3652 215612    0    0     0     0    4   31  0  0 100  0  0  0
+ 0  0      0 3051772   3660 215604    0    0     0     6    8   41  0  0 100  0  0  0
+
+r: Processes waiting for CPU.
+b: Processes in uninterruptible sleep.
+si/so: Swap in/out.
+bi/bo: Block I/O.

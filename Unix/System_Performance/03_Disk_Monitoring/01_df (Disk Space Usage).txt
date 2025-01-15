@@ -1,0 +1,8 @@
+df – Disk Space Usage:
+Displays filesystem disk space usage, showing total, used, available space, and mount points.
+
+When to Use:
+Quick checks on disk space usage across partitions.
+To detect full partitions causing system issues.
+
+Usage: df -h

@@ -1,0 +1,20 @@
+nload – Simple Traffic Monitoring:
+Provides a real-time graph of incoming and outgoing network traffic.
+Incoming and Outgoing traffic is shown as a graph.
+
+Usage: sudo nload
+
+Output:
+Device eth0  [current: 100.45KB/s in, 50.32KB/s out]
+
+Incoming:
+┌─────────────────────────────────────────┐
+│■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■         │
+└─────────────────────────────────────────┘
+
+Outgoing:
+┌─────────────────────────────────────────┐
+│■■■■■■■■■■■■■■                            │
+└─────────────────────────────────────────┘
+
+Total in: 2.35 GB  |  Total out: 1.10 GB

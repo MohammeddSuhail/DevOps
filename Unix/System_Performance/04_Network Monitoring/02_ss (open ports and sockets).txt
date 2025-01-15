@@ -1,0 +1,21 @@
+open ports and sockets
+
+ss – Investigate Network Sockets
+Displays socket statistics more efficiently than netstat.
+Used for diagnosing network issues, inspecting open ports, and connections.
+
+When to Use:
+-> Preferred over netstat for faster and detailed socket information.
+-> To check listening ports and active connections.
+
+Usage: ss -tuln
+-t: TCP
+-u: UDP
+-l: Listening
+-n: Numeric output
+
+Output:
+Netid State      Recv-Q Send-Q Local Address:Port   Peer Address:Port
+tcp   LISTEN     0      128    0.0.0.0:22         0.0.0.0:*    
+tcp   LISTEN     0      128    127.0.0.1:3306     0.0.0.0:*    
+udp   UNCONN     0      0      0.0.0.0:68         0.0.0.0:*    

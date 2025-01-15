@@ -1,0 +1,16 @@
+iftop – Real-Time Bandwidth Monitoring:
+Shows incoming and outgoing traffic.
+Monitors real-time network bandwidth usage per connection.
+
+When to Use:
+-> To identify which connections are consuming the most bandwidth.
+-> Useful for spotting heavy traffic or suspicious activity.
+
+
+Usage: sudo iftop
+
+Output:
+             192.168.1.10 => 192.168.1.100     2.35MB/s     2.15MB/s
+             192.168.1.10 <= 192.168.1.100     3.40MB/s     3.10MB/s
+-------------------------------------------------------------------------------
+Total send rate: 2.35MB/s  |  Total receive rate: 3.40MB/s

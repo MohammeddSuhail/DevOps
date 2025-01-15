@@ -1,0 +1,17 @@
+Best For: Quick RAM overview
+
+Displays detailed information about active processes, including PID, CPU usage, memory usage, and the command used to start the process.
+Provides a snapshot of process data at a specific moment.
+
+When to Use:
+-> Diagnosing memory shortages or swap issues.
+-> To quickly assess RAM consumption.
+-> To check if the system is swapping due to low memory.
+
+Usage: free -h
+
+output:
+root@DESKTOP-6UUNAPT:~# free -h
+               total        used        free      shared  buff/cache   available
+Mem:           3.6Gi       608Mi       2.9Gi       3.3Mi       213Mi       3.0Gi
+Swap:          1.0Gi          0B       1.0Gi

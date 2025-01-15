@@ -1,0 +1,22 @@
+dstat – All-in-One Resource Monitoring:
+Combines CPU, disk, network, and memory statistics in real-time.
+
+When to Use:
+-> Full system monitoring in a single tool.
+-> For a comprehensive view of system performance.
+-> When diagnosing multiple resource bottlenecks / Performance troubleshooting across multiple resources.
+
+
+Usage: dstat
+
+Output:
+root@DESKTOP-6UUNAPT:~# dstat
+You did not select any stats, using -cdngy by default.
+----total-usage---- -dsk/total- -net/total- ---paging-- ---system--
+usr sys idl wai stl| read  writ| recv  send|  in   out | int   csw
+  0   0 100   0   0|   0     0 |   0     0 |   0     0 |  21    74
+  0   0 100   0   0|   0    12k|   0     0 |   0     0 |  17    66
+  0   0 100   0   0|   0     0 | 179B    0 |   0     0 |   9    50
+  0   0 100   0   0|   0     0 |   0     0 |   0     0 |  10    48
+  0   0 100   0   0|   0     0 |   0     0 |   0     0 |   9    49
+  0   0 100   0   0|   0     0 | 179B    0 |   0     0 |  10    50

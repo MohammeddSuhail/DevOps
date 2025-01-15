@@ -1,0 +1,8 @@
+iotop – Real-Time Disk I/O by Processes:
+Displays real-time disk I/O usage by individual processes.
+
+Usage: iotop
+
+When to Use:
+-> To identify processes causing high disk I/O.
+-> Useful during slow system performance related to disk access.
