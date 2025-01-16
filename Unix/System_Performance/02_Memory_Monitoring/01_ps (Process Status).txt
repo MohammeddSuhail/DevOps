@@ -21,6 +21,10 @@ ex: ps aux --sort=-%cpu | head
 ex: ps aux | grep something
 
 
+
+
+
+ex:
 [root@appvm ~]# ps aux --sort=-%mem | head
 USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 someaccount   21804  0.1  3.4 4601480 128656 ?      Sl   Jan13   4:47 unikixtran 4
