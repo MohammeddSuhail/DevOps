@@ -16,3 +16,8 @@ ex:
 du -sh /var/*
 Summarizes the size of each folder in /var.
 s: Summarizes the total disk usage of the specified directory and does not display the usage of individual subdirectories.
+
+ex:
+du -hd1
+-h: Stands for "human-readable" and displays sizes in a format that is easier to read (e.g., KB, MB, GB).
+-d1: Limits the depth of the directory tree to one level, meaning it will only show the sizes of the current directory and its immediate subdirectories.
