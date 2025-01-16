@@ -1,0 +1,65 @@
+cut (Column Extraction)
+Purpose: Extract specific fields or columns from text.
+
+
+1. Extract the First Column from a CSV File:
+Example: Extract usernames from a CSV file.
+
+echo -e "username,age\nalice,25\nbob,30" | cut -d',' -f1
+Output:
+username
+alice
+bob
+Explanation:
+-d',' → Comma as the delimiter.
+-f1 → Extracts the first field (username).
+
+
+2. Extract File Extensions:
+Example: Get file extensions from a list of files.
+
+echo -e "report.pdf\nimage.jpg\ndocument.docx" | cut -d'.' -f2
+Output:
+pdf
+jpg
+docx
+Explanation:
+-d'.' → Period as the delimiter.
+-f2 → Extracts the second field (file extension).
+
+
+3. Display Usernames from /etc/passwd:
+Example: List all system usernames.
+
+cut -d':' -f1 /etc/passwd | head -5
+Example Output (varies by system):
+root
+daemon
+bin
+sys
+sync
+Explanation:
+-d':' → Colon is the field separator in /etc/passwd.
+-f1 → Extracts usernames.
+
+
+4. Extract the First 5 Characters of a String:
+Example: Trim strings to the first 5 characters.
+
+echo "LinuxCommands" | cut -c1-5
+Output:
+Linux
+Explanation:
+-c1-5 → Extracts characters from position 1 to 5.
+
+
+5. Extract Domain Names from Email Addresses:
+Example: Get domains from email addresses.
+
+echo -e "alice@gmail.com\nbob@yahoo.com" | cut -d'@' -f2
+Output:
+gmail.com
+yahoo.com
+Explanation:
+-d'@' → Splits the email by @.
+-f2 → Extracts the domain part.
