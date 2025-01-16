@@ -1,4 +1,6 @@
-lsof stands for List Open Files, and it is a command-line tool used in Unix-like operating systems (such as Linux and macOS) to list information about files that are currently open by processes. Since, in Unix-like systems, almost everything is treated as a file (including devices, sockets, pipes, etc.), lsof is useful for a wide range of tasks involving file and resource management.
+lsof stands for List Open Files, and it is a command-line tool used in Unix-like operating systems 
+(such as Linux and macOS) to list information about files that are currently open by processes. 
+Since, in Unix-like systems, almost everything is treated as a file (including devices, sockets, pipes, etc.), lsof is useful for a wide range of tasks involving file and resource management.
 
 
 List all open files:
