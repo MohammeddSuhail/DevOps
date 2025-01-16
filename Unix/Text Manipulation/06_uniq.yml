@@ -1,0 +1,9 @@
+Purpose: Remove duplicate lines from sorted input.
+
+Example: Remove repeated lines.
+
+echo -e "apple\napple\nbanana" | uniq
+Output:
+apple
+banana
+Note: uniq works on sorted input, so use sort before it if needed.

@@ -1,0 +1,11 @@
+5. sort (Sorting Text)
+Purpose: Sort lines in a file.
+
+Example: Sort a list of numbers.
+
+echo -e "3\n1\n2" | sort
+Output:
+
+1
+2
+3

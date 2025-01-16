@@ -1,4 +1,4 @@
-Recursive srach for text:
+Recursive search for text:
 grep -r "search_pattern" <path_to_search>
 case insensitive search:
 grep -ir "global" Unix/

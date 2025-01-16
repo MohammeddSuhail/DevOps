@@ -1,0 +1,10 @@
+cut (Column Extraction)
+Purpose: Extract specific fields or columns from text.
+
+Example: Extract the first column from a CSV file.
+
+echo -e "name,age\nJohn,25\nDoe,30" | cut -d',' -f1
+Output:
+name
+John
+Doe

@@ -1,3 +1,18 @@
+awk (Pattern Scanning and Processing)
+awk command splits the record delimited by whitespace character by default and stores it in the $n variables. 
+If the line has 4 words, it will be stored in $1, $2, $3 and $4 respectively. Also, $0 represents the whole line. 
+Purpose: Extract and process text based on patterns and fields.
+
+Ex: Print the second column from a space-separated text.
+
+echo -e "John 25\nDoe 30" | awk '{print $2}'
+Output:
+25
+30
+
+
+
+
 link: https://www.geeksforgeeks.org/awk-command-unixlinux-examples/
 
 (a) Scans a file line by line 

@@ -1,0 +1,8 @@
+1. sed (Stream Editor):
+Purpose: Perform text transformations like search, replace, insert, or delete in files or streams.
+
+Example: Replace "apple" with "orange" in a file.
+
+echo "I like apple" | sed 's/apple/orange/'
+Output:
+I like orange

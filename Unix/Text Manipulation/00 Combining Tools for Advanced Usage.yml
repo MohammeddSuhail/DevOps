@@ -1,0 +1,6 @@
+Example: Extract and sort unique error codes from logs.
+
+echo -e "ERROR 404\nERROR 500\nERROR 404" | awk '{print $2}' | sort | uniq
+Output:
+404
+500
