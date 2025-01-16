@@ -1,0 +1,28 @@
+Checking open ports and active connections.
+
+Shows active network connections, listening ports, routing tables, and network statistics.
+Useful for checking open ports, active connections, and troubleshooting network issues.
+
+When to Use:
+To check if a port is open or in use.
+To monitor established connections and identify unusual activity.
+
+Usage: netstat -tuln
+-t: TCP connections
+-u: UDP connections
+-l: Listening ports
+-n: Show numeric addresses (no DNS resolution)
+
+Output:
+root@DESKTOP-6UUNAPT:~# netstat -tuln
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State
+tcp        0      0 0.0.0.0:44321           0.0.0.0:*               LISTEN
+tcp        0      0 0.0.0.0:4330            0.0.0.0:*               LISTEN
+tcp        0      0 10.255.255.254:53       0.0.0.0:*               LISTEN
+tcp        0      0 127.0.0.54:53           0.0.0.0:*               LISTEN
+tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN
+tcp6       0      0 :::44321                :::*                    LISTEN
+tcp6       0      0 :::4330                 :::*                    LISTEN
+udp        0      0 127.0.0.54:53           0.0.0.0:*
+udp        0      0 127.0.0.53:53           0.0.0.0:*

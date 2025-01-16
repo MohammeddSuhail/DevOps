@@ -1,0 +1,16 @@
+Iperf is a tool used to test the bandwidth, latency, and performance of a network connection. 
+It measures the maximum achievable throughput between two devices in a network by sending UDP or TCP data between a client and server.
+
+Purpose: To measure network performance and identify potential bottlenecks (e.g., slow speeds, latency).
+Usage: Useful for checking the performance of local or wide-area networks (LAN or WAN), especially in troubleshooting slow connections or verifying ISP-provided speeds.
+
+
+Example Command:
+
+Start the server on one device: (ou're starting the Iperf server on one device, which is essentially preparing that device to receive data and perform performance tests from another device (the client).)
+iperf -s
+
+Run the client on the other device: (The client connects to the Iperf server and starts sending data to it, allowing it to measure things like bandwidth, latency, and other performance metrics.)
+iperf -c <server_ip>
+
+This measures the TCP bandwidth between the client and the server. Use -u for UDP testing.
