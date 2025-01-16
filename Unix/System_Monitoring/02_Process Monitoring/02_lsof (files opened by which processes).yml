@@ -1,0 +1,44 @@
+lsof stands for List Open Files, and it is a command-line tool used in Unix-like operating systems (such as Linux and macOS) to list information about files that are currently open by processes. Since, in Unix-like systems, almost everything is treated as a file (including devices, sockets, pipes, etc.), lsof is useful for a wide range of tasks involving file and resource management.
+
+
+List all open files:
+lsof
+This command lists all the open files by all processes. It can result in a lot of output, as it shows every file opened by all processes on the system.
+
+Find which process is using a specific file:
+lsof /path/to/file
+This shows which processes have the file /path/to/file open.
+
+List open files by a specific user:
+lsof -u username
+This shows the files opened by processes owned by username.
+
+List open files for a specific process:
+lsof -p <pid>
+Replace <pid> with the process ID of the application you want to check. This lists the files opened by the process with that ID.
+
+Show open network connections:
+lsof -i
+This shows all open network connections (TCP and UDP). It’s useful for seeing which ports are being used and by which processes.
+
+Show open files on a specific port:
+lsof -i :80
+This shows which processes are using port 80 (commonly used for HTTP).
+
+List open files and their respective processes:
+lsof -t
+This shows only the process IDs (PIDs) of the processes that have open files.
+
+
+
+Output Breakdown:
+The output of lsof typically contains several columns, including:
+COMMAND: The name of the command/process.
+PID: The Process ID.
+USER: The user who owns the process.
+FD: The file descriptor (e.g., cwd for current working directory, txt for program text, etc.).
+TYPE: The type of file (e.g., REG for regular file, DIR for directory, IPv4 for internet connection).
+DEVICE: The device on which the file is stored.
+SIZE/OFF: The size of the file or the offset (for open files).
+NODE: The inode number.
+NAME: The name of the file or resource being used.
