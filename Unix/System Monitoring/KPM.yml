@@ -1,5 +1,5 @@
 Key Performance Metrics(KPMs):
-CPU Usage: Indicates how much of the CPU resources are being used.
-Memory Usage: Tracks used vs free RAM.
-Disk I/O: Indicates read/write performance of disk drives.
-Network Throughput: Shows the rate at which data is transferred over the network.
+Response Time: Measures the time taken to respond to a request. Understanding factors affecting response time, such as latency, server load, and network conditions, is important.
+Throughput: The amount of work processed in a given time period, often measured in requests per second, transactions per minute, etc.
+Resource Utilization: Monitoring CPU, memory, disk, and network usage to identify potential resource constraints or inefficiencies.
+Error Rates: Track the frequency of errors in the system, including application failures, failed database queries, network issues, etc.
