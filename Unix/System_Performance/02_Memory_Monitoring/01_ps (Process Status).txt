@@ -19,3 +19,30 @@ ps aux --sort=-%mem | head
 ex: ps aux --sort=-%cpu | head
 
 ex: ps aux | grep something
+
+
+[root@appvm ~]# ps aux --sort=-%mem | head
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+someaccount   21804  0.1  3.4 4601480 128656 ?      Sl   Jan13   4:47 unikixtran 4
+someaccount   21795  0.1  3.3 4599540 126336 ?      Sl   Jan13   4:45 unikixtran 3
+someaccount   21833  0.1  3.3 4601704 126080 ?      Sl   Jan13   4:44 unikixtran 7
+someaccount   21824  0.1  3.3 4601428 125236 ?      Sl   Jan13   4:08 unikixtran 6
+someaccount   21812  0.1  3.2 4599288 123432 ?      Sl   Jan13   4:43 unikixtran 5
+someaccount   21781  0.0  3.2 4600556 120132 ?      Sl   Jan13   3:34 unikixtran 0
+someaccount   21866  0.1  3.1 4601160 119168 ?      Sl   Jan13   4:39 unikixtran 9
+someaccount   21788  0.1  3.0 4599568 115856 ?      Sl   Jan13   4:40 unikixtran 2
+someaccount   21851  0.0  2.9 4601416 110808 ?      Sl   Jan13   3:31 unikixtran 8
+
+
+
+[root@appvm ~]# ps aux --sort=-%cpu | head
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+someaccount   21783  0.6  2.4 4598224 93792 ?       Sl   Jan13  22:13 unikixtran 1
+root         812  0.2  0.1 618312  4884 ?        Ssl  Jan12  12:15 /usr/libexec/platform-python -Es /usr/sbin/tuned -l -P
+someaccount   21005  0.1  2.3 5191096 87544 ?       Sl   Jan13   3:47 unikixadmin
+someaccount   21006  0.1  1.4 4650064 54092 ?       Sl   Jan13   5:07 unikixtran 0
+someaccount   21012  0.1  1.2 4649644 47092 ?       Sl   Jan13   3:44 unikixtran 1
+someaccount   21015  0.1  1.4 4649848 52964 ?       Sl   Jan13   3:37 unikixtran 2
+someaccount   21020  0.1  1.4 4649948 56072 ?       Sl   Jan13   4:09 unikixtran 3
+someaccount   21033  0.1  1.9 4649744 73228 ?       Sl   Jan13   4:03 unikixtran 4
+someaccount   21050  0.1  1.4 4516584 55684 ?       Sl   Jan13   5:41 unikixtran 5
