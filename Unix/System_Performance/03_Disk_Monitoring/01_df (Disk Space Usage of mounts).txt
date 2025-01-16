@@ -6,3 +6,15 @@ Quick checks on disk space usage across partitions.
 To detect full partitions causing system issues.
 
 Usage: df -h
+
+Output:
+Filesystem                          Size  Used Avail Use% Mounted on
+devtmpfs                             63G     0   63G   0% /dev
+tmpfs                                63G     0   63G   0% /dev/shm
+tmpfs                                63G  867M   62G   2% /run
+tmpfs                                63G     0   63G   0% /sys/fs/cgroup
+/dev/mapper/VolGroup00-LV_root      8.0G  5.7G  2.4G  71% /
+/dev/sda1                          1014M  359M  656M  36% /boot
+/dev/mapper/VolGroup01-LV_extrnapp   50G  4.9G   46G  10% /extrnapp
+/dev/mapper/VolGroup00-LV_var        10G  6.2G  3.9G  62% /var
+/dev/mapper/VolGroup00-LV_tmp       5.0G  769M  4.3G  16% /tmp
