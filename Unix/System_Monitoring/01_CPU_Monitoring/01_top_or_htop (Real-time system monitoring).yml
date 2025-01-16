@@ -1,0 +1,12 @@
+top or htop: Real-time system monitoring
+Displays real-time system information including CPU, memory, swap, and running processes.
+
+example: it keeps changing realtime
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+    812 root      20   0  618312   4884   2188 S   0.7   0.1  12:31.40 tuned
+  21033 someacct  20   0 4649744  73228   6144 S   0.7   2.0   4:10.03 unikixtran
+  21181 someacct  20   0 4583120  72240  10428 S   0.7   1.9   5:55.18 unikixtran
+    665 dbus      20   0   64856   2124   1424 S   0.3   0.1   0:18.95 dbus-daemon
+  21005 someacct  20   0 5191096  87544  13376 S   0.3   2.3   3:52.75 unikixadmin
+  21006 someacct  20   0 4650064  54092   8612 S   0.3   1.4   5:15.14 unikixtran
+  21020 someacct  20   0 4649948  56072   7736 S   0.3   1.5   4:15.52 unikixtran

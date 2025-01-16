@@ -1,0 +1,22 @@
+mpstat: 
+CPU usage across all cores. Great for identifying multi-core CPU bottlenecks.
+ex: mpstat 2 5
+    where:
+        2: Interval in seconds.
+        5: Number of reports.
+Gives.
+%usr: CPU time spent on user processes.
+%sys: CPU time on kernel processes.
+%idle: Idle CPU time.
+
+example:
+[root@appvm ~]# mpstat 2 5
+Linux 4.18.0-553.27.1.el8_10.x86_64 (appvm)  01/16/2025      _x86_64_        (16 CPU)
+
+09:59:40 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+09:59:42 AM  all   13.15    0.00   14.66    0.06    0.79    0.66    0.00    0.00    0.00   70.68
+09:59:44 AM  all   19.95    0.00   19.26    0.00    0.85    0.66    0.00    0.00    0.00   59.28
+09:59:46 AM  all   14.96    0.00   24.77    0.00    1.01    0.72    0.00    0.00    0.00   58.54
+09:59:48 AM  all   26.23    0.00   27.66    0.00    0.95    0.86    0.00    0.00    0.00   44.30
+09:59:50 AM  all   18.23    0.00   16.62    0.00    0.91    0.63    0.00    0.00    0.00   63.60
+Average:     all   18.49    0.00   20.59    0.01    0.90    0.71    0.00    0.00    0.00   59.30

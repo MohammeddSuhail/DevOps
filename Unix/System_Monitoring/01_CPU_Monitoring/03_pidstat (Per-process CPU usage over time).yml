@@ -1,0 +1,28 @@
+pidstat: Per-process CPU usage over time
+Tracks CPU, memory, and I/O usage per process over a time interval
+ex: pidstat 2 5
+    where:
+        2: Interval in seconds.
+        5: Number of reports.
+Gives,
+%usr: User-level CPU usage per process.
+%system: Kernel-level CPU usage per process.
+%CPU: Total CPU usage per process.
+
+ex:
+[root@appvm ~]# pidstat 2 5
+Linux 4.18.0-553.27.1.el8_10.x86_64 (appvm)  01/16/2025      _x86_64_        (16 CPU)
+
+10:00:45 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+10:00:47 AM     0      3756    1.41    0.00    0.00    4.69    1.41     7  BESClient
+10:00:47 AM 192606     81066   95.77    0.00    0.00    0.00   95.77     5  java
+10:00:47 AM 194163    227633    0.47    0.00    0.00    0.00    0.47    12  unikixtran
+10:00:47 AM 194163    227651    0.47    0.00    0.00    0.00    0.47     2  unikixtran
+10:00:47 AM 194163    227680    0.47    0.00    0.00    0.00    0.47     4  unikixtran
+10:00:47 AM 194163    227796    0.94    0.00    0.00    0.47    0.94    14  unikixtran
+10:00:47 AM 194163    227876    0.47    0.00    0.00    0.00    0.47    11  unikixtran
+10:00:47 AM 194163    227930    0.00    0.47    0.00    0.00    0.47     2  unikixtran
+10:00:47 AM 194163    227943    0.47    0.00    0.00    0.00    0.47     2  unikixtran
+10:00:47 AM 194163    228706    0.47    0.00    0.00    0.00    0.47    12  unikixtran
+10:00:47 AM 194488    364633    0.00    0.47    0.00    0.00    0.47     2  unikixtran
+10:00:47 AM 194488    364862    0.47    0.00    0.00    0.00    0.47     6  unikixtran
