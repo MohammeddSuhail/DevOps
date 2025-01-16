@@ -1,0 +1,32 @@
+Ubuntu/Debian-based:
+sudo apt update
+sudo apt install iftop
+
+Red Hat/CentOS/Fedora/Rocky Linux:
+
+Provides package information available in the repos:
+yum provides <package_name>
+
+Download a package:
+Download package from any available repos:
+sudo dnf download -y <package_name>
+Download package from a specific repos:
+sudo dnf --disablerepo=* --enablerepo=<repo_name> download -y <package_name>
+
+Install a package(u can directly run this command without download command if the rpm is already in any repo):
+sudo dnf install <package_name>
+
+Remove a package:
+sudo dnf remove <package_name>
+
+List installed packages:
+yum list installed | grep <package_name>
+
+Query package dependencies:
+sudo dnf repoquery --whatrequires <package_name>
+
+Track repository packages(downloading all it's dependent packages):
+From any repo:
+sudo repotrack <package_name> or sudo repotrack *.rpm
+only from specific repo:
+sudo repotrack --repo=<repo_name> <package_name>

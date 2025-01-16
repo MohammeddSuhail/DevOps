@@ -1,5 +1,0 @@
-For newer versions:
-sudo dnf install iftop
-
-For older versions:
-sudo yum install iftop

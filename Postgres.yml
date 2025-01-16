@@ -1,0 +1,19 @@
+Database Operations:
+
+Login to the database:
+sudo su - postgres
+psql
+\c cmm_pg_db
+
+List all schemas:
+\dn
+
+Display a table:
+SELECT * FROM "<schema_name>".<table_name>;
+
+
+
+Diagnose Barman:
+sudo su - barman
+psql -h <db server ip> -U barman -d <db_name>
+barman diagnose

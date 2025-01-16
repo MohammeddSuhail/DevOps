@@ -1,0 +1,16 @@
+Azure CLI Commands:
+
+Login:
+az login
+
+Show account:
+az account show
+
+List resource groups:
+az group list
+
+Logout:
+az logout
+
+Adding/Updating Secrets in Azure Vault:
+az keyvault secret set --name <License_Name> --vault-name <valut_name> --file "Path_to_license_file.txt"
