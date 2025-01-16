@@ -1,3 +1,9 @@
+Recursive srach for text:
+grep -r "search_pattern" <path_to_search>
+case insensitive search:
+grep -ir "global" Unix/
+
+
 grep (Global Regular Expression Pattern):
 This command is used for searching a required pattern in a file.
 
