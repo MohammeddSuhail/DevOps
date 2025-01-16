@@ -1,0 +1,138 @@
+XML Introduction 
+1. extensible Markup Language 
+2. Transfer data 
+3. Configure 
+
+Rules:
+1. one root tag.. 
+2. xml case sensitive 
+3. every opening tag needs a closing tag 
+4. every attribute value should be inside a double/single quoutes 
+
+
+XML Parser 
+
+
+
+client <---- > server 
+1. Html -> Layout, data 
+2. xml ->data 
+3. json
+
+
+
+ex:
+
+<aliens> 
+	<alien aid="A1">                      <!-- here aid is attribute-->
+		<name>Navin</name>        <!-- element -->
+		<salary>3000</salary>     <!-- element -->
+	</alien> 
+	<alien aid-A2> 	
+		<name>Navin</name> 
+		<salary>3000</salary> 
+	</alien> 
+</aliens>
+
+
+
+
+
+Grammer:
+1. Structure -> DTD (Document Type Definition)
+2. Content Schema
+
+
+
+
+
+
+
+DTD: basically rules, everything must be element in here
+
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<!ELEMENT aliens (alien+)>        			alien+ means 1 or more alien childrens
+<!ELEMENT alien (name, salary)>   		 	name, salary are elements of alien
+<!ELEMENT name (#PCDATA)> 	   			specifying element
+<!ELEMENT salary (#PCDATA)>       			specifying element
+<!ATTLIST alien aid ID #REQUIRED> 			specifying attribute "aid" and saying it is a id(unique) and is required
+<!ATTLIST alien lang (Java|C|Python) "Java">    specifying attribute "land" and saying lang can be Java|C|Python, by default Java
+
+
+above is rules for,
+
+<!DOCTYPE aliens SYSTEM "AlienType.dtd">     <!-- including the rules file(dtd file) -->
+<aliens>  
+	<alien aid="A1" lang="Java">
+		<name>Navin</name> 
+		<salary>3000</salary> 
+	</alien> 
+	<alien aid='A2' lang="Python"> 
+		<name>Manoj</name> 		
+		<salary>5000</salary> 
+	</alien> 
+</aliens>
+
+
+
+
+
+
+Schema: xsd is the extention
+        XML Schema Defination
+Basically rules for xml file
+(create xml schema file)
+
+ex:
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema targetNamespace="http://www.telusko.com/AlienSchema" 
+xmlns : tns="http://www.telusko.com/AlienSchema" 
+elementFormDefault="qualified">
+
+<complexType name="alienstype"> 
+	<sequence> 
+		<element name="alien" type="tns : alientype" maxOccurs="3" minOccurs= "1"></element> 
+	</sequence> 
+</complexType> 
+
+<complexType name="alientype"> 
+	<sequence> 	
+		<element name= "name" type="string"></element> 
+		<element name="salary" type="tns:mySal"></element> 
+	</sequence> 
+	<attribute name="aid" type="ID" use="required"></attribute>
+</complexType> 
+
+<element name="globalaliens" type="tns : alienstype" />
+
+<simpleType name="mySal"> 
+	<restriction base="integer"> 
+		<minInclusive value="1000"></minInclusive> 
+		<maxInclusive value="10000"></maxInclusive> 
+	</restriction> 
+</simpleType>
+
+</schema> 
+
+
+
+
+above is rules for,
+while creating this xml file add globalaliens(above file) as schema
+
+<?xml version="1.0"   encoding="UTF-8"?> 
+<tns : globalaliens 
+xmlns : tns="http://www.telusko.com/AlienSchema" 
+xmlns : xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi : schemaLocation="http://www.telusko.com/AlienSchema AlienSchema"> 
+	<tns : alien aid="A1"> 
+		<tns : name>Navin</tns : name> 
+		<tns : salary>3000</tns : salary> 
+	</tns : alien> 
+	<tns : alien aid="A2"> 
+		<tns : name>Manoj</tns : name> 
+		<tns : salary>3000</tns : salary> 
+	</tns : alien> 
+</tns : globalaliens>
+
