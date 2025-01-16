@@ -36,12 +36,12 @@ someacc0 3501110  0.4  0.3 37578936 499512 ?     Sl   04:08   1:14 unikixtran 14
 someac1  1181170  1.4  0.3 36455104 491392 ?     Sl   Jan15  23:01 unikixtran 4
 someacc2  446812 99.0  0.3 6115524 491380 pts/32 Sl+  08:37  18:49 java -server -Xnoclassgc -Xms256m -Xmx2048m -Dvcobol.conf=/blah/blah/blah/blah/blah/blah/runtime_options Invoker some_prog
 
-check more on 3501233, like if it has parent process and all.
+check more on 3501233, like if it has parent process and all:
 [root@appvm ~]# ps -p 3501233 -o pid,ppid,cmd,%mem,%cpu
     PID    PPID CMD                         %MEM %CPU
 3501233 3500814 unikixtran 20                0.4  0.4
 
-check more on 3500814, like if it has parent process and all.
+check more on 3500814, like if it has parent process and all:
 [root@appvm ~]# ps -p 3500814 -o pid,ppid,cmd,%mem,%cpu
     PID    PPID CMD                         %MEM %CPU
 3500814       1 /blah/blah/blah/products  0.0  0.0
