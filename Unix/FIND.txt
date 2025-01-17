@@ -1,0 +1,9 @@
+Searching for a file:
+find <path_to_search> -name <file_name>
+
+search directory:
+find <path_to_search> -type d -name <directory_name>
+
+
+can delete files also:
+find where_to_look -name *NewFile* -delete
