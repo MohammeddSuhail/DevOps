@@ -1,3 +1,57 @@
+1. Create a Vagrant Project:
+mkdir rocky-vm
+cd rocky-vm
+vagrant init generic/rocky8
+
+
+2. Vagrantfile for Rocky Linux:
+Vagrant.configure("2") do |config|
+  config.vm.box = "generic/rocky8"
+
+  # VM Configuration
+  config.vm.hostname = "rocky-vm"
+  config.vm.network "private_network", type: "dhcp"
+  
+  config.vm.provider "virtualbox" do |vb|
+    vb.name = "RockyLinux_VM"
+    vb.memory = "2048"
+    vb.cpus = 2
+  end
+
+  # Provisioning with basic packages
+  config.vm.provision "shell", inline: <<-SHELL
+    sudo dnf update -y
+    sudo dnf install -y epel-release
+    sudo dnf install -y vim git wget net-tools
+  SHELL
+end
+
+
+3. Start the VM:
+vagrant up
+
+This will:
+Download the Rocky Linux 8 box (generic/rocky8)
+Set up the VM with 2GB RAM and 2 CPUs
+Install basic packages
+
+
+5. Access the VM:
+vagrant ssh
+
+
+6. Stopping and Managing the VM:
+Suspend: vagrant suspend (pauses the VM)
+Halt: vagrant halt (shuts down the VM)
+Destroy: vagrant destroy (deletes the VM)
+
+
+
+
+
+
+
+
 Vagrant is a tool used to configure VM's. It will create VM's using a Vagrantfile.
 
 Add all details for VMs in a single file called Vagrantfile
