@@ -5,6 +5,9 @@ vagrant init generic/rocky8
 
 
 2. Vagrantfile for Rocky Linux:
+Other providers: Virtualbox, VMWare, AWS Cloud, Google Cloud, Azure, OpenStack
+Here we prefferd Virtualbox.
+
 Vagrant.configure("2") do |config|
   config.vm.box = "generic/rocky8"
 
