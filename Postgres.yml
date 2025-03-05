@@ -1,4 +1,66 @@
-Database Operations:
+Deploying Postgres Database:
+
+Step 1: Update Rocky Linux
+sudo dnf update -y
+Updates all installed packages to their latest versions.
+
+
+Step 2: Enable the PostgreSQL Module:
+dnf module list postgresql
+Lists available PostgreSQL versions in Roky Linux module streams.
+
+sudo dnf module enable postgresql:15 -y
+Enables PostgreSQL version 15 (you can select another version if needed).
+
+Learning:
+dnf module list works with modules (groups of packages and streams).
+yum provides works with individual packages.
+
+
+Step 3: Install PostgreSQL:
+sudo dnf install postgresql-server postgresql-contrib -y
+Installs PostgreSQL server and required dependencies.
+
+
+Step 4: Initialize the Database
+sudo postgresql-setup --initdb
+Creates the necessary files under /var/lib/pgsql/data/.
+
+
+Step 5: Start and Enable PostgreSQL Commands
+sudo systemctl start postgresql
+Starts the PostgreSQL server process so it can accept connections.
+
+sudo systemctl enable postgresql
+Ensures PostgreSQL automatically starts on boot.
+
+Step 7: Set a Password for the PostgreSQL User
+Step 8: Allow Remote Connections
+
+
+
+
+Leanring:
+Shows the repo where the package is listed/available from.
+dnf info postgresql
+
+
+dnf module list works with modules (groups of packages and streams).
+yum provides works with individual packages.
+
+dnf module list postgresql:
+Name                             Stream                       Profiles                                Summary
+postgresql                       15                           client, server [d]                      PostgreSQL server and client module
+postgresql                       16                           client, server [d]                      PostgreSQL server and client module
+
+yum provides postgresql:
+postgresql-10.23-4.module+el8.9.0+1734+74bd286c.x86_64 : PostgreSQL client programs
+Repo        : appstream
+Matched from:
+Provide    : postgresql = 10.23-4.module+el8.9.0+1734+74bd286c
+
+
+
 
 Login to the database:
 sudo su - postgres
@@ -17,3 +79,4 @@ Diagnose Barman:
 sudo su - barman
 psql -h <db server ip> -U barman -d <db_name>
 barman diagnose
+
