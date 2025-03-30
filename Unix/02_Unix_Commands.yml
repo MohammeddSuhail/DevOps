@@ -4,6 +4,8 @@ https://www.stationx.net/unix-commands-cheat-sheet/
 syntax:
 command options arguments
 
+sudo !! runs the previous command with sudo.
+
 
 ls
 ls -l
