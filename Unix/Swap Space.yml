@@ -1,0 +1,50 @@
+Swap space in Linux is a portion of the disk that is used as virtual memory when the physical RAM (Random Access Memory) is full. 
+When the system runs out of RAM, it moves inactive memory pages to the swap space, freeing up RAM for active processes.
+
+
+
+
+
+
+
+Increasing Swpap Space in Linux:
+
+
+Method 1: Creating a Swap File (Recommended)
+
+1. Create a swap file (e.g., 4GB swap file):
+sudo fallocate -l 4G /swapfile
+or
+sudo dd if=/dev/zero of=/swapfile bs=1M count=4096
+
+2. Set correct permissions:
+sudo chmod 600 /swapfile
+
+3. Format the file as swap:
+sudo mkswap /swapfile
+
+4. Enable the swap file:
+sudo swapon /swapfile
+
+5. Make it permanent (so it persists after reboot): Add the following line to /etc/fstab:
+/swapfile none swap sw 0 0
+
+
+
+Method 2: Adding a Swap Partition (For Systems with Unused Disk Space)
+
+
+
+Method 2: Adding a Swap Partition (For Systems with Unused Disk Space)
+
+1. Use fdisk or gparted to create a new partition.
+
+2. Change its type to Linux swap (82).
+
+3. Format it as swap:
+sudo mkswap /dev/sdX
+
+4. Enable swap:
+sudo swapon /dev/sdX
+
+5. Add it to /etc/fstab for persistence.
