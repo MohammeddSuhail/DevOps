@@ -22,6 +22,10 @@ Replace <pid> with the process ID of the application you want to check. This lis
 Show open network connections:
 lsof -i
 This shows all open network connections (TCP and UDP). It’s useful for seeing which ports are being used and by which processes.
+ex: 
+lsof -i:port_no
+lsof -i tcp
+lsof -i udp
 
 Show open files on a specific port:
 lsof -i :80
@@ -31,6 +35,11 @@ List open files and their respective processes:
 lsof -t
 This shows only the process IDs (PIDs) of the processes that have open files.
 
+Find Files Opened by a Specific User’s Process:
+lsof -u username -a -p PID
+
+Show All Open Files in a Specific Directory:
+lsof +D /path/to/directory
 
 
 Output Breakdown:
