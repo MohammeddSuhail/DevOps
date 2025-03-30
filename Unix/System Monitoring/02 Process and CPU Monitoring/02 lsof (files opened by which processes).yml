@@ -36,7 +36,7 @@ lsof -t
 This shows only the process IDs (PIDs) of the processes that have open files.
 
 Find Files Opened by a Specific User’s Process:
-lsof -u username -a -p PID
+lsof -u user_name -a -p PID
 
 Show All Open Files in a Specific Directory:
 lsof +D /path/to/directory
