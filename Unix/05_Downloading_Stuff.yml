@@ -1,4 +1,8 @@
 For getting things from internet:
 wget link
-or
+✅ You need to download a file from a URL quickly.
+✅ You want to download recursively (e.g., entire websites).
+
 curl link
+✅ You need to send HTTP requests (GET, POST, PUT, DELETE).
+✅ You need to fetch API data (JSON, XML, etc.).
