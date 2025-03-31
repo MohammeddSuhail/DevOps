@@ -1,0 +1,30 @@
+crontab is user-specific, meaning each Linux user has their own separate cron jobs.
+
+
+User Crontab :      crontab -e        Only that user
+Root Crontab:       sudo crontab -e   Runs as root
+System-wide Cron:   /etc/crontab      All users
+System Jobs:        /etc/cron.d/      Specific services
+
+
+
+Field         Value   Meaning
+Minute        0       Runs at minute 0 (start of the hour)
+Hour          2       Runs at 2 AM
+Day of Month  *       Runs every day of the month
+Month         *       Runs every month
+Day of Week   *       Runs on all days (Monday to Sunday)
+
+0 2 * * *
+
+
+Schedule the Script with Cron:
+
+1. Open the crontab editor:
+crontab -e
+
+2. Add this line at the bottom:
+0 2 * * * /home/suhail/backup.sh
+
+3. Verify the Cron Job
+crontab -l
