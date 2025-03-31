@@ -1,3 +1,5 @@
+Cron is a job scheduler in Linux/Unix that automates repetitive tasks by running scripts or commands at scheduled times.
+
 crontab is user-specific, meaning each Linux user has their own separate cron jobs.
 
 
