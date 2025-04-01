@@ -30,3 +30,19 @@ crontab -e
 
 3. Verify the Cron Job
 crontab -l
+
+
+
+Deleting cron jobs:
+Just remove entries from crontab.
+
+crontab -r
+(Warning: it will remove all the jobs)
+
+
+
+
+Special Strings in Cron:
+Using @reboot, @daily, @hourly, etc for easy scheduling.
+Example: Running a script at reboot.
+@reboot/path/to/script.sh
