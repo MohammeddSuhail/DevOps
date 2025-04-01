@@ -30,3 +30,11 @@ crontab -e
 
 3. Verify the Cron Job
 crontab -l
+
+
+
+Deleting cron jobs:
+Just remove entries from crontab.
+
+crontab -r
+(Warning: it will remove all the jobs)
