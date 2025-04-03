@@ -92,6 +92,27 @@ Restart Nginx:
 sudo systemctl restart nginx
 ```
 
+### Fixing SELinux Permissions (If Needed)
+If SELinux is **enabled and enforcing**, it may block Nginx from accessing `/var/www/mywebsite/`. Run the following commands to fix this:
+
+1. **Check SELinux status**:
+```bash
+sestatus
+```
+2. **Give Nginx permission to read files in `/var/www/mywebsite/`**:
+```bash
+sudo chcon -R --reference=/usr/share/nginx/html /var/www/mywebsite
+```
+3. **Allow Nginx to serve user-created content with SELinux**:
+```bash
+sudo setsebool -P httpd_read_user_content 1
+```
+4. **Restart Nginx**:
+```bash
+sudo systemctl restart nginx
+```
+Now, try accessing the webpage again.
+
 ## Step 8: Enable HTTPS with SSL (Optional)
 Install Certbot for SSL setup:
 ```bash
