@@ -34,7 +34,7 @@ Modem/Router (global IP)
 | Protocol | Type | Purpose | Example Use |
 |----------|------|---------|-------------|
 | **TCP** (Transmission Control Protocol) | Connection-Oriented | Reliable, ordered, error-checked | HTTP, FTP, SMTP |
-| **UDP** (User Datagram Protocol) | Connectionless | Faster, unordered, best-effort | DNS, VoIP, video streaming |
+| **UDP** (User Datagram Protocol) | Connectionless | Faster, unordered, best-effort | DNS, VoIP, SNMP |
 
 ### 🌐 Application Layer Protocols (Use TCP/UDP)
 
@@ -46,32 +46,35 @@ Modem/Router (global IP)
 | **SSH** | TCP | 22 | Remote login |
 | **Telnet** | TCP | 23 | Remote terminal |
 | **SMTP** | TCP | 25 | Sending email |
-| **DNS** | UDP/TCP | 53 | Domain name resolution |
-| **DHCP** | UDP | 67/68 | IP address allocation |
-| **POP3** | TCP | 110 | Email receiving |
-| **NTP** | UDP | 123 | Time sync |
-| **TFTP** | UDP | 69 | Simplified file transfer |
+| **POP3** | TCP | 110 | Receiving email |
+| **IMAP** | TCP | 143 | Sync email with server |
+| **DNS** | UDP/TCP | 53 | Converts domain names to IP addresses |
+| **DHCP** | UDP | 67 (server), 68 (client) | Dynamically assigns IP addresses |
+| **SNMP** | UDP | 161, 162 | Network monitoring and device management |
+| **NTP** | UDP | 123 | Time synchronization |
+| **TFTP** | UDP | 69 | Simple file transfer |
 | **RIP** | UDP | 520 | Routing protocol |
+| **ICMP** | - | - | Used for diagnostic (e.g., ping) |
 
 ---
 
 ## 🧠 OSI Model (Theoretical)
 
-1. **Application Layer** — User-facing: Browsers, Email Clients
-2. **Presentation Layer** — Encryption, Decryption, Compression
-3. **Session Layer** — Session management, Authentication
-4. **Transport Layer** — TCP/UDP, segmentation, ports
-5. **Network Layer** — IP addressing, Routing, Fragmentation
-6. **Data Link Layer** — MAC address, Frames, CRC, Flow control
+1. **Application Layer** — User-facing: Browsers, Email Clients  
+2. **Presentation Layer** — Encryption, Decryption, Compression  
+3. **Session Layer** — Session management, Authentication  
+4. **Transport Layer** — TCP/UDP, segmentation, ports  
+5. **Network Layer** — IP addressing, Routing, Fragmentation  
+6. **Data Link Layer** — MAC address, Frames, CRC, Flow control  
 7. **Physical Layer** — Bits to signals, actual transmission
 
 ---
 
 ## 📦 TCP/IP Model (Practical)
 
-1. **Application Layer** — HTTP, FTP, SMTP, DNS, etc.
-2. **Transport Layer** — TCP/UDP, ports
-3. **Internet Layer** — IP, ICMP, ARP
+1. **Application Layer** — HTTP, FTP, SMTP, DNS, etc.  
+2. **Transport Layer** — TCP/UDP, ports  
+3. **Internet Layer** — IP, ICMP, ARP  
 4. **Network Access Layer** — Ethernet, MAC, cables
 
 ---
@@ -118,7 +121,7 @@ Modem/Router (global IP)
 
 ---
 
-## 🔁 ARP & NAT
+## 🔁 ARP, NAT, DHCP, DNS, SNMP
 
 ### ARP (Address Resolution Protocol)
 
@@ -127,8 +130,29 @@ Modem/Router (global IP)
 
 ### NAT (Network Address Translation)
 
-- Maps private IPs to public IP
-- Allows multiple internal devices to share one external IP
+- Maps multiple private IPs to one public IP
+- Tracks connections via port mapping (PAT)
+- Essential for IPv4 address conservation
+
+### DHCP (Dynamic Host Configuration Protocol)
+
+- Automatically assigns IP address, subnet mask, default gateway, and DNS
+- Uses UDP
+- Lease-based → IPs may change
+
+### DNS (Domain Name System)
+
+- Converts domain names to IP addresses
+- Hierarchical structure: Root → TLD → Domain → Subdomain
+- Works using recursion and caching
+- Uses both UDP (default) and TCP (for large queries)
+
+### SNMP (Simple Network Management Protocol)
+
+- Used for monitoring and managing network devices (routers, switches, etc.)
+- SNMP Agents run on devices, and SNMP Managers collect info
+- Community strings (`public`, `private`) used like passwords
+- Uses UDP ports 161 (queries) and 162 (traps)
 
 ---
 
@@ -160,11 +184,11 @@ Modem/Router (global IP)
 
 ### Status Codes
 
-- `1XX` – Info
-- `2XX` – Success
-- `3XX` – Redirect
-- `4XX` – Client Error
-- `5XX` – Server Error
+- `1XX` – Info  
+- `2XX` – Success  
+- `3XX` – Redirect  
+- `4XX` – Client Error  
+- `5XX` – Server Error  
 
 ---
 
@@ -227,12 +251,21 @@ Modem/Router (global IP)
 ```bash
 # Check your public IP
 curl ifconfig.me -s
+
+# Find IP of domain
+nslookup google.com
+
+# Display routing table
+netstat -rn
+
+# Show active connections and listening ports
+netstat -tulnp
+
+# View DNS resolver configuration
+cat /etc/resolv.conf
 ```
 
 ---
-
-
-
 
 ## 🔢 Port Number Ranges Explained
 
@@ -263,3 +296,4 @@ Yes, you **can use unassigned ports** in this range.
 
 ```bash
 netstat -tuln
+```
