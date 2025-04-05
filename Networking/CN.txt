@@ -1,0 +1,531 @@
+Started by U.S called as Arpanet(Used TCP/IP)
+
+
+hyperlinks were not there so
+www came up 
+which stores the documents 
+acessed through url
+
+
+there was no search engine
+then they came up
+
+
+
+Standard rules must be there, so that system can communicate
+
+Internet society creates them
+
+
+
+
+
+
+Protocols:
+
+TCP(Trasmission Control Protocol)
+
+UDP(User Datagram Protocol)
+
+HTTP(Hyper Text Transfer Protocol): 
+Used by web browser
+
+
+
+
+IP addresses are given by ISP, to them it's given by IANA.
+
+
+
+
+All serevers are identified(or connected) using IP address
+IP address dentifies the device(32 bit if IPV4)
+Port number dentifies aplication within that device(16 bit number)
+
+HHTP stuffs happen in HTTP
+
+Port fom 0 to 1023 are reserved
+1024 to 49152 are reserved for applications(like port 1433 is for SQL)
+remaining we can use
+
+
+
+
+curl ifconfig.me -s
+
+
+
+
+
+ISP
+|
+Modem/Router(like house wifi)   // all of them will have global IP address
+|           |
+Device 1  Device2 ..            //these will have local IP address given by router using DHCP(Dynamic Host Configuration Protocol)
+
+
+
+If device requested google.com, for google server it will be like i recieved the req from global address,
+when it responds to router
+Modem/router will decide which device requested google.com using NAT(Network Acess Translator)
+
+
+Modem/Router can convert digital sigals into analog signal and vice versa
+
+like digital data to electrical signal which can sent using cables or something
+
+
+
+
+
+
+Physically:
+Optical fibre cables, co-axial cables
+
+Wireless:
+short range: bluetooth, wifi
+long range: 3G,4G,5G,LTE
+
+
+
+
+Internet is collection LAN, MAN and WAN
+Devices in LAN are connected to each other using ethernet or wifi
+Devices in WAN are connected to each other using optical fibre cables
+
+
+
+ 
+
+Topologies:
+Bus
+Ring
+Star (will have central hub)
+Mesh
+Tree(combo of bus and star)
+
+
+
+
+
+How internet works: How 2 or more systems communicate with each other
+
+OSI(Open System Interconnection) Model: Theory Model
+
+1. Application:
+Implemented as software , like browser, gmail, whatsup and all.
+
+Protocols:
+Protocol Name                  Port No          Transport Protocol
+Echo                             7                 TCP/UDP           for round trip time
+FTP(File Transfer)             20/21                TCP              
+Secure Shell(SSH)                22                 TCP
+Telnet                           23                 TCP
+SMTP                             25                 TCP
+DNS                              53                 UDP
+
+DHCP                            67/68               UDP
+TFTP(Trivial FTP)                69                 UDP
+HTTP                             80                 TCP
+POP                              110                TCP
+NTP(Network Time)                123                UDP               for syn time
+
+HTTPs                            443                TCP               secured HTTP
+RIP                              520                UDP
+
+
+
+
+
+2. Presentation: Responsibilities of application, not of OS
+takes data from above layer
+Code Conversion(to device supported format)
+Encryption/Decryption(decrypts at receiver side) 
+Compressed
+
+
+
+
+3. Session: Responsibilities of application, not of OS
+establishing the Session
+Authorization
+Authenticating
+Session Restoration(checkpoint) using session beans. Some company's allow. Ex: bank transfer, it won't allow
+Synchronization
+
+
+
+
+
+
+4. Transport: End to End delivery of data(port to port / process to process)
+is inside devices, it's job is take the data from the network and gives it to application
+Segmentation:
+data will be split into segments and each segment will have src and dst port number and sequence number
+at reciving end it also recombines them
+Adds TCP/UDP header
+
+TCP(Trabsmission Control Protocol) and UDP(user Datagram protocol)
+Flow ctrl
+Error ctrl using checksum
+Congestion ctrl algos built in tcp itself
+Multiplexing aand demultiplexing
+Retransmission timers(to know whether packet is lost)
+
+Socket address = IP Address(32 bits) + Port Address(16 bits)
+
+
+TCP:
+Connection Oriented
+reliable and ordering
+3-way handshake for establishing connection
+Full duplex
+Error ctrl
+Flow ctrl: taking into account reciver capacity
+Congesion ctrl: taking into account reciver capacity
+Piggybacking: sending ack along with data
+
+UDP:
+Connectionless: each packet is individuallly routed
+unreliable and no ordering
+Used in: online games, video streaming, multicasting/broadcasting
+
+
+
+
+5. Network: IP protocol
+Host-to-Host / src to dest / machine to machine
+It handles transportation of data from one device to other through network.
+Router lives here
+routing is done here
+transmission of recieved data segments from one computer to other which is in diferent Network
+funtion: 
+logical addressing
+it attaches the sender's and receivers IP address to every segment and forms an IP packet
+Also performs routing
+best path to take(using roting algos)
+
+IPV4(32 bit=> 4 octets): type of IPv4 address(classful addressing)
+class A: 0 + 7 bits + 24 bits      (subnet mask 255.0.0.0)
+class B: 10 + 15 bits + 16 bits    (subnet mask 255.255.0.0)
+class C: 110 + 22 bits + 8 bits    (subnet mask 255.255.255.0)
+class D: 1110 + mutlicast
+class E: 1111 + broadcast
+
+problems of classful addressing:
+wastage of IP addresses
+maintainance problem
+
+classless adressing: CIDR(Classless Inter-Domain Routing)
+only gives the number of addresses required. so no wastage of ip addresses
+ex: 200.10.20.40/28
+here starting 28 bit is network id, remaining is host id
+here addresses should be contiguous
+
+Subnetting: is done in both classful and classless addressing
+Done within a organization(like with in a clg for different department)
+Here split the host id into subnet id + host id
+normal ip address is of form: network id + host id
+                              network id + subnet id + host id        
+
+
+VLSM(Variable Length Subnet Masking):
+For creating different size subnets, in aabov subnetting it was same size subnets were formed
+ex: s1 : 200.10.20. 0 _ _ _ _ _ _ _  
+    s2 : 200.10.20. 1 0 _ _ _ _ _ _   
+    s3 : 200.10.20. 1 1 _ _ _ _ _ _
+    s1 is one half of the network
+    second half of the network is further split
+    s2 and s3 together is other half of the network
+   here s1 has half network, s2 and s3 has quater network
+
+
+IPV6(8 words)
+
+
+Routing:
+Static Routing: 
+1. Dijkstra's
+2. Flooding
+Dynamic Routing:
+1. Intra Domain(within network/ Autonomous systems):
+   Distance Vector(RIP): uses it's neighbors routing table to form it's routing table (problem: count to infinity)
+   Link State(OSPF)
+2. Inter Domain(in between Autonomous systems):
+   Path Vector(BGP)
+
+
+
+Fragmentation is done by routers:
+Network has max size for packets, so routers does fragmentation
+
+
+
+ARP(Address Resolution Protocol): IP address to Mac address
+If we have the IP address of dest and dom't have the MAC address of the dest
+Then we will broadcast the IP address of the dest to all and the dest will reply with it's MAC Address
+
+  
+
+NAT(Network Address Translator):
+Translates private IP Address to public IP Address and vice versa.
+It will maintain an NAT translation table
+
+
+
+
+
+
+
+6. Data Link: Physical Addressing
+split the packet and adds the MAC addresses of sender and reciver are assigned to data packet to form frame
+MAC addresses(48 bit), 
+a computer need not have only one mac address, your computer's bluetooth may have one mac address and wifi may have other mac address
+responsibilities:
+1. hop to hop delivery
+2. flow control
+   (i.e, whether all the in-between routers can handle the flow)
+   methods:
+   1. Sop and Wait(send packet and wait for ack)
+   2. Go Back N ARQ:
+      sender window size is 2^m -1 and reciver window size is 1, sender will send the packets in the window one by one, 
+      even if ack is not recived, if ack is not recieved after sending all the packets in the window, it will retransmit the first packet in the window again
+      since the reciver window is of size of one, it will only recieve the packets is expected order, ocnce packet is reciver, it moves the window and sends the ack 
+   3. selective repeat
+	sender and reeceiver window size is 2^m -1
+	here reciver can accept the incoming packet if it is in the window(packets out of order), but it will send neg ack for the frame which it was expecting
+	if the packed received is in expcted order, then ack is send
+3. Error control
+   error control at all the in-between routers(at each hop)
+   CRC for error detection
+   Hamming Code for error detection and correction
+   
+4. Accees control 
+   permission tosend data through channel, this is done to avoid collision
+
+
+devices with in a system can communicate just by using data link layer(it can also do it using network layer also)
+
+
+
+
+7. Physical:
+converts o's and 1's to signals
+transfers the data through optical fibres and all
+if optical cables: send in form of light
+if copper wires: send in form electrical signals
+topology
+transmission mode
+mutiplexing
+encoding: 
+like digital to analog, analog to digital
+digital to digital: like manchester: o->z 1->ulta z, differential manchester: 0->edge+z or edge+ulta z   1->z or ulta z 
+
+
+
+
+TCP/IP Model: Actual Model
+
+Application
+users interact
+ex: whatsapp, browsers, electricalit lies in Devices
+Client-server architecture
+
+Transport:
+
+
+Internet:
+
+
+Network Access:
+
+
+
+
+
+
+Protocols:
+HTTP:
+DHCP
+FTP
+SMTP (sending emails)
+POP3 AND IMAC (for receiving emails)
+SSH (for logging terminal of someone eles's computer)
+
+Telnet:
+terminal emulation that enables the user to connect remote host or device using telnet client 
+
+UDP
+
+
+
+
+Ephemeral Ports:
+tells which instance of application does
+
+
+
+
+
+
+HTTP: it stateless protocol 
+it tells how to request from a server
+and it also tells how the server send back the data to client
+HTTP request
+HTTP response
+Application layer protocol
+HTTP uses TCP, TCP  is in transport layer
+Methods:
+get
+Post
+put
+delete
+
+
+Status Codes:
+1XX  -  information
+2XX  -  sucess
+3XX  -  redirecting
+4XX  -  client error
+5XX  -  server error
+
+
+
+
+
+
+cookies:
+stored in my browser
+
+3rd party cookies
+
+
+
+
+
+
+How email works:
+Uses SMTP(Simplr Mail Transfer Protocol)
+Uses POP3 for receiving mail
+
+
+
+
+
+
+Control Plane:
+It does the routing table filling ans all
+1. Static routing
+2. Dynamic routing
+
+
+
+
+
+
+
+ARP(Address Resolution Protocol)
+used to get mac address if u have ip address
+
+
+
+
+
+PAN: bluetooth
+LAN: ethenet and wifi
+CAN: ethernet
+MAN: FDDI, ATM
+WAN: Lease Based
+
+
+
+
+
+
+
+Various devices in networking:
+
+1. cables          Hardware
+2. repeaters       Hardware       
+3. hubs            Hardware
+4. bridges         Hardware+software
+5. switches        Hardware+software
+6. routers         Hardware+software
+7. gateway          
+8. ids             security
+9. firewall        security
+10. modem
+
+
+
+1. cables: physical layer
+fibre optic
+co-axial cables
+unshielded twisted pair cable
+
+
+2. repeaters:  physical layer
+if attenuation occurs(i.e, the signal looses it's strength) then repeater regenerates the strength
+if x is the strength before, it regenerates to x itself
+unlike amplifier which may increase it to 2x and all
+it is a 2 port divice
+it does forwarding
+no filtering
+
+
+3. hubs: physical layer
+multiport repeater
+forwards to all other devices, i.e, no filtering
+
+
+
+
+4. bridges: in data link layer(uses data link layer and physical)
+2 port device
+for connecting two different LAN's(ex: one could be using ring topology, other could br bus topology)
+uses MAC adressing for filtering
+2 types: static bridges: we have a table containing mac address and port no(left or right of bridge)
+         dynamic bridges: whenever a new packet arrives and if does not know where to send, it will populate the the table by broadcasting the packet 
+
+
+
+5. switches: in data link layer(uses data link layer and physical)
+multiport bridge
+our device connect to switch, which in turn connected to router, and router is connected to internet
+full duplex, so no collision
+uses mac address for forwarding(i.e, filtering)
+
+
+
+
+
+
+6. routers: in network layer (uses network layer, data link layer and physical)
+to connect 2 different networks
+uses ip address, it also has access to mac address
+it maintains a routing table
+
+
+
+7. Gateway:
+connects two networks with different transmission protocols together
+
+
+
+10. Modem: fullform modulator and demodulator
+Modem is a device that enables a computer to send or receive data over telephone or cable lines.
+The data stored on the computer is digital whereas a telephone line or cable wire can transmit only analog data.
+The main function of the modem is to convert digital signal into analog and vice versa.
+
+
+
+
+
+
+
+VPN:
+VPN stands for the virtual private network. 
+A virtual private network (VPN) is a technology that creates a safe and encrypted connection over a less secure network, such as the internet. 
+
+
+
