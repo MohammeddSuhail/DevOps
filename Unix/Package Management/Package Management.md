@@ -116,7 +116,7 @@ yum history
 ```
 We can simply undo or redo any action using
 ```bash
-yum history undo/ redo <id>
+yum history undo/redo <id>
 ```
 
 ### 📦 Install Local `.rpm` Files
