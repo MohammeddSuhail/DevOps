@@ -109,6 +109,16 @@ sudo dnf remove <package-name>
 
 ---
 
+### Rollback
+To see the past work done related to packages, which will show you the activity with date and
+```bash
+yum history
+```
+We can simply undo or redo any action using
+```bash
+yum history undo/redo <id>
+```
+
 ### 📦 Install Local `.rpm` Files
 
 Manual (no dependency check):

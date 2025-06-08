@@ -1,3 +1,8 @@
+Getting a single file from another branch to current branch:
+git checkout feature/CMM-50565-CLOB-to-BLOB -- source/g00b503b.cbl
+or
+git restore --source feature/CMM-50565-CLOB-to-BLOB source/g00b503b.cbl
+
 To get hash id:
 git log --oneline
 
