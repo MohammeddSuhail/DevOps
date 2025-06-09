@@ -1,15 +1,3 @@
-# 🚀 Terraform with Azure: Beginner to Practical VM Deployment
-
-This guide covers:
-- Terraform basics
-- Full example to deploy a VM in Azure
-- Deep comments explaining every part
-- Adding 100 GB disk space
-- Networking concepts (VNet, Subnet, NIC)
-- Ready to push to GitHub!
-
----
-
 ## 🧱 Prerequisites
 
 - Azure CLI installed (`az login`)
