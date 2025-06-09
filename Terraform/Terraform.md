@@ -1,3 +1,5 @@
+Terraform is an open-source Infrastructure as Code (IaC) tool created by HashiCorp. It allows you to define, provision, and manage cloud infrastructure using a declarative configuration language called HCL (HashiCorp Configuration Language).
+
 ## 🧱 Prerequisites
 
 - Azure CLI installed (`az login`)
