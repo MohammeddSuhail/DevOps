@@ -136,7 +136,7 @@ resource "azurerm_linux_virtual_machine" "example_vm" {
     version   = "latest"
   }
 }
-
+```
 ---
 
 
