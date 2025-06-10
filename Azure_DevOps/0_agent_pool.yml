@@ -1,0 +1,16 @@
+Pipelines in Azure DevOps typically require an agent pool to run. The agents in the pool execute the tasks defined in your pipeline, such as building code, 
+running tests, and deploying applications. Without an agent pool, there would be no agents available to perform these tasks.
+
+An agent pool in Azure DevOps is a collection of agents that are used to run your pipelines. 
+Instead of managing each agent individually, you organize them into pools. When you configure an agent, it is registered with a single pool, and 
+when you create a pipeline, you specify the pool in which the pipeline runs. This allows you to share the agent machines across projects within your organization
+
+
+
+You can find the definition and the specific agents (nodes/servers) that belong to the xxx-xxx-agent-pool within your Azure DevOps project settings.
+Navigate to your Azure DevOps project.
+Go to Project Settings (usually a gear icon in the bottom left).
+Under the Pipelines section, click on Agent pools.
+Find and click on the pool named xxx-xxx-agent-pool.
+Go to the Agents tab within the pool's settings.
+
