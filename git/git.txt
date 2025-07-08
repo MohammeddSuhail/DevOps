@@ -34,6 +34,18 @@ git checkout hash_id .
 
 
 
+You want to resolve all the merge conflicts by keeping your current branch’s version of every file.
+Here’s how you can do that for all conflicted files:
+
+1. Use git status to see all conflicted files
+git status
+
+2. For each conflicted file, checkout your version:
+git checkout --ours .
+
+3. Mark the conflicts as resolved
+git add .
+
 
 
 If i have made a branch called feta1 from develop, now there are updates in in develop, how to get that to feat1 branch now?
