@@ -43,6 +43,9 @@ git status
 2. For each conflicted file, checkout your version:
 git checkout --ours .
 
+If you want to keep the source version (the branch you are merging from), you use:
+git checkout --theirs <file>
+
 3. Mark the conflicts as resolved
 git add .
 
