@@ -1,0 +1,29 @@
+-> One app in one server
+
+-> VMware solved by introducing Virtual Machine(VM)
+But each VM must have their own OS and hardware allocated(ram, rom)
+And now on a server there can be many VM's, where each VM runs an application.
+VM emulates Hardware.
+
+-> no wastage of rscs
+
+
+VM1         VM2           (has it's owm memory, CPU, hardware (logocal server))
+|            |
+  Hypervisor (does logical seperation of rscs to create vms)
+      |
+     rscs(physical server)
+
+
+Hypervisor:
+Vmware
+Xen
+VirtualBox 
+
+
+Types of Hypervisor:
+Type 1 (Bare-Metal) Hypervisor: Runs directly on the host hardware, without a host operating system (OS).
+ex: VMWare, Xen
+Type 2 (Hosted) Hypervisor: Runs as an application on top of a conventional host operating system (like Windows, macOS, or Linux).
+ex: Oracle VM VirtualBox
+
