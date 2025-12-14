@@ -27,3 +27,16 @@ ex: VMWare, Xen
 Type 2 (Hosted) Hypervisor: Runs as an application on top of a conventional host operating system (like Windows, macOS, or Linux).
 ex: Oracle VM VirtualBox
 
+
+
+
+AWS:
+EC2 api for vm creation using scripts.
+Can create vms using:
+-> AWS CLI
+-> AWS API
+-> AWS CFT(clouf formation template)
+-> AWS CDK
+-> Terraform
+
+ 
