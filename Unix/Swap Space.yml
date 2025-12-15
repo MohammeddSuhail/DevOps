@@ -2,6 +2,10 @@ Swap space in Linux is a portion of the disk that is used as virtual memory when
 When the system runs out of RAM, it moves inactive memory pages to the swap space, freeing up RAM for active processes.
 
 
+freeing up and bringing backup:
+swappoff -a   # Disable all swap spaces
+swapon -a    # Enable all swap spaces
+
 
 Increasing Swpap Space in Linux:
 
