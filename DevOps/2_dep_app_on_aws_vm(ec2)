@@ -1,0 +1,38 @@
+# Deploying an Application on AWS EC2 Instance
+
+## Step 1: Create an AWS EC2 Instance
+1. Log in to the AWS Management Console.
+2. Navigate to the EC2 service.
+3. Click "Launch Instance".
+4. Choose an Amazon Machine Image (AMI) - select the desired OS (e.g., Amazon Linux, Ubuntu).
+5. Select an instance type (e.g., t2.micro for free tier).
+6. Configure instance details as needed.
+7. Add storage if required.
+8. Configure security group:
+   - Create a new security group or select existing.
+   - Add rules for SSH (port 22) and your application port (e.g., 80 for HTTP).
+9. Review and launch the instance.
+10. Download the key pair (.pem file) when prompted.
+
+## Step 2: Prepare SSH Keys
+- The downloaded file is a .pem file, which works with OpenSSH.
+- For PuTTY (on Windows), convert the .pem to .ppk format using PuTTYgen:
+  1. Open PuTTYgen.
+  2. Load the .pem file.
+  3. Save the private key as .ppk.
+
+## Step 3: Connect to the EC2 Instance
+- Use SSH to connect:
+  - For Linux/Mac: `ssh -i key.pem ec2-user@public-ip`
+  - For PuTTY: Use the .ppk file, enter public IP, and connect.
+
+## Step 4: Deploy the Application
+1. Update the system: `sudo yum update` (for Amazon Linux) or `sudo apt update` (for Ubuntu).
+2. Install necessary software (e.g., Node.js, Docker, etc.).
+3. Upload your application code (using scp, git, etc.).
+4. Configure and start the application on the desired port.
+
+## Step 5: Configure Security Group Inbound Rules
+- In the EC2 console, go to Security Groups.
+- Edit inbound rules for the instance's security group.
+- Add rules to allow traffic to the application port from specific IPs (e.g., 0.0.0.0/0 for all, or your IP for security).
