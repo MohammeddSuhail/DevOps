@@ -1,0 +1,226 @@
+Need of virtual machines:
+a.Isolation: 
+Virtual machines isolate an operating system from the physical hardware and from other virtual machines. 
+This provides security, stability and fault isolation.
+b.Resource sharing
+
+
+
+Services:
+
+SaaS Service:
+Completely is handled by the service provider.
+ex:
+Outlook, OneDrive,Gmail, Docs, GDrive
+
+
+PaaS Service: 
+Platform as a service (PaaS) is a complete development and deployment environment in the cloud.
+Like IaaS, PaaS includes infrastructure—servers, storage, and networking—but also middleware, development tools, business intelligence (BI) services, database management systems, and more.
+PaaS stands for Platform as a Service. It is a cloud computing model that provides developers with tools 
+and services to build, test and deploy applications without having to manage the underlying infrastructure.
+
+Some key features of PaaS are:
+->The cloud vendor takes care of the infrastructure including servers, storage, networking, operating systems etc. 
+  Developers only need to focus on application development.
+->PaaS provides development tools, APIs, libraries and databases that developers can use to build their applications
+
+ex:Heruko, Firebase,
+Azure SQL: Customers who purchase Azure SQL Database don't need to maintain anything related to SQL platform
+because Microsoft manages that. They just use it by deploying their tables and data and consuming it with their
+applications. That's why this is a Platform as a Service model. It's not Software as a Service because they still
+need to maintain the database in order for their applications to work.
+
+
+IaaS Service:
+storage, network, CPU
+Providing VM's is example of IaaS
+ex:
+Azure 
+DigitalOcean:
+A popular IaaS provider for developers, it offers virtual machines, object storage, firewalls, load balancers and more. It has a simple and streamlined user interface.
+
+
+
+
+
+
+
+Something else:
+
+IaC (Infrastructure as Code): 
+IaC refers to the practice of provisioning and managing infrastructure (whether on-premises or in the cloud) through code. 
+It uses tools like CloudFormation, Terraform, ARM templates, Ansible, Chef, etc.
+
+
+
+
+Cloud deployment Models:
+
+Private cloud:
+Everything runs on your own datacenter.
+Self-service should be provided.
+ex:
+An enterprise's own data center that is managed as a cloud environment, 
+providing resources on-demand to users within the organization.
+
+Public cloud:
+Everything runs on cloud provider hardware.
+No local hardware.
+Some services share hardware with other customers.
+ex: Microsoft Azure, AWS, IBM Cloud
+
+Hybrid cloud:
+Combines both Public & Private cloud.
+ex:
+An organization uses Amazon Web Services (AWS) to host some non-critical applications and workloads, 
+while also maintaining an on-premises data center for sensitive data and applications.
+
+
+
+
+
+
+
+
+Data Center:
+Physical facility
+Hosting for group of networked servers
+
+
+Region: one or grp of Data Centers
+Geographical area on the planet
+One but usually more datacenters connected with low-latency network
+
+
+Availability Zone:
+->Regional feature
+->Grouping of physically separate facilities
+->Designed to protect from data center failures
+->If zone goes down others continue working
+Two service categories,
+a. Zonal services (Virtual Machines, Disks, etc.)
+b. Zone-redundant services (SQL, Storage, etc.)
+
+
+Region Pair:
+Each region is paired with another region making it a region pair
+Region pairs are static and cannot be chosen
+Each pair resides within the same geography
+Physical isolation with at least 300 miles distance (when possible)
+
+
+Geographies:
+Discrete market
+Typically contains two or more regions
+
+
+
+
+
+
+
+Resource:
+They represent purchased services
+Object used to manage services in Azure
+Saved as JSON definition
+They are always placed inside one single Resoure Group.
+Virtual machines, storage accounts, web apps, databases, and virtual networks are examples of resources. 
+Resource groups, subscriptions, management groups, and tags are also examples of resources.
+
+
+Resource Groups:
+Grouping of resources
+
+
+Azure Resource Manager(ARM):
+Management Layer for all resources and resource groups
+All the request from user through azure platform/Azure CLI/Powershell/SDK's/REST for creation/deletion/modification of a resource does through Azure Resource Manager
+ARM Template
+
+
+
+
+
+
+
+
+
+using azure throug:
+• Azure Portal - Web based portal for self-service management of Azure platform
+• Azure CLI - automation module for terminal
+• Azure PowerShell - automation module for PowerShell
+• Azure Cloud Shell - free cloud-based scripting environment
+
+
+
+
+Azure CLI:
+u need to install Cloud Shell for this or u can use CLI in azure platform itself.
+
+az login
+
+
+list all
+az --help
+or 
+az -h
+
+
+az group
+
+
+az group -h
+will give all options with group
+
+
+az group list -h
+this will give u what can u do with listing groups
+
+
+az group list --query "[].{resourceGroupName: name, location:location}" 
+
+
+az group list -o table
+
+az group list -o yaml
+
+
+az group list --query "[].{resourceGroupName: name, location:location}" -o table
+
+
+
+
+
+
+
+Azure CLI interactive mode:
+It helps in using CLI
+
+az interactive
+
+
+
+
+vm creation:
+az vm create -n some_vm_name -g some_group_name --image UbuntuLTS --admin-username msuhail --generate-ssh-keys
+
+Login after creation:
+shh username@IP_of_VM
+u can check the IP of a VM in the azure portal
+ex:
+ssh msuhail@168.63.72.214
+so this log you to => msuhail@some_vm_name
+
+
+
+In azure we change configuration like, allowing entire internet to access the VM to only specific IP ranges to access the VM
+
+
+
+
+
+
+
+
+
