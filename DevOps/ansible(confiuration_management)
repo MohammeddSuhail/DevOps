@@ -2,6 +2,8 @@
 
 Ansible is a powerful open-source automation tool widely used in DevOps for configuration management, application deployment, and task automation. Here's why it's popular:
 
+other similar config managemnts tools(anisble is best f them): Puppet, Chef, Salt
+
 ## Key Reasons for Using Ansible
 
 ### 1. **Agentless Architecture**
