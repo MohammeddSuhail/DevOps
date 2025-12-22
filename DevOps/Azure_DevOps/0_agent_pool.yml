@@ -14,3 +14,11 @@ Under the Pipelines section, click on Agent pools.
 Find and click on the pool named xxx-xxx-agent-pool.
 Go to the Agents tab within the pool's settings.
 
+
+agent-some-pool:
+    some-agent1
+    some-agent2
+    some-agent2
+
+All these agents can be on same server
+Having mutiple agents allows, mutiple pipelines to run concurrently.
