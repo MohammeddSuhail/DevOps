@@ -22,3 +22,8 @@ agent-some-pool:
 
 All these agents can be on same server
 Having mutiple agents allows, mutiple pipelines to run concurrently.
+
+
+types:
+1. self hosted agen pools: we can configure.
+2. microsoft hosted agent pools: from microsoft. ex: agent pool name: azure pipelines

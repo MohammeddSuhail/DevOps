@@ -1,4 +1,6 @@
-Terraform is an open-source Infrastructure as Code (IaC) tool created by HashiCorp. It allows you to define, provision, and manage cloud infrastructure using a declarative configuration language called HCL (HashiCorp Configuration Language).
+API as code(based on the providor terraform will call api's of those provider(azure/aws/gcp,..) for infra management). Terraform is an open-source Infrastructure as Code (IaC) tool created by HashiCorp. It allows you to define, provision, and manage cloud infrastructure using a declarative configuration language called HCL (HashiCorp Configuration Language).
+
+terraform <----> terraform provider <----> provider API
 
 ## 🧱 Prerequisites
 
