@@ -45,9 +45,41 @@ Types:
 
 When to use what? local-exec for local tasks, remote-exec for remote commands, file for uploads. Avoid if possible because they can make configurations less reliable, harder to test, and less portable.
 
+
 ---
 
+## **Workspace**
 
+Terraform Workspaces allow you to manage multiple distinct sets of infrastructure resources from the same configuration files. Each workspace has its own State File.
+Why use them? To manage multiple environments (e.g., Dev, Staging, Prod) using the exact same code without copying files.
+
+Key Characteristics:
+- Separation of State: Every workspace maintains its own state file. In an S3 backend, these are typically stored under a env:/<workspace_name>/ prefix.
+- Default Workspace: Every Terraform configuration starts with a workspace named default. This cannot be deleted.
+- Environment Logic: You can use the variable ${terraform.workspace} within your code to change resource names or sizes based on the active environment (e.g., using a t3.medium in Prod but a t3.micro in Dev).
+
+Workflow Commands:
+- terraform workspace list: Shows all existing workspaces.
+- terraform workspace new <name>: Creates a new workspace and switches to it.
+- terraform workspace select <name>: Switches between environments.
+- terraform workspace show: Displays the name of the current workspace.
+
+ex:
+my-terraform-state-bucket/
+├── proj_name_or_some_prefix/
+│   └── terraform.tfstate             # (The 'default' workspace)
+└── env:/
+    ├── dev/
+    │   └── proj_name_or_some_prefix/
+    │       └── terraform.tfstate     # (The 'Dev' workspace)
+    ├── staging/
+    │   └── proj_name_or_some_prefix/
+    │       └── terraform.tfstate     # (The 'Staging' workspace)
+    └── prod/
+        └── proj_name_or_some_prefix/
+            └── terraform.tfstate     # (The 'Prod' workspace)
+
+---
 
 ## Configuration Approaches
 
