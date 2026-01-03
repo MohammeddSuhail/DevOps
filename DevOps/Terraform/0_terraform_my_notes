@@ -20,3 +20,19 @@ Why:
 Where can it be stored: DynamoDB/Azure Blob Storage
  -> For AWS, the state file is stored in an S3 bucket, and the lock is managed using DynamoDB. Why DynamoDB? Because it provides atomic operations and strong consistency needed for reliable locking. Why not S3 for locking? S3 is object storage and doesn't support atomic operations or native locking, which could lead to race conditions. 
  -> For Azure, both state and lock are handled by Azure Blob Storage.
+
+Provisioners:
+Provisioners: Terraform components to execute scripts, commands, or upload files on resources after creation or before destruction. Used for tasks that can't be done by just declaring resources in Terraform.
+
+When used? Why? For installing software, running scripts, or configuring apps when providers can't do it natively.
+
+During creation/deletion? Creation (default), destruction (when="destroy"), or both.
+
+When to use? Sparingly; prefer declarative alternatives like user data or Ansible.
+
+Types:
+- local-exec: Runs on local machine (e.g., API calls).
+- remote-exec: Runs on remote resource (e.g., via SSH).
+- file: Uploads files to remote resource.
+
+When to use what? local-exec for local tasks, remote-exec for remote commands, file for uploads. Avoid if possible because they can make configurations less reliable, harder to test, and less portable.

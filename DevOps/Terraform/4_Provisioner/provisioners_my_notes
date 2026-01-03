@@ -1,0 +1,20 @@
+Provisioners:
+What is it? Provisioners are Terraform components that allow you to execute scripts, commands, or upload files to resources after they are created or before they are destroyed. They bridge the gap between declarative infrastructure management and imperative configuration tasks.
+
+When is it used? Why? Provisioners are used when you need to perform actions that cannot be handled declaratively by Terraform resources, such as installing software, running initialization scripts, or configuring applications on newly created instances. They are used because some configurations require imperative steps that go beyond what providers can do natively.
+
+During creation, deletion? Provisioners can run during resource creation (default), destruction (using `when = "destroy"`), or both. For example, you might use a provisioner to install software on creation and clean up on destruction.
+
+When to make use of it? Use provisioners sparingly and as a last resort. Terraform is designed for declarative infrastructure, so prefer built-in provider features, cloud-init scripts, user data, or configuration management tools (like Ansible) over provisioners. Only use them when the task is tightly coupled to the resource lifecycle and cannot be separated.
+
+Types of provisioners:
+- `local-exec`: Runs commands on the machine where Terraform is executed (e.g., local scripts or API calls).
+- `remote-exec`: Runs commands on the remote resource (requires SSH or WinRM connection).
+- `file`: Uploads files or directories to the remote resource.
+- `chef`, `puppet`, `salt-masterless`: For integrating with configuration management tools (less common now).
+
+When to use what type:
+- Use `local-exec` for tasks like triggering external APIs, running local scripts, or post-processing outputs.
+- Use `remote-exec` for installing packages or running commands directly on the instance (e.g., via SSH).
+- Use `file` for uploading configuration files or scripts to the resource.
+- Avoid provisioners if possible; they can make configurations less portable and harder to test. Instead, use provider-specific features like AWS user data or Azure custom script extensions.
