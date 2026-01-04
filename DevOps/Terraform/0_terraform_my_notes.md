@@ -91,8 +91,13 @@ import {
   id = "i-0573763ef5312afd6f" <!--The actual ID of the resource from the AWS Console-->
   to = aws_instance.example <!--The address the resource will have in your Terraform code-->
 }
-2. Generating the Code
+2. Generating the Code:
+Run this command. Terraform will create a new file named generated.tf containing the full resource configuration (tags, instance type, etc.) pulled directly from AWS.
 terraform plan -generate-config-out=generated.tf
+generated.tf will have the code
+3. Update the State:
+Run this command to officially "hand over" management to Terraform.
+terraform apply
 
 ---
 
