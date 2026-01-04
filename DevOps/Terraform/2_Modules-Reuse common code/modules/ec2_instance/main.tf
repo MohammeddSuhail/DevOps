@@ -3,8 +3,8 @@ provider "aws" {
 }
 
 resource "aws_instance" "example" {
-    ami = var.ami_value
-    instance_type = var.instance_type_value
-    subnet_id = var.subnet_id_value
-    associate_public_ip_address = true
+  ami                         = var.ami_value
+  instance_type               = var.instance_type_value
+  # MUST BE FALSE TO BE FREE (Avoids $0.005/hr IPv4 charge)
+  associate_public_ip_address = false 
 }

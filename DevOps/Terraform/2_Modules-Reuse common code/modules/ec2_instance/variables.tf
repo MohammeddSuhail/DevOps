@@ -1,11 +1,7 @@
 variable "ami_value" {
-    description = "value for the ami"
+  description = "The AMI ID (Must be x86_64 for t3.micro)"
 }
 
 variable "instance_type_value" {
-    description = "value for instance_type"
-}
-
-variable "subnet_id_value" {
-    description = "value for the subnet_id"
+  description = "The size of the instance (t3.micro is usually free)"
 }
