@@ -79,6 +79,21 @@ my-terraform-state-bucket/
         └── proj_name_or_some_prefix/
             └── terraform.tfstate     # (The 'Prod' workspace)
 
+
+---
+## Importing Existing Resources into Terraform
+To bring a resource created manually or via other tools (like AWS CloudFormation) into Terraform management, you can use the declarative import block.
+1. The Configuration (main.tf):
+provider "aws" {
+  region = "us-east-1"
+}
+import {
+  id = "i-0573763ef5312afd6f" <!--The actual ID of the resource from the AWS Console-->
+  to = aws_instance.example <!--The address the resource will have in your Terraform code-->
+}
+2. Generating the Code
+terraform plan -generate-config-out=generated.tf
+
 ---
 
 ## Configuration Approaches
