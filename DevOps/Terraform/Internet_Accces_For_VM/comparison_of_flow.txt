@@ -1,0 +1,25 @@
+To explain the flow in Azure compared to the AWS diagram you described, here is how traffic moves step-by-step:
+
+1. Inbound Flow (The "Public" Subnet)
+In your AWS diagram, traffic hits an Internet Gateway (IGW). In Azure:
+ ->The Entry Point: Traffic from the internet comes directly to a Public IP address assigned to a Virtual Machine (VM) or a Load Balancer.
+ -> The Security Guard: Before reaching the VM, the traffic must pass through a Network Security Group (NSG). This is where you write your "Allow" rules for ports like 80 (HTTP) or 443 (HTTPS).
+ -> Final Destination: The traffic hits the VM inside the subnet. There is no separate "Gateway" object you have to route through manually.
+
+
+2. Outbound Flow (The "Private" Subnet)
+In your AWS diagram, private instances go through a NAT Gateway. Azure works almost identically here:
+ -> The Request: A VM in the private subnet tries to reach the internet (e.g., to download an update).
+ -> The Exit Point: The traffic is automatically sent to the Azure NAT Gateway associated with that subnet.
+The Translation: The NAT Gateway replaces the VM's private IP with its own Static Public IP and sends the request to the internet.
+The Return: The internet sends the data back to the NAT Gateway, which passes it back to the specific VM that asked for it.
+
+
+3. Internal Flow (Between Subnets)
+In AWS, you use Route Tables to tell the Public Subnet how to talk to the Private Subnet.
+In Azure, System Routes are created automatically. Every subnet in the same VNet can talk to every other subnet by default. You use Network Security Groups (NSGs) to "lock the doors" and prevent the Public Subnet from accessing the Private Subnet unless specifically allowed.
+
+
+In summary:
+AWS = Manually defining paths in a Route Table to an IGW.
+Azure = Automatic paths (System Routes) that you control using Public IPs (for entry) and NAT Gateways (for exit).
