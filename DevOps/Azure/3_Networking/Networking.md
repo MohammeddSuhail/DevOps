@@ -166,7 +166,7 @@ Next Hop Types:
 * **WAF (Web Application Firewall)**: Layer 7 protection on App Gateway; Blocks SQL injection, XSS, malicious patterns.
 * **Billing Components**: Charged Resources include Azure Firewall, App Gateway, Load Balancer, and Data Transfer (egress).
 
-## 10. Architecture Reference Diagram
+## 10. Inbound Connection Architecture Reference Diagram
 
 ```yaml
 Internet
@@ -198,3 +198,73 @@ Database Subnet [NSG]
 | **Load Balancer** | L4 Rules | Backend Instances | App Logic Subnet |
 
 **All components interconnect for secure, scalable 3-tier architecture.**
+
+
+
+## 11. NAT Gateway: The "Outbound" Traffic Flow
+
+When a private resource (like an App Server) needs to reach the internet (e.g., for patches or API calls), it follows this specific path:
+
+1.  **Request Initiation**: 
+    * **App Server (App Logic Subnet)** says: *"I need to download an update from linux-patches.com."*
+2.  **Route Table (UDR)**: 
+    * The subnet identifies the request is destined for the internet. If a NAT Gateway is associated with the subnet, the traffic is automatically directed there.
+3.  **NAT Gateway**: 
+    * The Gateway receives the private packet and "masks" it. It assigns its **Static Public IP** to the request and sends it out to the Public Internet.
+4.  **Internet Response**: 
+    * The destination server (linux-patches.com) sees the request coming from a trusted, static IP and allows the download.
+
+---
+
+### Why use NAT Gateway for Outbound?
+
+| Feature | NAT Gateway | Azure Firewall (Outbound) |
+| :--- | :--- | :--- |
+| **Primary Goal** | Scalable Outbound Connectivity | Security & Filtering |
+| **IP Address** | **Static Public IP** (Fixed) | Public IP of the Firewall |
+| **Performance** | Extremely high (best for SNAT) | High, but adds inspection latency |
+| **Best For** | Downloading patches, API calls | Filtering traffic by Domain/URL |
+
+
+
+
+
+
+## Azure Routing Reference: System vs. User-Defined Routes (UDR)
+
+Azure routing is the "GPS" of your network. Traffic flow is determined by a combination of invisible **System Routes** and manually configured **User-Defined Routes (UDRs)**.
+
+### Part 1: The System Default Routes (The "Invisible" Logic)
+Azure automatically creates and assigns a system route table to every subnet. These are immutable—you cannot delete them—but they can be overridden by UDRs.
+
+| Destination Prefix | Next Hop Type | Logic / Behavior |
+| :--- | :--- | :--- |
+| **Local VNet** (e.g., `10.0.0.0/16`) | **Virtual Network** | Enables direct communication between all subnets within the same VNet. |
+| **0.0.0.0/0** | **Internet** | Default "exit ramp" for all outbound traffic not destined for a private range. |
+| **Peered VNet** | **VNet Peering** | Automatically added upon peering to allow private traffic between different VNets. |
+| **RFC 1918 Ranges** | **None** | Prevents internal traffic from leaking to the public internet by dropping it if no specific route exists. |
+
+---
+
+### Part 2: User-Defined Routes (UDR) (The "Manual" Logic)
+UDRs allow you to force traffic through specific security or connectivity appliances. A UDR associated with a subnet will **always** override a System Route for the same prefix.
+
+#### Common Next Hop Types for UDRs:
+* **Virtual Appliance**: Directs traffic to the private IP of a firewall (e.g., Azure Firewall) or an NVA for inspection.
+* **Internet**: Explicitly bypasses firewalls to use Azure's direct internet backbone.
+* **Virtual Network Gateway**: Directs traffic to an on-premises site via VPN or ExpressRoute.
+* **None**: Acting as a "Black Hole," this route drops any traffic destined for the specified prefix (useful for security isolation).
+
+---
+
+### Part 3: Selection Priority (The "Tie-Breaker")
+If multiple routes match a destination, Azure selects the path based on these rules:
+1.  **Longest Prefix Match (LPM)**: The most specific CIDR range always wins (e.g., `/24` is chosen over `/16`).
+2.  **Hierarchy**: If prefixes are identical, the winner is decided by:
+    * **1st: User-Defined Route (UDR)**
+    * **2nd: BGP Routes** (via VPN/ExpressRoute)
+    * **3rd: System Routes** (Default)
+
+> [!TIP]
+> **Verification**: You cannot see the "System Route Table" object in the portal. To see the actual routes being used by a VM, navigate to: 
+> **VM -> Networking -> Network Interface -> Effective Routes**.
