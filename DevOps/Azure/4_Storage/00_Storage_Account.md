@@ -20,7 +20,7 @@ Inside a single storage account, you can use one or all of the following service
 
 | Service | Best For | Technical Description |
 | :--- | :--- | :--- |
-| **Azure Blobs** | Unstructured Data | Optimized for massive amounts of data like images, videos, documents, or log files. The cloud equivalent of a file system for applications. |
+| **Azure Blobs / Container** | Unstructured Data | Optimized for massive amounts of data like images, videos, documents, or log files. The cloud equivalent of a file system for applications. |
 | **Azure Files** | Cloud File Shares | Fully managed file shares accessible via **SMB** or **NFS** protocols. Allows "mounting" a drive in the cloud like a local network share. |
 | **Azure Queues** | App Messaging | A messaging store for reliable communication between application parts (e.g., Web front-end to back-end worker). |
 | **Azure Tables** | NoSQL Data | Ideal for semi-structured data that doesn't require complex joins or foreign keys, such as user profiles or address books. |
