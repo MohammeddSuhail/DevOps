@@ -1,0 +1,23 @@
+An ARM template is a JSON(JavaScript Object Notation) file that uses declarative syntax, 
+meaning you describe what you want to create (like a Virtual Machine or Storage Account) rather than writing the step-by-step code to build it.
+
+Basic Skeleton:
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {},
+  "functions": [],
+  "resources": [],
+  "outputs": {}
+}
+
+Key Elements Explained:
+$schema: Mandatory. The location of the JSON schema file that describes the version of the template language.
+contentVersion: Mandatory. The version of your template (e.g., 1.0.0.0). You can use this to track changes to your internal versions.
+parameters: are external, they are values you (the user) provide at the time of deployment.
+variables: are internal, they are values defined inside the template itself to simplify logic.
+functions: Custom, user-defined procedures to perform repetitive logic within the template.
+resources: Mandatory. The actual Azure services you want to deploy (Storage, Networking, Compute, etc.).
+outputs: Values returned after a successful deployment, such as the public IP address of a new server.
+

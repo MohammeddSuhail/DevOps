@@ -1,0 +1,31 @@
+1. yaml:
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'YourServiceConnection'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'MyTargetRG'
+    location: 'East US'
+    templateLocation: 'Linked artifact'
+    csmFile: 'template.json' # Path to your file
+    overrideParameters: >
+      -vmName "$(devops_vm_name)" 
+      -adminUsername "$(devops_admin_user)" 
+      -adminPassword "$(devops_admin_pass)"
+    deploymentMode: 'Incremental'
+
+
+2. Azure CLI:
+az deployment group create \
+  --resource-group YourResourceGroupName \
+  --template-file template.json \
+  --parameters vmName=MyVM adminUsername=azureuser adminPassword=YourPassword123!
+
+
+3. PowerShell:
+New-AzResourceGroupDeployment `
+  -ResourceGroupName "YourResourceGroupName" `
+  -TemplateFile ".\template.json" `
+  -vmName "MyVM" `
+  -adminUsername "azureuser" `
+  -adminPassword "YourPassword123!"

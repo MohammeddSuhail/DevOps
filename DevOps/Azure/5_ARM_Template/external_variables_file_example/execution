@@ -1,0 +1,7 @@
+When you deploy, you simply tell Azure which parameter file to use:
+
+Azure CLI: 
+az deployment group create --resource-group MyRG --template-file azuredeploy.json --parameters @azuredeploy.parameters.json [4.5]
+
+PowerShell: 
+New-AzResourceGroupDeployment -ResourceGroupName MyRG -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json [4.1]
