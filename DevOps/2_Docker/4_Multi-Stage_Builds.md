@@ -3,7 +3,7 @@
 ## 🏗️ Multi-Stage Builds
 Standard builds include compilers, build caches, and source code in the final image, making it massive. Multi-stage builds use multiple `FROM` statements to separate the **build** environment from the **runtime** environment.
 
-> **The Key:** Using Multi-Stage Builds, you can have **any number of stages** (e.g., Build, Lint, Test, Security Scan). Docker creates **temporary containers** to run these intermediate steps, but it only saves the very last stage as your final image. This keeps your production image tiny and hides your internal build logic.
+> **The Key:** Using Multi-Stage Builds, you can have **any number of stages** (e.g., Build, Lint, Test). Docker uses **temporary containers** to execute the commands in every stage; however, it discards the heavy build environments of the earlier stages and only saves the final stage as your permanent image.
 
 **Example of a 2-stage workflow:**
 * **Stage 1 (Build):** Docker launches a **temporary container** using a "heavy" image (e.g., `golang`, `maven`, `node`). This container has all the tools needed to compile the code. Once the build is finished, this container is discarded.
