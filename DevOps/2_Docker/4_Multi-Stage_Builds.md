@@ -29,7 +29,13 @@ CMD ["./hello"]
 ---
 
 ## 🍃 Distroless Images
-Distroless images are the ultimate "minimal" runner. They contain **only** your application and its dependencies (like a language runtime), leaving out everything else found in a standard Linux distribution.
+Distroless images are the ultimate "minimal" runner. They contain only your application and its dependencies (like a language runtime). Unlike standard images, they do not contain a full Linux Operating System.
+
+### The Difference in Layers:
+
+* **Standard Image (Ubuntu/Debian):** Contains a **full OS**, shell, package manager, and hundreds of utilities you don't need to run your app.
+* **Minimal Image (Alpine):** A **very lightweight OS** (~5MB) that still includes a shell (`sh`) and a package manager (`apk`).
+* **Distroless:** **No Operating System.** It only contains the application and the specific libraries (like Python or OpenJDK) required to execute it.
 
 **What is NOT inside:**
 * ❌ **Package managers** (`apt`, `yum`, `pip`)
