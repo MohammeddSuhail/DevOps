@@ -45,12 +45,12 @@ The **run** command creates an active instance (container) from your static imag
 
 * **Syntax:**
     ```bash
-    docker run -p <host_port>:<container_port> <image_id_or_tag>
+    docker run --name <container_name> -p <host_port>:<container_port> <image_id_or_tag>
     ```
     ```bash
     example:
-    1. without using tag, with image id: docker run -p 8000:8000 76c191aceca8
-    2. if using tag:                    docker run -p 8000:8000 my-django-app:v1
+    1. without using tag, with image id: docker run --name some_name -p 8000:8000 76c191aceca8
+    2. if using tag:                    docker run --name some_name -p 8000:8000 my-django-app:v1
     ```
 
 * **Port Mapping (Left:Right):**
@@ -67,7 +67,7 @@ The **run** command creates an active instance (container) from your static imag
 
 * **Running in Background (Detached Mode):(seesion used for running image will be free)**
     ```bash
-    docker run -d -p 8000:8000 my-django-app:v1
+    docker run -d --name <container_name> -p 8000:8000 my-django-app:v1
     ```
     *Use `-d` so your terminal doesn't get "stuck" in the app logs.*
 
@@ -110,8 +110,7 @@ The **run** command creates an active instance (container) from your static imag
 ### Containers 📦
 * **Start a Stopped Container:** `docker start <container_id_or_name>`
 * **Stop a Container:** `docker stop <container_id>`
-* **Remove a Container:** `docker rm <container_id>`
-* **Delete an Image:** `docker rmi <image_id_or_tag>`
+* **Remove a Container:** `docker rm <container_id_or_name>`
 * **The "Nuke" Option (Clean everything unused(not running, i.e, stopped)):** 
    `docker system prune`
 

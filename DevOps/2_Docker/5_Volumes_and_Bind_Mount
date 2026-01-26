@@ -29,17 +29,38 @@ Volumes can be created and managed using the docker volume command. You can crea
 docker volume create <volume_name>
 ```
 
-Once a volume is created, you can mount it to a container using the -v or --mount option when running a docker run command. 
+```
+List:
+docker volume ls
 
-For example:
+Remove:
+docker volume rm <volume_name>
+
+Delete ALL Unused Volumes (Prune)
+docker volume prune
+
+Inspect: More info on volume:
+ docker inspect <volume_name>
+```
+
+Once a volume is created, you can mount it to a container using the -v or --mount option when running a docker run command. 
+Since you cannot attach a volume to a container that is already running, you must define the mount at the moment you start it.
+
+For example: Start an container with the volume attahched to it
 
 ```
-docker run -it -v <volume_name>:/data <image_name> /bin/bash
+docker run -d --name my_app -v suhail_vol1:/data my-django-app:v1
+```
+
+```
+example: docker run -d --name my_app -v suhail_vol1:/data my-django-app:v1
 ```
 
 This command will mount the volume <volume_name> to the /data directory in the container. Any data written to the /data directory
 inside the container will be persisted in the volume on the host file system.
 
+🤝 Sharing Volumes Between Containers:
+One of the biggest advantages of Volumes is that they can be mounted by multiple containers at the same time. This allows different apps to share the same data in real-time.
 
 
 ---
