@@ -5,3 +5,6 @@ building the image: docker build .
 2.
 Running the image for conatiner: docker run -p 8000:8000 <image_id>
   or with tag:                   docker run -p 8000:8000 my-django-app:v1
+
+Acessing the deployed app(website):
+http://localhost:8000/demo/
