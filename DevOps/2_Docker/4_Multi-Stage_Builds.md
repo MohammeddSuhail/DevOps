@@ -67,6 +67,7 @@ COPY src ./src
 # Compile the code and create the JAR file
 RUN mvn clean package -DskipTests
 
+
 # --- Stage 2: The Production Runtime (Minimal Distroless Image) ---
 FROM gcr.io/distroless/java17-debian11
 WORKDIR /app
@@ -95,11 +96,13 @@ COPY . .
 # Compile the application into a static binary
 RUN go build -o /my-app main.go
 
+
 # --- STAGE 2: Test ---
 # We reuse the builder's environment to run tests
 FROM builder AS tester
 # If the tests fail, the Docker build process crashes here
 RUN go test -v ./...
+
 
 # --- STAGE 3: Final Production ---
 # We start fresh with Distroless for maximum security and tiny size
