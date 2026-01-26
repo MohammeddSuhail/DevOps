@@ -1,0 +1,3 @@
+terraform init      # Download required plugins
+terraform plan      # Preview what will be created
+terraform apply     # Apply the config to Azure
