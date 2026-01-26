@@ -71,6 +71,8 @@ The **run** command creates an active instance (container) from your static imag
     ```
     *Use `-d` so your terminal doesn't get "stuck" in the app logs.*
 
+* **Accessing the application in this example(django web app):** 
+    http://localhost:8000/demo/
 ---
 
 ## 3. Managing Active Containers
@@ -119,3 +121,18 @@ The **run** command creates an active instance (container) from your static imag
     * *Note:* This cleans up "layer" images that no longer have a name/tag.*
 * **Remove ALL Unused Images:** `docker image prune -a`
     * *Note:* this to delete every image that isn't currently being used by a running container.*
+
+
+---
+
+## 6. Accessing Containers 🐚
+
+Since containers provide an isolated environment, you can access them much like a VM to run commands or inspect files.
+
+* **Interactive Run (New Container):** `docker run -it <image_id_or_tag> bash`
+  *Use this to start a fresh container and jump immediately into its shell.*
+
+* **Execute Shell (Existing Container):** `docker exec -it <container_id> bash`
+  *Use this to enter a container that is already running in the background.*
+
+> **Note:** If `bash` is not available in the image (like in some lightweight Alpine images), try using `sh` instead.
