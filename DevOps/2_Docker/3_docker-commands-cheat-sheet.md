@@ -136,3 +136,8 @@ Since containers provide an isolated environment, you can access them much like 
   *Use this to enter a container that is already running in the background.*
 
 > **Note:** If `bash` is not available in the image (like in some lightweight Alpine images), try using `sh` instead.
+
+### 💡 When to use this:
+* **Debugging Only:** Use this to inspect logs, check if files exist, or test network connectivity. 🔍
+* **Don't Code Inside:** Never use this to update your app's code. Since containers are temporary, any changes you make manually will be **deleted** when the container stops. 
+* **The Workflow:** Always change code on your **Host** (laptop), rebuild the image, and deploy a fresh container. 🏗️
