@@ -105,9 +105,10 @@ The **run** command creates an active instance (container) from your static imag
 
 ---
 
-## 5. Cleanup & Housekeeping
+## 5. Cleanup & Maintaining
 
 ### Containers 📦
+* **Start a Stopped Container:** `docker start <container_id_or_name>`
 * **Stop a Container:** `docker stop <container_id>`
 * **Remove a Container:** `docker rm <container_id>`
 * **Delete an Image:** `docker rmi <image_id_or_tag>`
