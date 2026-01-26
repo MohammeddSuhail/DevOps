@@ -1,0 +1,7 @@
+1.
+building the image: docker build . 
+   or with tagging: docker build -t my-django-app:v1 .
+                                    <rep_name>:tag 
+2.
+Running the image for conatiner: docker run -p 8000:8000 <image_id>
+  or with tag:                   docker run -p 8000:8000 my-django-app:v1
