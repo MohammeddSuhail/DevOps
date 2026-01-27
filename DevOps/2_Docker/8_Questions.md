@@ -51,7 +51,7 @@ These are minimal images that contain only your application and its runtime depe
 ## Real-Time Challenges & Security
 
 ### 11. Real-World Challenges
-* **Single Point of Failure:** Because Docker relies on a single Daemon, if that process crashes, all managed containers are affected.
+* **Single Point of Failure:** Because Docker relies on a single Daemon, if that process crashes, all managed containers are affected. The **"Daemonless"** alternative to Docker is **Podman**, which resolves this specific challenge.
 * **Root Vulnerability:** The Docker Daemon traditionally runs with root privileges. If a container is compromised, there is a risk of the attacker gaining host-level access.
 * **Resource Contention:** Without proper limits, one container can consume all host CPU or RAM, "starving" other containers on the same host.
 
