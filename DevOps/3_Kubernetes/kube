@@ -1,0 +1,17 @@
+kube is also known as k8s(has 8 leeters between ks and s lol)
+container orches.
+grp of clusters
+master/node
+
+
+problems which kube fixes in docker:
+
+1. single host:
+one could cosume other rscs based on priority of rscs(cont 1 cosuming alot rsc because of which cont 50 weent down)
+
+2. No auto healing (kube control and fix the damage, has auto healing feature, where even befie the cont/pod goes down a new one is rolled out/ started, ith has api server for this)
+
+3. no load balancer so No auto scaling or something (kube does with: replication controller)
+
+4. No enterprise level support/standars(load balcncer, firewall, auto scale, heal, api gateway)
+
