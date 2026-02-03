@@ -67,7 +67,7 @@ Kubernetes follows a nested structure. To understand where the container sits, t
 
 ### **The Architecture: Master vs. Worker**
 
-![alt text](Kubernetes_Architecture.png)
+![alt text](0_Kubernetes_Architecture.png)
 
 #### **1. Master Node (Control Plane)**
 * **API Server:** The entry point/Heart. All requests go here.
