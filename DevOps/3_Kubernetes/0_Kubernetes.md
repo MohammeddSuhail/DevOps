@@ -73,10 +73,10 @@ Kubernetes follows a nested structure. To understand where the container sits, t
 * **API Server:** The entry point/Heart. All requests go here.
 * **Scheduler:** Decides **which** Worker Node should run a Pod.
 * **etcd:** Key-Value Store that holds the cluster's entire state.
-* **Controller Manager:** Enforces the "Desired State" (e.g., ensuring 3 pods stay running).
+* **Controller Manager:** Enforces the "Desired State" (e.g., ensuring 3 pods stay running).(diff for each cloud provider)
 * **Cloud Control Manager (CCM):** Bridge to AWS/Azure/GCP.
 
 #### **2. Worker Node (Data Plane)**
-* **Container Runtime:** The engine that runs containers (containerd, CRI-O, etc.).
-* **Kubelet:** The captain of the node; ensures Pods are healthy.
+* **Container Runtime:** The engine that runs containers (Dockershim, containerd, CRI-O, etc.).
+* **Kubelet:** The captain of the node; ensures Pods are healthy(managing the nodes).
 * **Kube-Proxy:** The network guy; handles IP addresses and Load Balancing.
