@@ -14,7 +14,7 @@
 - Enables Service Discovery, Load Balancing, and Application Exposure (internal or external).
 
 **Resource Relationship:**
-
+```
 Service
   ↓
 Deployment
@@ -22,6 +22,7 @@ Deployment
 ReplicaSet
   ↓
 Pods
+```
 
 ### How a Request Flows in Kubernetes
 
